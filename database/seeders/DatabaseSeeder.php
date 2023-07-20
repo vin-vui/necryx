@@ -6,6 +6,9 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use App\Models\Newsletter;
 use App\Models\Tag;
+use App\Models\Article;
+use App\Models\Type;
+
 
 class DatabaseSeeder extends Seeder
 {
@@ -16,6 +19,12 @@ class DatabaseSeeder extends Seeder
     {
         Newsletter::factory(10)->create();
         Tag::factory(15)->create();
+        Article::factory(10)->create();
+        
+        $this->call([
+            TypeSeeder::class,
+        ]);
+        
 
         
         // \App\Models\User::factory(10)->create();
