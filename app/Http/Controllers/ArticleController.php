@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Article;
+use App\Models\Type;
 use Illuminate\Support\Facades\Storage;
 
 class ArticleController extends Controller
@@ -20,7 +21,8 @@ class ArticleController extends Controller
     public function create()
     {
         $articles = Article::all();
-        return view('articles.create', compact('articles'));
+        $types = Type::all();
+        return view('articles.create', compact('articles','types'));
     }
 
     public function store(Request $request)
@@ -37,7 +39,6 @@ class ArticleController extends Controller
             $path = Storage::putFileAs('public', $request->image, $validData['title'].'.'.$request->image->extension());
             $validData["image"] = $path;
 
-            $validData["user_id"]=auth()->id();
             Article::create($validData);
 
         return redirect()->route('articles.index')
@@ -45,17 +46,19 @@ class ArticleController extends Controller
      }
 
     //  Show function
-     public function show(Article $article)
+     public function show(Article $article, Type $type)
     {
-        return view('articles.show', compact('article'));
+        $types = Type::all();
+        return view('articles.show', compact('article','type'));
     }
 
 
     // Edit function
-    public function edit (Article $article)
+    public function edit (Article $article, Type $types)
     {
-     
-        return view('articles.edit', compact('article'));
+
+        $types = Type::all();
+        return view('articles.edit', compact('article','types'));
 
     }
 
@@ -84,7 +87,7 @@ class ArticleController extends Controller
     //  Destroy function
      public function destroy (Article $article)
      {
-        $tag->delete();
+        $article->delete();
         return redirect()->route('articles.index')
                             ->with ('success', 'Article supprimé avec succès !');
      }

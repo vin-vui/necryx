@@ -1,6 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\TypeController;
+use App\Http\Controllers\CollectionController;
+use App\Http\Controllers\TagController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,3 +30,15 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 });
+Route::get('/admin/profile', function(){
+    return view('profile.show-admin');
+
+})->name('profile.admin');
+
+Route::resource('articles', ArticleController::class);
+
+Route::resource('types', TypeController::class);
+
+Route::resource('collections', CollectionController::class);
+
+Route::resource('tags', TagController::class);
