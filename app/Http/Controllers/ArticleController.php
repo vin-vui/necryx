@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Article;
+use Illuminate\Support\Facades\Storage;
 
 class ArticleController extends Controller
 {
@@ -46,7 +47,7 @@ class ArticleController extends Controller
     //  Show function
      public function show(Article $article)
     {
-        return view('articles.show', compact('articles'));
+        return view('articles.show', compact('article'));
     }
 
 
