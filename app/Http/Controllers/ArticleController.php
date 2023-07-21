@@ -28,10 +28,16 @@ class ArticleController extends Controller
             'type_id'=>'required',
             'title'=>'required',
             'content'=> 'required',
+            'image'=> 'required',
             'description' => 'nullable',
             'status' => 'nullable',
             ]);
- 
+
+            $path = Storage::putFileAs('public', $request->image, $validData['title'].'.'.$request->image->extension());
+            $validData["image"] = $path;
+
+            $validData["user_id"]=auth()->id();
+            Article::create($validData);
 
         return redirect()->route('articles.index')
                         ->with ('success', 'Votre article a bien été enregistré !');
@@ -59,6 +65,7 @@ class ArticleController extends Controller
             'type_id'=>'required',
             'title'=>'required',
             'content'=> 'required',
+            'image'=> 'required',
             'description' => 'nullable',
             'status' => 'nullable',
        ]);

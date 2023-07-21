@@ -16,6 +16,7 @@ return new class extends Migration
             $table->foreignId('type_id')->nullable();
             $table->string('title')->unique();
             $table->longText('content');
+            $table->string('image')->nullable();
             $table->longText('description')->nullable();
             $table->tinyInteger('status')->default(0);
             $table->timestamps();
