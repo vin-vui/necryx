@@ -54,7 +54,7 @@ class CollectionController extends Controller
 
 
         return redirect()->route('collections.index')
-                        ->with ('success', 'La collection a ajoutée avec succès !');
+                        ->with ('success', 'La collection a été ajoutée avec succès !');
      }
 
 
@@ -117,7 +117,7 @@ class CollectionController extends Controller
         $collection->delete();
         
         return redirect()->route('collection.index')
-                            ->with ('success', 'La collection a été supprimée avec succès');
+                            ->with ('success', 'La collection a été supprimée avec succès !');
      }
 
 }
