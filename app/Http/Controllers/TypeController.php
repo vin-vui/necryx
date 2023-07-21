@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Type;
+use Illuminate\Support\Facades\Storage;
 
 class TypeController extends Controller
 {
@@ -29,14 +30,16 @@ class TypeController extends Controller
             'image'=> 'required',
             ]);
  
-        
-            $validData["user_id"]=auth()->id();
+    
 
-            $path = Storage::putFileAs('public', $request->image, $validData['title'].'.'.$request->image->extension());
-        $validData["image"] = $path;
+            $path = Storage::putFileAs('public', $request->image, $validData['name'].'.'.$request->image->extension());
+            $validData["image"] = $path;
+
+
+            Type::create($validData);
 
         return redirect()->route('types.index')
-                        ->with ('success', 'Votre typê à bien été enregistré !');
+                        ->with ('success', 'Votre type à bien été enregistré !');
      }
 
     //  Show function
@@ -63,6 +66,9 @@ class TypeController extends Controller
             'persona'=>'required',
             'image'=> 'required',
        ]);
+
+       $path = Storage::putFileAs('public', $request->image, $validData['name'].'.'.$request->image->extension());
+        $validData["image"] = $path;
 
         $type->update($validData);
 
