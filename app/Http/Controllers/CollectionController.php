@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Collection;
-use App\Models\Tage;
+use App\Models\Tag;
 use App\Models\Article;
 use Illuminate\Support\Facades\Storage;
 
@@ -54,7 +54,7 @@ class CollectionController extends Controller
 
 
         return redirect()->route('collections.index')
-                        ->with ('success', 'La collection a ajoutée avec succès !');
+                        ->with ('success', 'La collection a été ajoutée avec succès !');
      }
 
 
@@ -117,7 +117,7 @@ class CollectionController extends Controller
         $collection->delete();
         
         return redirect()->route('collection.index')
-                            ->with ('success', 'La collection a été supprimée avec succès');
+                            ->with ('success', 'La collection a été supprimée avec succès !');
      }
 
 }
