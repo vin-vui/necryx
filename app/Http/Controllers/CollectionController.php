@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Collection;
-use App\Models\Tage;
+use App\Models\Tag;
 use App\Models\Article;
 use Illuminate\Support\Facades\Storage;
 
