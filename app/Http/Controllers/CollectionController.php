@@ -6,15 +6,16 @@ use Illuminate\Http\Request;
 use App\Models\Collection;
 use App\Models\Tag;
 use App\Models\Article;
+use App\Models\Type;
 use Illuminate\Support\Facades\Storage;
 
 class CollectionController extends Controller
 {
     public function index()
     {
-        $collection = Collection::all();
+        $collections = Collection::all();
 
-        return view ('collections.index', compact ('collection'));
+        return view ('collections.index', compact ('collections'));
     }
 
 
@@ -22,8 +23,8 @@ class CollectionController extends Controller
 
     public function create()
     {
-         $collection = Collection::all();
-         return view('collections.create', compact('collection'));
+         $collections = Collection::all();
+         return view('collections.create', compact('collections'));
     }
 
     public function store(Request $request)
@@ -68,7 +69,7 @@ class CollectionController extends Controller
 
     //  update function
 
-    public function edit (Collection $collection)
+    public function edit (Collection $collection, Type $types)
      {
       
       $types = Type::all();

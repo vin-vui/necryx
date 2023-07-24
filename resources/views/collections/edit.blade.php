@@ -25,8 +25,9 @@
                 </div>
                 @endif
 
-                <form action="{{ route('articles.store') }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('articles.update', $article->id) }}" method="POST">
                     @csrf
+                    @method('PUT')
 
                     <div class="row">
                         <div class="col-xs-12 col-sm-12 col-md-12 pb-5">
@@ -38,13 +39,13 @@
                         <div class="col-xs-12 col-sm-12 col-md-12 pb-5">
                             <label class="font-bold text-lg">Titre :</label>
                             <div class="form-group text-black">
-                                <input type="text" name="title" class="form-control w-full" placeholder="Titre">
+                                <input type="text" name="title" value="{{ $article->title }}" class="form-control w-full" placeholder="Titre">
                             </div>
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-12 pb-5">
                             <label class="font-bold text-lg">Contenu :</label>
-                            <div class="form-group text-black">
-                                <textarea class="form-control w-full" name="content" placeholder="Contenu"></textarea>
+                            <div class="form-group">
+                                <textarea class="form-control w-full text-black" rows="6" name="content" value="{{ $article->content }}" placeholder="Contenu"></textarea>
                             </div>
                         </div>
                         <div class="form-group py-2">
@@ -52,7 +53,7 @@
                             <input type="file" name="image" id="image" class="form-control-file">
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-                            <button type="submit" class="border-4 border-gray-800 bg-white  text-gray-800 rounded-xl p-3 px-5">Envoyer</button>
+                            <button type="submit" class="border-4 border-gray-800 bg-white  text-gray-800 rounded-xl p-2">Envoyer</button>
                         </div>
                     </div>
                 </form>
