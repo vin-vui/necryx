@@ -116,7 +116,7 @@ class CollectionController extends Controller
     {
         $collection->delete();
 
-        return redirect()->route('collection.index')
+        return redirect()->route('collections.index')
             ->with('success', 'La collection a été supprimée avec succès !');
     }
 }

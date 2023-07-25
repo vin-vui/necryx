@@ -75,23 +75,31 @@
                     </thead>
                     <tbody>
                         @foreach ($types as $type)
-                        <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                            <td class="px-6 py-4">{{ $type->id }}</td>
-                            <td class="px-6 py-4">{{ $type->name }}</td>
-                            <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                {{ $type->persona }}</td>
-                            <td scope="row" class="px-4 py-6 font-medium text-gray-900 flex dark:text-white">
-                                {{ $type->description }}</td>
-                            <td>
-                                <form action="{{ route('types.destroy', $type->id) }}" method="POST">
-                                    @csrf
-                                    @method('DELETE')
-                                    <a class="btn btn-info pr-2 class=font-medium text-green-600 dark:text-green-500 hover:underline" href="{{ route('types.show', $type->id) }}">Voir</a>
-                                    <a class="btn btn-primary pr-2 class=font-medium text-blue-600 dark:text-blue-500 hover:underline" href="{{ route('types.edit', $type) }}">Editer</a>
-                                    <button type="submit" class="btn btn-danger class=font-medium text-red-600 dark:text-red-500 hover:underline">Supprimer</button>
-                                </form>
-                            </td>
-                        </tr>
+                            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                                <td class="px-6 py-4">{{ $type->id }}</td>
+                                <td class="px-6 py-4">{{ $type->name }}</td>
+                                <td scope="row"
+                                    class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                    {{ $type->persona }}</td>
+                                <td scope="row" class="px-4 py-6 font-medium text-gray-900 flex dark:text-white">
+                                    {{ $type->description }}</td>
+                                <td>
+                                    <form action="{{ route('types.destroy', $type->id) }}" method="POST"
+                                        x-data="{ showModal: false }">
+                                        @csrf
+                                        @method('DELETE')
+                                        <a class="btn btn-info pr-2 class=font-medium text-green-600 dark:text-green-500 hover:underline"
+                                            href="{{ route('types.show', $type->id) }}">Voir</a>
+                                        <a class="btn btn-primary pr-2 class=font-medium text-blue-600 dark:text-blue-500 hover:underline"
+                                            href="{{ route('types.edit', $type) }}">Editer</a>
+                                        <button type="button"
+                                            class="btn btn-danger class=font-medium text-red-600 dark:text-red-500 hover:underline"
+                                            @click="showModal = true">Supprimer
+                                        </button>
+                                        <x-delete-modal />
+                                    </form>
+                                </td>
+                            </tr>
                         @endforeach
                     </tbody>
                 </table>
