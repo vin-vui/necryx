@@ -14,6 +14,7 @@ class Article extends Model
         'type_id',
         'title',
         'content',
+        'image',
         'description',
         'status',
     ];
