@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('types', function (Blueprint $table) {
             $table->id();
             $table->enum('name', ['jeu', 'art', 'concept']);
-            $table->string('persona')->unique()->nullable();
+            $table->string('persona')->nullable();
             $table->string('image')->nullable();
             $table->longText('description')->nullable();
             $table->tinyInteger('status')->default(0);

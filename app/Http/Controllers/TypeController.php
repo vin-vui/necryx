@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\Type;
 use Illuminate\Support\Facades\Storage;
 
+
+
 class TypeController extends Controller
 {
     public function index()
@@ -28,18 +30,15 @@ class TypeController extends Controller
             'name'=>'required',
             'persona'=>'required',
             'image'=> 'required',
-            ]);
+            'description'=>'nullable',
+        ]);
  
-    
+        $path = Storage::putFileAs('public', $request->image, $validData['name'].'.'.$request->image->extension());
+        $validData["image"] = $path;
 
-            $path = Storage::putFileAs('public', $request->image, $validData['name'].'.'.$request->image->extension());
-            $validData["image"] = $path;
+        Type::create($validData);
 
-
-            Type::create($validData);
-
-        return redirect()->route('types.index')
-                        ->with ('success', 'Votre type à bien été enregistré !');
+        return redirect()->route('types.index')->with ('success', 'Votre type a bien été enregistré !');
      }
 
     //  Show function
@@ -53,9 +52,7 @@ class TypeController extends Controller
     // Edit function
     public function edit (Type $type)
     {
-     
         return view('types.edit',compact('type'));
-
     }
 
 
@@ -65,17 +62,15 @@ class TypeController extends Controller
             'name'=>'required',
             'persona'=>'required',
             'image'=> 'required',
-       ]);
+        ]);
 
-       $path = Storage::putFileAs('public', $request->image, $validData['name'].'.'.$request->image->extension());
+        $path = Storage::putFileAs('public', $request->image, $validData['name'].'.'.$request->image->extension());
         $validData["image"] = $path;
 
         $type->update($validData);
 
      
-        return redirect()->route('types.index')
-                       ->with ('success', 'Type mis à jour avec succès !');
-
+        return redirect()->route('types.index')->with ('success', 'Type mis à jour avec succès !');
     }
 
 
@@ -83,8 +78,8 @@ class TypeController extends Controller
     //  Destroy function
      public function destroy (Type $type)
      {
-        $tag->delete();
+        $type->delete();
         return redirect()->route('types.index')
-                            ->with ('success', 'Type supprimé avec succès');
+                            ->with ('success', 'Type supprimé avec succès !');
      }
 }
