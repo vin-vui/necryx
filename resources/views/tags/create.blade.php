@@ -1,8 +1,8 @@
 <x-app-layout>
     <div class="m-10">
         <div class="pb-8 flex justify-around items-center">
-            <h2 class="font-bold text-lg text-white">CRUD Articles - Necryx</h2>
-            <a class="border-4 border-gray-800 bg-gray-800 text-white rounded-xl p-2" href="{{ route('articles.index') }}">
+            <h2 class="font-bold text-lg text-white">CRUD Tags - Necryx</h2>
+            <a class="border-4 border-gray-800 bg-gray-800 text-white rounded-xl p-2" href="{{ route('tags.index') }}">
                 Retour</a>
         </div>
         <div class="row mt-2">
@@ -25,32 +25,22 @@
                 </div>
                 @endif
 
-                <form action="{{ route('articles.store') }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('tags.store') }}" method="POST">
                     @csrf
 
                     <div class="row">
                         <div class="col-xs-12 col-sm-12 col-md-12 pb-5">
-                            <label class="font-bold text-lg">Type :</label>
-                            <select class="text-black" name="type_id"> @foreach ($types as $type)
-                                <option value="{{ $type->id }}">{{ $type->name}}</option> @endforeach
-                            </select>
-                        </div>
-                        <div class="col-xs-12 col-sm-12 col-md-12 pb-5">
-                            <label class="font-bold text-lg">Titre :</label>
+                            <label class="font-bold text-lg">Nom:</label>
                             <div class="form-group text-black">
-                                <input type="text" name="title" class="form-control w-full" placeholder="Titre">
+                                <input type="text" name="name" class="form-control w-full" placeholder="Titre">
                             </div>
                         </div>
-                        <div class="col-xs-12 col-sm-12 col-md-12 pb-5">
-                            <label class="font-bold text-lg">Contenu :</label>
+                        {{-- <div class="col-xs-12 col-sm-12 col-md-12 pb-5">
+                            <label class="font-bold text-lg">Description :</label>
                             <div class="form-group text-black">
-                                <textarea class="form-control w-full" name="content" placeholder="Contenu"></textarea>
+                                <textarea class="form-control w-full" name="description" placeholder="Contenu"></textarea>
                             </div>
-                        </div>
-                        <div class="form-group py-2">
-                            <label class="font-bold text-lg" for="image">Image :</label>
-                            <input type="file" name="image" id="image" class="form-control-file">
-                        </div>
+                        </div> --}}
                         <div class="col-xs-12 col-sm-12 col-md-12 text-center">
                             <button type="submit" class="border-4 border-gray-800 bg-white  text-gray-800 rounded-xl p-3 px-5">Envoyer</button>
                         </div>

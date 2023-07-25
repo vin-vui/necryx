@@ -43,7 +43,7 @@ class TagController extends Controller
 
 
     // Edit function
-    public function edit (Info $info)
+    public function edit (Tag $tag)
     {
      
         return view('tags.edit',compact('tag'));
