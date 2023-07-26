@@ -64,6 +64,9 @@
                             <div class="flex flex-col py-2">
                                 <label class="font-bold text-lg" for="image">Image :</label>
                                 <input type="file" name="image" id="image" class="form-control-file">
+                                @if ($type->image)
+                                    <img src="{{ Storage::url($type->image) }}" alt="Image">
+                                @endif
                             </div>
                             <div class="text-center">
                                 <button type="submit"
