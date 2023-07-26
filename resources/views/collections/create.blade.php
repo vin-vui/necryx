@@ -30,18 +30,18 @@
 
                     <div class="row">
                         <div class="col-xs-12 col-sm-12 col-md-12 pb-5">
+                            <label class="font-bold text-lg">Nom :</label>
+                            <div class="form-group text-black">
+                                <input type="text" name="name" class="form-control w-full" placeholder="Nom">
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-12 pb-5">
                             <label class="font-bold text-lg">Types :</label>
                             <select class="text-black" name="types">
                                 <option value="jeu">Jeu</option>
                                 <option value="concept">Concept</option>
                                 <option value="art">Art</option>
                             </select>
-                        </div>
-                        <div class="col-xs-12 col-sm-12 col-md-12 pb-5">
-                            <label class="font-bold text-lg">Nom :</label>
-                            <div class="form-group text-black">
-                                <input type="text" name="name" class="form-control w-full" placeholder="Nom">
-                            </div>
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-12 pb-5">
                             <label class="font-bold text-lg">Contenu :</label>
@@ -101,6 +101,17 @@
                             <label class="font-bold text-lg">Exemple :</label>
                             <div class="form-group text-black">
                                 <input type="text" name="example" class="form-control w-full" placeholder="Exemple">
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-12 pb-5 ">
+                            <label class="font-bold text-lg"> Tags</label>
+                            <div>
+                                @foreach ($tags as $tag)
+                                <div>
+                                    <input type="checkbox" name="tags[]" value="{{ $tag->id }}">
+                                    <label>{{ $tag->name }}</label>
+                                </div>
+                                @endforeach
                             </div>
                         </div>
                         <div class="form-group py-2">

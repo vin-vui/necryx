@@ -103,23 +103,11 @@
                                         <a class="btn btn-primary pr-2 class=font-medium text-blue-600 dark:text-blue-500 hover:underline"
                                             href="{{ route('tags.edit', $tag->id) }}">Editer</a>
                                         <button type="button"
-                                            class="btn btn-danger class=font-medium text-red-600 dark:text-red-500 hover:underline"
+                                           class="btn btn-danger class=font-medium text-red-600 dark:text-red-500 hover:underline"
                                             @click="showModal = true">Supprimer
-                                        @include('components.modal')</button>
-                                        <div x-show="showModal" class="fixed inset-0 flex items-center justify-center z-50">
-                                            <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg">
-                                                <h2 class="text-lg font-bold mb-4">Confirmation de suppression</h2>
-                                                <p class="mb-4">Êtes-vous sûr de vouloir supprimer ce tag ?</p>
-                                                <div class="flex justify-end">
-                                                    <button type="button"
-                                                        class="btn btn-secondary mr-2"
-                                                        @click.prevent="showModal = false">Annuler</button>
-                                                    <button type="submit"
-                                                        class="btn btn-danger"
-                                                        @click="showModal = false">Supprimer</button>
-                                                </div>
-                                            </div>
-                                        </div>
+                                      </button>
+                                       
+                                        <x-delete-modal/>
                                     </form>
                                 </td>
                             </tr>

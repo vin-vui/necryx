@@ -15,25 +15,30 @@
             </div>
             <div class="col-lg-12 border-4 border-gray-800 p-4 rounded-xl bg-gray-800 text-white drop-shadow-2xl">
                 <div class="row">
-                    <div class="col-xs-12 col-sm-12 col-md-12 pb-5">
-                        <div class="form-group">
-                            <label class="font-bold text-lg">Type :</label><br>
+                    <div class="pb-5">
+                        <div class="flex flex-col">
+                            <label class="font-bold text-lg">Type</label>
                             {{ $article->type_id}}
                         </div>
                     </div>
-                    <div class="col-xs-12 col-sm-12 col-md-12 pb-5">
-                        <div class="form-group">
-                            <label class="font-bold text-lg">Titre :</label><br>
+                    <div class="pb-5">
+                        <div class="flex flex-col">
+                            <label class="font-bold text-lg">Titre</label>
                             {{ $article->title }}
                         </div>
                     </div>
-                    <div class="col-xs-12 col-sm-12 col-md-12 pb-5">
-                        <div class="form-group">
-                            <label class="font-bold text-lg">Contenu :</label><br>
+                    <div class="pb-5">
+                        <div class="flex flex-col">
+                            <label class="font-bold text-lg">Contenu</label>
                             {{ $article->content }}
                         </div>
                     </div>
-
+                    <div class="pb-5">
+                        <div class="flex flex-col">
+                            <label class="font-bold text-lg">Image </label>
+                            <img src="{{ Storage::url($article->image) }}"> 
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

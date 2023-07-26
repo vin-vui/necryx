@@ -126,12 +126,13 @@
                                 {{ $collection->example }}
                             </td>
                             <td>
-                                <form action="{{ route('collections.destroy', $collection->id) }}" method="POST">
+                                <form action="{{ route('collections.destroy', $collection->id) }}" method="POST" x-data="{ showModal: false }">
                                     @csrf
                                     @method('DELETE')
                                     <a class="btn btn-info pr-2 class=font-medium text-green-600 dark:text-green-500 hover:underline" href="{{ route('collections.show', $collection->id) }}">Voir</a>
                                     <a class="btn btn-primary pr-2 class=font-medium text-blue-600 dark:text-blue-500 hover:underline" href="{{ route('collections.edit', $collection->id) }}">Editer</a>
-                                    <button type="submit" class="btn btn-danger class=font-medium text-red-600 dark:text-red-500 hover:underline">Supprimer</button>
+                                    <button type="button" class="btn btn-danger class=font-medium text-red-600 dark:text-red-500 hover:underline" @click="showModal = true">Supprimer</button>
+                                        <x-delete-modal/>
                                 </form>
                             </td>
                         </tr>

@@ -74,6 +74,9 @@ class ArticleController extends Controller
             'status' => 'nullable',
        ]);
 
+        $path = Storage::putFileAs('public', $request->image, $validData['title'].'.'.$request->image->extension());
+        $validData["image"] = $path;
+
         $article->update($validData);
 
      

@@ -72,12 +72,19 @@
                             <td scope="row" class="px-4 py-6 font-medium text-gray-900 flex dark:text-white">
                                 {{ $article->content }}</td>
                             <td>
-                                <form action="{{ route('articles.destroy', $article->id) }}" method="POST">
+                                <form action="{{ route('articles.destroy', $article->id) }}" method="POST" x-data="{ showModal: false }">
                                     @csrf
                                     @method('DELETE')
-                                    <a class="btn btn-info pr-2 class=font-medium text-green-600 dark:text-green-500 hover:underline" href="{{ route('articles.show', $article->id) }}">Voir</a>
-                                    <a class="btn btn-primary pr-2 class=font-medium text-blue-600 dark:text-blue-500 hover:underline" href="{{ route('articles.edit', $article->id) }}">Editer</a>
-                                    <button type="submit" class="btn btn-danger class=font-medium text-red-600 dark:text-red-500 hover:underline">Supprimer</button>
+                                    <a class="btn btn-info pr-2 class=font-medium text-green-600 dark:text-green-500 hover:underline" 
+                                       href="{{ route('articles.show', $article->id) }}">Voir</a>
+                                    <a class="btn btn-primary pr-2 class=font-medium text-blue-600 dark:text-blue-500 hover:underline" 
+                                       href="{{ route('articles.edit', $article->id) }}">Editer</a>
+                                    <button type="button" 
+                                            class="btn btn-danger class=font-medium text-red-600 dark:text-red-500 hover:underline"
+                                            @click="showModal = true">Supprimer
+                                    </button>
+
+                                        <x-delete-modal/>
                                 </form>
                             </td>
                         </tr>

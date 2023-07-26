@@ -15,55 +15,60 @@
             </div>
             <div class="col-lg-12 border-4 border-gray-800 p-4 rounded-xl bg-gray-800 text-white drop-shadow-2xl">
                 <div class="row">
-                    <div class="col-xs-12 col-sm-12 col-md-12 pb-5">
-                        <div class="form-group">
-                            <label class="font-bold text-lg">Type :</label><br>
+                    <div class="pb-5">
+                        <div class="flex flex-col">
+                            <label class="font-bold text-lg">Type</label>
                             {{ $collection->types}}
                         </div>
                     </div>
-                    <div class="col-xs-12 col-sm-12 col-md-12 pb-5">
-                        <div class="form-group">
-                            <label class="font-bold text-lg">Nom :</label><br>
+                    <div class="pb-5">
+                        <div class="flex flex-col">
+                            <label class="font-bold text-lg">Nom</label>
                             {{ $collection->name}}
                         </div>
                     </div>
-                    <div class="col-xs-12 col-sm-12 col-md-12 pb-5">
-                        <div class="form-group">
-                            <label class="font-bold text-lg">Contenu :</label><br>
+                    <div class="pb-5">
+                        <div class="flex flex-col">
+                            <label class="font-bold text-lg">Contenu</label>
                             {{ $collection->content}}
                         </div>
                     </div>
-                    <div class="col-xs-12 col-sm-12 col-md-12 pb-5">
-                        <div class="form-group">
-                            <label class="font-bold text-lg">Nombre de joueurs :</label><br>
+                    <div class="pb-5">
+                        <div class="flex flex-col">
+                            <label class="font-bold text-lg">Nombre de joueurs</label>
                             {{ $collection->number_players}}
                         </div>
                     </div>
-                    <div class="col-xs-12 col-sm-12 col-md-12 pb-5">
-                        <div class="form-group">
-                            <label class="font-bold text-lg">Durée :</label><br>
+                    <div class="pb-5">
+                        <div class="flex flex-col">
+                            <label class="font-bold text-lg">Durée</label>
                             {{ $collection->duration}}
                         </div>
                     </div>
-                    <div class="col-xs-12 col-sm-12 col-md-12 pb-5">
-                        <div class="form-group">
-                            <label class="font-bold text-lg">Age :</label><br>
+                    <div class="pb-5">
+                        <div class="flex flex-col">
+                            <label class="font-bold text-lg">Age</label>
                             {{ $collection->age}}
                         </div>
                     </div>
-                    <div class="col-xs-12 col-sm-12 col-md-12 pb-5">
-                        <div class="form-group">
-                            <label class="font-bold text-lg">Origine :</label><br>
+                    <div class="pb-5">
+                        <div class="flex flex-col">
+                            <label class="font-bold text-lg">Origine</label>
                             {{ $collection->origin}}
                         </div>
                     </div>
-                    <div class="col-xs-12 col-sm-12 col-md-12 pb-5">
-                        <div class="form-group">
-                            <label class="font-bold text-lg">Exemple :</label><br>
+                    <div class="pb-5">
+                        <div class="flex flex-col">
+                            <label class="font-bold text-lg">Exemple</label>
                             {{ $collection->example}}
                         </div>
                     </div>
-
+                    <div class="pb-5">
+                        <div class="flex flex-col">
+                            <label class="font-bold text-lg">Image </label>
+                            <img src="{{ Storage::url($collection->image) }}"> 
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
