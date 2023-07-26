@@ -2,6 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+    font-family: "dune_rise";
+    src: url("../public/fonts/dune_rise.ttf");
+    font-family: "neuropolitical";
+    src: url("../public/fonts/neuropolitical.otf");
+}
+
+
+
 [x-cloak] {
     display: none;
 }
