@@ -6,6 +6,8 @@ use App\Http\Controllers\TypeController;
 use App\Http\Controllers\CollectionController;
 use App\Http\Controllers\TagController;
 use App\Http\Controllers\FrontHomeController;
+use App\Http\Controllers\SliderController;
+
 
 
 /*
@@ -43,3 +45,5 @@ Route::resource('types', TypeController::class);
 Route::resource('collections', CollectionController::class);
 
 Route::resource('tags', TagController::class);
+
+Route::resource('sliders', SliderController::class);

@@ -15,8 +15,8 @@ export default {
         extend: {
             fontFamily: {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
-                'necryx':['dune_rise', 'Arial'],
-                'h1':['neuropolitical', 'Arial'],
+                'necryx':['dune_rise'],
+                'h1':['neuropolitical'],
                 'h2':['Bruno Ace', 'display'],
                 'p':['Nunito Sans', 'sans-serif']
             },

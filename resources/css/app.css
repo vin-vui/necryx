@@ -4,9 +4,13 @@
 
 @font-face {
     font-family: "dune_rise";
-    src: url("../public/fonts/dune_rise.ttf");
+    src: url("../../public/fonts/dune_rise.otf");
+
+}
+
+@font-face {
     font-family: "neuropolitical";
-    src: url("../public/fonts/neuropolitical.otf");
+    src: url("../../public/fonts/neuropolitical.otf");
 }
 
 

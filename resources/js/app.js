@@ -1,5 +1,11 @@
 import './bootstrap';
 
+
+// import Swiper JS
+import Swiper from 'swiper';
+// import Swiper styles
+import 'swiper/css';
+
 import Alpine from 'alpinejs';
 import focus from '@alpinejs/focus';
 window.Alpine = Alpine;
@@ -24,3 +30,23 @@ document.getElementById('persona').addEventListener('change', function() {
     document.getElementById('nom').value = nom;
 });
 
+
+
+const swiper = new Swiper('.swiper', {
+
+    modules: [Autoplay, Navigation],
+
+     // Optional parameters
+     direction: 'horizontal',
+     loop: true,
+
+     autoplay: {
+        delay: 3000,
+    },
+
+    // Navigation arrows
+    navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+    },
+});
