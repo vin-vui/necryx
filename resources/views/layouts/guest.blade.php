@@ -110,7 +110,7 @@
                 <div class="flex justify-end text-onyx font-necryx text-base">
                     <a href="{{ route('login') }}" class="py-2 px-4 font-necryx">Se connecter</a>
                     <a href="{{ route('register') }}"
-                        class="inline-flex items-center justify-center px-2.5 text-base font-medium leading-6 text-white whitespace-no-wrap bg-yellow-500 hover:bg-indigo-400border rounded-md">
+                        class="inline-flex items-center justify-center px-2.5 text-base font-medium leading-6 text-white whitespace-no-wrap bg-yellow-400 hover:bg-indigo-400border rounded-md">
                         S'inscrire
                     </a>
                 </div>
