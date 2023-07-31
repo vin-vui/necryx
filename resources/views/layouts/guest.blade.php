@@ -48,16 +48,16 @@
                                 class="z-10 hidden w-44 font-necryx text-onyx divide-y divide-gray-100 rounded-lg shadow">
                                 <ul class="mt-4 py-2 text-sm dark:text-gray-400" aria-labelledby="dropdownLargeButton">
                                     <li>
-                                        <a href="{{ route('collections.index') }}"
-                                            class="block px-4 py-2 font-necryx text-onyx">Item 1</a>
+                                        {{-- <a href="{{ route('') }}" --}}
+                                        class="block px-4 py-2 font-necryx text-onyx">Jeux</a>
                                     </li>
                                     <li>
-                                        <a href="{{ route('collections.index') }}"
-                                            class="block px-4 py-2 font-necryx text-onyx">Item 2</a>
+                                        {{-- <a href="{{ route('') }}" --}}
+                                        class="block px-4 py-2 font-necryx text-onyx">Concepts</a>
                                     </li>
                                     <li>
-                                        <a href="{{ route('collections.index') }}"
-                                            class="block px-4 py-2 font-necryx text-onyx">Item 3</a>
+                                        {{-- <a href="{{ route('') }}" --}}
+                                        class="block px-4 py-2 font-necryx text-onyx">Art</a>
                                     </li>
                                 </ul>
                             </div>
@@ -108,10 +108,10 @@
                 </button> --}}
                 <!-- "Sign in" and "Sign up" buttons wrapped in a flex-auto div -->
                 <div class="flex justify-end text-onyx font-necryx text-base">
-                    <a href="{{ route('login') }}" class="py-2 px-4 font-necryx">Sign in</a>
+                    <a href="{{ route('login') }}" class="py-2 px-4 font-necryx">Se connecter</a>
                     <a href="{{ route('register') }}"
-                        class="inline-flex items-center justify-center px-2.5 text-base font-medium leading-6 text-white whitespace-no-wrap bg-indigo-500 hover:bg-indigo-400border rounded-md">
-                        Sign up
+                        class="inline-flex items-center justify-center px-2.5 text-base font-medium leading-6 text-white whitespace-no-wrap bg-yellow-500 hover:bg-indigo-400border rounded-md">
+                        S'inscrire
                     </a>
                 </div>
             </div>
@@ -133,62 +133,57 @@
         <div class="bg-white py-16 sm:py-24">
             <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
                 @if (session('success'))
-            <div class="bg-green-200 text-green-800 p-4 mb-4">
-                {{ session('success') }}
-            </div>
-        @endif
+                    <div class="bg-yellow-500 rounded-md text-seasalt p-4 mb-4">
+                        {{ session('success') }}
+                    </div>
+                @endif
                 <div
                     class="relative isolate overflow-hidden bg-gray-900 px-6 py-24 shadow-2xl sm:rounded-3xl sm:px-24 xl:py-32">
                     <h2 class="mx-auto max-w-2xl text-center text-3xl font-bold tracking-tight text-white sm:text-4xl">
                         Restez en contact avec Necryx</h2>
                     <p class="mx-auto mt-2 max-w-xl text-center text-lg leading-8 text-gray-300">Pour être au courant de
                         nos dernières nouveautés, faites le choix d'être informé !</p>
-                        <form action="{{ route('newsletter.subscribe') }}" method="POST" class="mx-auto mt-10 flex max-w-md gap-x-4">
-                            @csrf
-                            <label for="email-address" class="sr-only">Adresse e-mail</label>
-                            <input id="email-address" name="email" type="email" autocomplete="email" required
-                                class="min-w-0 flex-auto rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-white sm:text-sm sm:leading-6"
-                                placeholder="Entrez votre adresse e-mail">
-                            <button type="submit"
-                                class="flex-none rounded-md px-3.5 py-2.5 text-sm bg-yellow-500 text-white font-necryx">S'inscrire</button>
-                        </form>
-                        <svg viewBox="0 0 1024 1024"
-                            class="absolute left-1/2 top-1/2 -z-10 h-[64rem] w-[64rem] -translate-x-1/2" aria-hidden="true">
-                            <circle cx="512" cy="512" r="512"
-                                fill="url(#759c1415-0410-454c-8f7c-9a820de03641)" fill-opacity="0.7" />
-                            <defs>
-                                <radialGradient id="759c1415-0410-454c-8f7c-9a820de03641" cx="0" cy="0"
-                                    r="1" gradientUnits="userSpaceOnUse"
-                                    gradientTransform="translate(512 512) rotate(90) scale(512)">
-                                    <stop stop-color="#7775D6" />
-                                    <stop offset="1" stop-color="#E935C1" stop-opacity="0" />
-                                </radialGradient>
-                            </defs>
-                        </svg>
-                    </div>
+                    <form action="{{ route('newsletter.subscribe') }}" method="POST"
+                        class="mx-auto mt-10 flex max-w-md gap-x-4">
+                        @csrf
+                        <label for="email-address" class="sr-only">Adresse e-mail</label>
+                        <input id="email-address" name="email" type="email" autocomplete="email" required
+                            class="min-w-0 flex-auto rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-white sm:text-sm sm:leading-6"
+                            placeholder="Entrez votre adresse e-mail">
+                        <button type="submit"
+                            class="flex-none rounded-md px-3.5 py-2.5 text-sm bg-yellow-500 text-white font-necryx">S'inscrire</button>
+                    </form>
+                    <svg viewBox="0 0 1024 1024"
+                        class="absolute left-1/2 top-1/2 -z-10 h-[64rem] w-[64rem] -translate-x-1/2" aria-hidden="true">
+                        <circle cx="512" cy="512" r="512"
+                            fill="url(#759c1415-0410-454c-8f7c-9a820de03641)" fill-opacity="0.7" />
+                        <defs>
+                            <radialGradient id="759c1415-0410-454c-8f7c-9a820de03641" cx="0" cy="0"
+                                r="1" gradientUnits="userSpaceOnUse"
+                                gradientTransform="translate(512 512) rotate(90) scale(512)">
+                                <stop stop-color="#7775D6" />
+                                <stop offset="1" stop-color="#E935C1" stop-opacity="0" />
+                            </radialGradient>
+                        </defs>
+                    </svg>
+                </div>
             </div>
         </div>
         <div class="bg-white">
             <div class="mx-auto max-w-7xl overflow-hidden px-6 py-20 sm:py-24 lg:px-8">
                 <nav class="-mb-6 columns-2 sm:flex sm:justify-center sm:space-x-12" aria-label="Footer">
                     <div class="pb-6">
-                        <a href="#" class="text-sm leading-6 text-gray-600 hover:text-gray-900">À propos</a>
+                        <a href="#" class="text-sm leading-6 text-gray-600 hover:text-gray-900">Collection</a>
                     </div>
                     <div class="pb-6">
-                        <a href="#" class="text-sm leading-6 text-gray-600 hover:text-gray-900">Blog</a>
+                        <a href="#" class="text-sm leading-6 text-gray-600 hover:text-gray-900">Concepts &
+                            Conseils</a>
                     </div>
                     <div class="pb-6">
-                        <a href="#" class="text-sm leading-6 text-gray-600 hover:text-gray-900">Offres d'emploi</a>
+                        <a href="#" class="text-sm leading-6 text-gray-600 hover:text-gray-900">Informations</a>
                     </div>
                     <div class="pb-6">
-                        <a href="#" class="text-sm leading-6 text-gray-600 hover:text-gray-900">Presse</a>
-                    </div>
-                    <div class="pb-6">
-                        <a href="#"
-                            class="text-sm leading-6 text-gray-600 hover:text-gray-900">Accessibilité</a>
-                    </div>
-                    <div class="pb-6">
-                        <a href="#" class="text-sm leading-6 text-gray-600 hover:text-gray-900">Partenaires</a>
+                        <a href="#" class="text-sm leading-6 text-gray-600 hover:text-gray-900">Boutique</a>
                     </div>
                 </nav>
                 <div class="mt-10 flex justify-center space-x-10">

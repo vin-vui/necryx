@@ -26,7 +26,6 @@ Route::get('/', [FrontHomeController::class, 'index'])->name('home');
 
 Route::post('/newsletter/subscribe', [NewsletterController::class, 'subscribe'])->name('newsletter.subscribe');
 
-  
 
 Route::middleware([
     'auth:sanctum',
