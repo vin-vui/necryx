@@ -5,6 +5,7 @@ use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\TypeController;
 use App\Http\Controllers\CollectionController;
 use App\Http\Controllers\TagController;
+use App\Http\Controllers\FrontCollectionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,6 +21,9 @@ use App\Http\Controllers\TagController;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/collections/{type}',[FrontCollectionController::class,'index'])->name('collections');
+Route::get('/collections/item/{collection}',[FrontCollectionController::class,'show'])->name('collection');
 
 Route::middleware([
     'auth:sanctum',
