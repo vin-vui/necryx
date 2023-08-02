@@ -32,7 +32,7 @@
         </div>
 
         {{-- Cards under the slides --}}
-        <div class="flex justify-around gap-x-20 mx-24 absolute top-2/4 mt-8 z-50 h-auto ">
+        <div class="flex justify-around gap-x-20 mx-24 absolute top-2/4 mt-8 z-10 h-auto ">
 
             <!--First card-->
             <div

@@ -45,19 +45,19 @@
                             </button>
                             <!-- Dropdown menu -->
                             <div id="dropdownNavbar"
-                                class="z-10 hidden w-44 font-necryx text-onyx divide-y divide-gray-100 rounded-lg shadow">
+                                class="z-20 hidden w-44 bg-seasalt text-onyx divide-y divide-gray-100 rounded-lg shadow">
                                 <ul class="mt-4 py-2 text-sm dark:text-gray-400" aria-labelledby="dropdownLargeButton">
                                     <li>
                                         <a href="{{ route('collections', 'jeu') }}"
-                                        class="block px-4 py-2 font-necryx text-onyx">Jeux</a>
+                                        class="block px-4 py-2 font-p text-onyx">Jeux</a>
                                     </li>
                                     <li>
                                         <a href="{{ route('collections', 'concept') }}"
-                                        class="block px-4 py-2 font-necryx text-onyx">Concepts</a>
+                                        class="block px-4 py-2 font-p text-onyx">Concepts</a>
                                     </li>
                                     <li>
                                         <a href="{{ route('collections', 'art') }}"
-                                        class="block px-4 py-2 font-necryx text-onyx">Art</a>
+                                        class="block px-4 py-2 font-p text-onyx">Art</a>
                                     </li>
                                 </ul>
                             </div>
@@ -107,10 +107,10 @@
                     </svg>
                 </button> --}}
                 <!-- "Sign in" and "Sign up" buttons wrapped in a flex-auto div -->
-                <div class="flex justify-end text-onyx font-necryx text-base">
-                    <a href="{{ route('login') }}" class="py-2 px-4 font-necryx">Se connecter</a>
+                <div class="flex justify-end text-onyx text-base">
+                    <a href="{{ route('login') }}" class="py-2 px-4 font-p">Se connecter</a>
                     <a href="{{ route('register') }}"
-                        class="inline-flex items-center justify-center px-2.5 text-base font-medium leading-6 text-white whitespace-no-wrap bg-yellow-400 hover:bg-indigo-400border rounded-md">
+                        class="inline-flex items-center justify-center px-2.5 font-p text-base font-medium leading-6 text-white whitespace-no-wrap bg-yellow-400 hover:bg-indigo-400border rounded-md">
                         S'inscrire
                     </a>
                 </div>
@@ -151,7 +151,7 @@
                             class="min-w-0 flex-auto rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-white sm:text-sm sm:leading-6"
                             placeholder="Entrez votre adresse e-mail">
                         <button type="submit"
-                            class="flex-none rounded-md px-3.5 py-2.5 text-sm bg-yellow-500 text-white font-necryx">S'inscrire</button>
+                            class="flex-none rounded-md px-3.5 py-2.5 text-sm bg-yellow-500 text-white font-p">S'inscrire</button>
                     </form>
                     <svg viewBox="0 0 1024 1024"
                         class="absolute left-1/2 top-1/2 -z-10 h-[64rem] w-[64rem] -translate-x-1/2" aria-hidden="true">
@@ -161,8 +161,8 @@
                             <radialGradient id="759c1415-0410-454c-8f7c-9a820de03641" cx="0" cy="0"
                                 r="1" gradientUnits="userSpaceOnUse"
                                 gradientTransform="translate(512 512) rotate(90) scale(512)">
-                                <stop stop-color="#7775D6" />
-                                <stop offset="1" stop-color="#E935C1" stop-opacity="0" />
+                                <stop stop-color="#D0A302" />
+                                <stop offset="1" stop-color="#0A0101" stop-opacity="0" />
                             </radialGradient>
                         </defs>
                     </svg>
