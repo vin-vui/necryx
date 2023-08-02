@@ -48,15 +48,15 @@
                                 class="z-10 hidden w-44 font-necryx text-onyx divide-y divide-gray-100 rounded-lg shadow">
                                 <ul class="mt-4 py-2 text-sm dark:text-gray-400" aria-labelledby="dropdownLargeButton">
                                     <li>
-                                        {{-- <a href="{{ route('') }}" --}}
+                                        <a href="{{ route('collections', 'jeu') }}"
                                         class="block px-4 py-2 font-necryx text-onyx">Jeux</a>
                                     </li>
                                     <li>
-                                        {{-- <a href="{{ route('') }}" --}}
+                                        <a href="{{ route('collections', 'concept') }}"
                                         class="block px-4 py-2 font-necryx text-onyx">Concepts</a>
                                     </li>
                                     <li>
-                                        {{-- <a href="{{ route('') }}" --}}
+                                        <a href="{{ route('collections', 'art') }}"
                                         class="block px-4 py-2 font-necryx text-onyx">Art</a>
                                     </li>
                                 </ul>

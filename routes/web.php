@@ -27,9 +27,9 @@ Route::get('/', [FrontHomeController::class, 'index'])->name('home');
 
 Route::post('/newsletter/subscribe', [NewsletterController::class, 'subscribe'])->name('newsletter.subscribe');
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 Route::get('/collections-necryx/{type}',[FrontCollectionController::class,'index'])->name('collections');
 Route::get('/collections-necryx/item/{collection}',[FrontCollectionController::class,'show'])->name('collection');
