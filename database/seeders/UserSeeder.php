@@ -18,6 +18,7 @@ class UserSeeder extends Seeder
             $user->name = ('Sophie');
             $user->email = ('flavien.sophie@gmail.com');
             $user->password = Hash::make ('password');
+            $user->type = 'admin';
 
             $user->save();
 
@@ -25,6 +26,7 @@ class UserSeeder extends Seeder
             $user->name =('Mia');
             $user->email = ('mgouget@protonmail.com');
             $user->password = Hash::make ('testmdp');
+            $user->type = 'admin';
 
             $user->save();
 
@@ -32,6 +34,7 @@ class UserSeeder extends Seeder
             $user->name =('Ange');
             $user->email = ('angelique.dartevelle03@gmail.com');
             $user->password = Hash::make ('test');
+            $user->type = 'admin';
 
             $user->save();
 
