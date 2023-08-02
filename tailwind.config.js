@@ -33,3 +33,10 @@ export default {
 
     plugins: [forms, typography],
 };
+// module.exports = {
+//     // ...
+//     plugins: [
+//       // ...
+//       require('@tailwindcss/forms'),
+//     ],
+//   }

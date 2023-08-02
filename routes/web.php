@@ -5,6 +5,11 @@ use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\TypeController;
 use App\Http\Controllers\CollectionController;
 use App\Http\Controllers\TagController;
+use App\Http\Controllers\FrontHomeController;
+use Illuminate\Http\Request;
+use App\Http\Controllers\NewsletterController;
+
+
 use App\Http\Controllers\FrontCollectionController;
 
 /*
@@ -17,6 +22,10 @@ use App\Http\Controllers\FrontCollectionController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
+Route::get('/', [FrontHomeController::class, 'index'])->name('home');
+
+Route::post('/newsletter/subscribe', [NewsletterController::class, 'subscribe'])->name('newsletter.subscribe');
 
 Route::get('/', function () {
     return view('welcome');
