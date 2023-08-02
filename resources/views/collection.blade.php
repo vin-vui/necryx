@@ -1,31 +1,4 @@
 <x-guest-layout>
-    {{-- <div class="flex justify-between mx-auto max-w-screen-xl p-4 md:w-3/4">
-    <article class="mx-auto w-full max-w-2xl format format-sm sm:format-base lg:format-lg format-blue dark:format-invert">
-        <header class="mb-4 lg:mb-6 not-format">
-            <address class="flex items-center mb-6 not-italic">
-                <div class="inline-flex items-center mr-3 text-sm text-gray-900">
-                    <div>
-                        <p class="capitalize text-base font-light text-gray-500"><time>{{Carbon\Carbon::parse($collection->created_at)->isoFormat('LLLL')}}</time></p>
-    </div>
-    </div>
-    </address>
-    <h1 class="mb-4 text-3xl font-extrabold font-titre leading-tight text-rich-black lg:mb-6 lg:text-4xl">{{ $collection->name}}</h1>
-    </header>
-    <div class="font-p text-lg tiny-article">{!! $collection->content!!}</div>
-    <img class="rounded-xl my-4" src="{{ Storage::url($collection->image) }}" alt="{{ $collection->name}}">
-
-    <section class="not-format">
-        <div class="col-lg-12 italic pb-4 text-rich-black">
-            @if ($message = Session::get('success'))
-            <div class="alert alert-success">
-                <p>{{ $message }}</p>
-            </div>
-            @endif
-        </div>
-    </section>
-    </article>
-    </div> --}}
-
     <div class="bg-white py-24 sm:py-32">
         <div class="mx-auto max-w-7xl px-6 lg:px-8">
             <div class="mx-auto grid max-w-2xl grid-cols-1 items-start gap-x-8 gap-y-16 sm:gap-y-24 lg:mx-0 lg:max-w-none lg:grid-cols-2">
@@ -47,7 +20,11 @@
                 </div>
                 <div>
                     <div class="text-base leading-7 text-gray-700 lg:max-w-lg">
-                        <p class="text-base font-semibold leading-7 text-indigo-600">Company values</p>
+                        <p class="text-base font-semibold leading-7 text-dark-red">
+                            @foreach($collection->tags as $key => $tag)
+                            #{{ $tag->name }}
+                            @endforeach
+                        </p>
                         <h1 class="mt-2 text-3xl font-h2 capitalize font-bold tracking-tight text-gray-900 sm:text-4xl">{{ $collection->name}}</h1>
                         <div class="max-w-xl">
                             <p class="mt-6 font-p">{!! $collection->content!!}</p>

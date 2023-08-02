@@ -22,8 +22,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/collections/{type}',[FrontCollectionController::class,'index'])->name('collections');
-Route::get('/collections/item/{collection}',[FrontCollectionController::class,'show'])->name('collection');
+Route::get('/collections-necryx/{type}',[FrontCollectionController::class,'index'])->name('collections');
+Route::get('/collections-necryx/item/{collection}',[FrontCollectionController::class,'show'])->name('collection');
 
 Route::middleware([
     'auth:sanctum',

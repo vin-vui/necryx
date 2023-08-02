@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Collection;
+use App\Models\Tag;
 
 class FrontCollectionController extends Controller
 {
@@ -15,9 +16,9 @@ class FrontCollectionController extends Controller
     }
 
     public function show (Collection $collection)
-    {
-        $collection->tags()->sync($request->tags);
-        
+    {   
+        $tags = Tag::all();
+
         return view ('collection', compact('collection'));
     }
 }
