@@ -18,3 +18,8 @@
 [x-cloak] {
     display: none;
 }
+
+:root {
+    --swiper-navigation-color: #fafafa;
+    --swiper-pagination-color: #fafafa;
+}

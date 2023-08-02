@@ -21,6 +21,7 @@ return new class extends Migration
             $table->integer('duration')->nullable();
             $table->integer('age')->nullable();
             $table->string('origin')->nullable();
+            $table->tinyInteger('order')->nullable();
             $table->longText('example')->nullable();
             $table->longText('description')->nullable();
             $table->tinyInteger('status')->default(0);

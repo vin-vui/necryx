@@ -10,6 +10,8 @@ use App\Models\Article;
 use App\Models\Type;
 use App\Models\Collection;
 use App\Models\User;
+use App\Models\Slider;
+
 
 
 class DatabaseSeeder extends Seeder
@@ -26,7 +28,8 @@ class DatabaseSeeder extends Seeder
         
         $this->call([
             TypeSeeder::class,
-            UserSeeder::class
+            UserSeeder::class,
+            SliderSeeder::class
         ]);
         
 

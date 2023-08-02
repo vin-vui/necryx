@@ -3,7 +3,8 @@
     <div class="m-10">
         <div class="pb-8 flex justify-around items-center">
             <h2 class="font-bold text-lg text-white">CRUD Images - Necryx</h2>
-            <a class="border-4 border-gray-800 bg-gray-800 text-white rounded-xl p-2" href="{{ route('sliders.create') }}">
+            <a class="border-4 border-gray-800 bg-gray-800 text-white rounded-xl p-2"
+                href="{{ route('sliders.create') }}">
                 Ajouter une image</a>
             <a class="border-4 border-gray-800 bg-gray-800 text-white rounded-xl p-2" href="{{ route('dashboard') }}">
                 Retour</a>
@@ -96,23 +97,29 @@
                         @foreach ($sliders as $slider)
                             <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                                 <td class="px-6 py-4">{{ $slider->id }}</td>
-                                <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                <td scope="row"
+                                    class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                     {{ $slider->name }}
                                 </td>
-                                <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                    {{ $slider->image}}
+                                <td scope="row"
+                                    class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                    {{ $slider->image }}
+                                </td>
+                                <td scope="row"
+                                    class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                    {{ $slider->description }}
                                 </td>
                                 <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                    {{ $slider->descritpion }}
+                                    <button class="{{ $slider->status ? 'bg-green-500' : 'bg-red-500' }} hover:bg-opacity-75 rounded-full w-8 h-4 focus:outline-none focus:ring focus:ring-offset-2"
+                                        @click="toggleStatus({{ $slider->id }})"></button>
                                 </td>
-                                <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                    {{ $slider->status }}
-                                </td>
-                                <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                <td scope="row"
+                                    class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                     {{ $slider->order }}
                                 </td>
                                 <td>
-                                    <form action="{{ route('sliders.destroy', $slider->id) }}" method="POST" x-data="{ showModal: false }">
+                                    <form action="{{ route('sliders.destroy', $slider->id) }}" method="POST"
+                                        x-data="{ showModal: false }">
                                         @csrf
                                         @method('DELETE')
                                         <a class="btn btn-info pr-2 class=font-medium text-green-600 dark:text-green-500 hover:underline"
@@ -120,15 +127,14 @@
                                         <a class="btn btn-primary pr-2 class=font-medium text-blue-600 dark:text-blue-500 hover:underline"
                                             href="{{ route('sliders.edit', $slider->id) }}">Editer</a>
                                         <button type="button"
-                                           class="btn btn-danger class=font-medium text-red-600 dark:text-red-500 hover:underline"
+                                            class="btn btn-danger class=font-medium text-red-600 dark:text-red-500 hover:underline"
                                             @click="showModal = true">Supprimer
-                                      </button>
-                                       
-                                        <x-delete-modal/>
+                                        </button>
+
+                                        <x-delete-modal />
                                     </form>
                                 </td>
                             </tr>
-    
                         @endforeach
                     </tbody>
                 </table>

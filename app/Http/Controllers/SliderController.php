@@ -15,6 +15,7 @@ class SliderController extends Controller
         return view ('sliders.index', compact ('sliders'));
     }
 
+
     // create function 
     public function create()
     {
@@ -27,7 +28,7 @@ class SliderController extends Controller
             'name'=>'required',
             'image'=>'required',
             'description'=>'required',
-            'order'=>'nullable',
+            'order'=>'nullable|integer',
             'status'=>'required',
             ]);
  
@@ -66,7 +67,7 @@ class SliderController extends Controller
        ]);
 
 
-        $path = Storage::putFileAs('public', $request->image, $validData['name'] . '.' . $request->image->extension());
+        $path = Storage::putFileAs('public', $request->image, $validData['name'].'.'.$request->image->extension());
         $validData["image"] = $path;
 
 
@@ -74,7 +75,7 @@ class SliderController extends Controller
 
      
         return redirect()->route('sliders.index')
-                       ->with ('success', 'image mise à jour avec succès !');
+                       ->with ('success', 'Image mise à jour avec succès !');
 
     }
 
