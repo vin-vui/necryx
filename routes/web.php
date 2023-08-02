@@ -36,7 +36,9 @@ Route::get('/collections-necryx/item/{collection}',[FrontCollectionController::c
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
-    'verified'
+    'verified',
+    'is_admin'
+  
 ])->group(function () {
     Route::get('/dashboard', function () {
         return view('dashboard');

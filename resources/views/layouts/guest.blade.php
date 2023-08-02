@@ -107,14 +107,88 @@
                     </svg>
                 </button> --}}
                 <!-- "Sign in" and "Sign up" buttons wrapped in a flex-auto div -->
-                <div class="flex justify-end text-onyx text-base">
-                    <a href="{{ route('login') }}" class="py-2 px-4 font-p">Se connecter</a>
+
+                <div class="hidden lg:flex mr-8">
+                    @auth
+                        <div class="hidden lg:ml-4 lg:flex lg:items-center ">
+                            <button type="button"
+                                class="flex-shrink-0 rounded-full bg-sunset p-1  text-black-bean border-2 border-sunset hover:bg-black-bean hover:text-sunset focus:outline-none focus:ring-2 focus:ring-black-bean-500 focus:ring-offset-2">
+                                <span class="sr-only">Voir les notifications</span>
+                                <svg class="h-8 w-8 hover:scale-105 duration-300" fill="none" viewBox="0 0 24 24"
+                                    stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0" />
+                                </svg>
+                            </button>
+
+                            <!-- Profile dropdown -->
+                            <div class="lg:relative ml-4 flex-shrink-0" x-data="{ open: false }">
+
+                                <button type="button" @click="open = !open"
+                                    class="flex rounded-full hover:scale-110 duration-300 bg-seasalt text-sm focus:outline-none focus:ring-2 focus:ring-black-bean-500 focus:ring-offset-2">
+                                    <span class="sr-only">Ouvrir le menu</span>
+                                    <img class="h-11 w-11 rounded-full " src="{{ Auth::user()->profile_photo_url }}"
+                                        alt="{{ Auth::user()->name }}">
+                                </button>
+
+                                <div x-show="open" x-transition.scale.origin.top x-transition.delay.80ms
+                                    @click.away="open = false"
+                                    class="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-seasalt py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+                                    role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button"
+                                    tabindex="-1">
+                                    <!-- Active: "bg-gray-100", Not Active: "" -->
+                                    <a href="{{ route('profile.show') }}"
+                                        class="flex  px-4 py-2 text-base font-medium text-black-bean font-p hover:underline"
+                                        role="menuitem" tabindex="-1" id="user-menu-item-0">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" class="mr-3"
+                                            viewBox="0 0 24 24">
+                                            <g fill="none">
+                                                <path stroke="currentColor" stroke-width="1.5"
+                                                    d="M21 12a8.958 8.958 0 0 1-1.526 5.016A8.991 8.991 0 0 1 12 21a8.991 8.991 0 0 1-7.474-3.984A9 9 0 1 1 21 12Z" />
+                                                <path fill="currentColor"
+                                                    d="M13.25 9c0 .69-.56 1.25-1.25 1.25v1.5A2.75 2.75 0 0 0 14.75 9h-1.5ZM12 10.25c-.69 0-1.25-.56-1.25-1.25h-1.5A2.75 2.75 0 0 0 12 11.75v-1.5ZM10.75 9c0-.69.56-1.25 1.25-1.25v-1.5A2.75 2.75 0 0 0 9.25 9h1.5ZM12 7.75c.69 0 1.25.56 1.25 1.25h1.5A2.75 2.75 0 0 0 12 6.25v1.5ZM5.166 17.856l-.719-.214l-.117.392l.267.31l.569-.488Zm13.668 0l.57.489l.266-.31l-.117-.393l-.719.214ZM9 15.75h6v-1.5H9v1.5Zm0-1.5a4.752 4.752 0 0 0-4.553 3.392l1.438.428A3.252 3.252 0 0 1 9 15.75v-1.5Zm3 6a8.23 8.23 0 0 1-6.265-2.882l-1.138.977A9.73 9.73 0 0 0 12 21.75v-1.5Zm3-4.5c1.47 0 2.715.978 3.115 2.32l1.438-.428A4.752 4.752 0 0 0 15 14.25v1.5Zm3.265 1.618A8.23 8.23 0 0 1 12 20.25v1.5a9.73 9.73 0 0 0 7.403-3.405l-1.138-.977Z" />
+                                            </g>
+                                        </svg>
+                                        Profil
+                                    </a>
+                                    {{-- <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem"
+                                    tabindex="-1" id="user-menu-item-1">Paramètres</a> --}}
+                                    <form method="POST" action="{{ route('logout') }}" x-data>
+                                        @csrf
+                                        <a href="{{ route('logout') }}" @click.prevent="$root.submit();"
+                                            class="flex items-center  px-4 py-2 text-onyx font-necryx font-p hover:underline">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25"
+                                                class="mr-3" viewBox="0 0 24 24">
+                                                <path fill="currentColor"
+                                                    d="M13 3h-2v10h2V3zm4.83 2.17l-1.42 1.42A6.92 6.92 0 0 1 19 12c0 3.87-3.13 7-7 7A6.995 6.995 0 0 1 7.58 6.58L6.17 5.17A8.932 8.932 0 0 0 3 12a9 9 0 0 0 18 0c0-2.74-1.23-5.18-3.17-6.83z" />
+                                            </svg>
+                                            Se déconnecter
+
+                                        </a>
+                                    </form>
+
+                                </div>
+                            </div>
+                        </div>
+                    @else
+                        <a href="{{ route('login') }}"
+                            class="py-2 px-4 font-necryx">Se connecter</a>
+                        <a href="{{ route('register') }}"
+                            class="inline-flex items-center justify-center px-2.5 text-base font-medium leading-6 text-white whitespace-no-wrap bg-yellow-400 hover:bg-indigo-400border rounded-md">S'inscrire</a>
+                    @endauth
+
+                </div>
+
+                {{-- <div class="flex justify-end text-onyx font-necryx text-base">
+                    <a href="{{ route('login') }}" class="py-2 px-4 font-necryx">Se connecter</a>
                     <a href="{{ route('register') }}"
                         class="inline-flex items-center justify-center px-2.5 font-p text-base font-medium leading-6 text-white whitespace-no-wrap bg-yellow-400 hover:bg-indigo-400border rounded-md">
                         S'inscrire
                     </a>
-                </div>
+                </div> --}}
             </div>
+        </div>
+        
 
 
         </nav>
