@@ -31,7 +31,7 @@ class TagController extends Controller
             Tag::create($validData);
 
         return redirect()->route('tags.index')
-                        ->with ('success', 'Votre Tag à bien été enregistré !');
+                        ->with ('success', 'Votre Tag a bien été enregistré !');
      }
 
     //  Show function

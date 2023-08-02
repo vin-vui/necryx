@@ -7,7 +7,8 @@ use App\Models\Article;
 use App\Models\Newsletter;
 use App\Models\User;
 use App\Models\Collection;
-
+use App\Models\Slider;
+use Illuminate\Support\Facades\Storage;
 
 
 
@@ -17,8 +18,11 @@ class FrontHomeController extends Controller
 
         $users = User::all(); 
         $articles = Article::all();
+        $sliders = Slider::where('status', 1)->orderBy('order')->get();
+        $collections = Collection::where('status', 1)->orderBy('order')->get();
+
         
-        return view('home.index', compact('users','articles'));
+        return view('home.index', compact('users','articles', 'sliders', 'collections'));
 
     }
 
