@@ -123,6 +123,21 @@
                             <label class="font-bold text-lg" for="image">Image :</label>
                             <input type="file" name="image" id="image" class="form-control-file">
                         </div>
+                        <div class="col-xs-12 col-sm-12 col-md-12 pb-5">
+                            <label class="font-bold text-lg">Ordre :</label>
+                            <div class="form-group text-black">
+                                <input type="number" name="order" class="form-control w-full" placeholder="Ordre">
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-12 pb-5">
+                            <label class="font-bold text-lg">Status :</label>
+                            <div class="form-group text-black">
+                                <select name="status" class="form-select">
+                                    <option value="1">Active</option>
+                                    <option value="0">Inactive</option>
+                                </select>
+                            </div>
+                        </div>
                         <div class="col-xs-12 col-sm-12 col-md-12 text-center">
                             <button type="submit" class="border-4 border-gray-800 bg-white  text-gray-800 rounded-xl p-2">Envoyer</button>
                         </div>

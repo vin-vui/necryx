@@ -40,6 +40,8 @@ class CollectionController extends Controller
             'age' => 'nullable',
             'origin' => 'nullable',
             'example' => 'nullable',
+            'order' => 'nullable',
+            'status' => 'nullable',
         ]);
 
 
@@ -94,6 +96,8 @@ class CollectionController extends Controller
             'age' => 'nullable',
             'origin' => 'nullable',
             'example' => 'nullable',
+            'order' => 'nullable',
+            'status' => 'nullable',
         ]);
 
         $path = Storage::putFileAs('public', $request->image, $validData['name'] . '.' . $request->image->extension());

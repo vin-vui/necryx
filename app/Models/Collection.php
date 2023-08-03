@@ -19,9 +19,10 @@ class Collection extends Model
         'duration',
         'age',
         'origin',
+        'order',
         'example',
         'description',
-        'status',
+        'status'
     ];
 
     public function tags(): BelongsToMany
