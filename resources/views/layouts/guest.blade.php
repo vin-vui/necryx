@@ -69,29 +69,7 @@
                             <a href="#" class="md:p-0 text-onyx py-2 pl-3 pr-4 text-base">Informations</a>
                         </li>
                         <li>
-                            <button id="dropdownNavbarLink" data-dropdown-toggle="dropdownNavbar"
-                                class="flex items-center justify-between rounded md:border-0 text-base">Boutique
-                                <svg class="w-2.5 h-2.5 ml-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                                    fill="none" viewBox="0 0 10 6">
-                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                        stroke-width="2" d="m1 1 4 4 4-4" />
-                                </svg>
-                            </button>
-                            <!-- Dropdown menu -->
-                            <div id="dropdownNavbar"
-                                class="z-10 hidden w-44 font-normal divide-y divide-gray-100 rounded-lg shadow">
-                                <ul class="py-2 text-sm text-onyx" aria-labelledby="dropdownLargeButton">
-                                    <li>
-                                        <a href="#" class="block px-4 py-2">Item 1</a>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="block px-4 py-2">Item 2</a>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="block px-4 py-2">Item 3</a>
-                                    </li>
-                                </ul>
-                            </div>
+                            <a href="#" class="md:p-0 text-onyx py-2 pl-3 pr-4 text-base">Boutique</a>
                         </li>
                     </ul>
                 </div>
@@ -111,15 +89,6 @@
                 <div class="hidden lg:flex mr-8">
                     @auth
                         <div class="hidden lg:ml-4 lg:flex lg:items-center ">
-                            <button type="button"
-                                class="flex-shrink-0 rounded-full bg-sunset p-1  text-black-bean border-2 border-sunset hover:bg-black-bean hover:text-sunset focus:outline-none focus:ring-2 focus:ring-black-bean-500 focus:ring-offset-2">
-                                <span class="sr-only">Voir les notifications</span>
-                                <svg class="h-8 w-8 hover:scale-105 duration-300" fill="none" viewBox="0 0 24 24"
-                                    stroke-width="1.5" stroke="currentColor" aria-hidden="true">
-                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                        d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0" />
-                                </svg>
-                            </button>
 
                             <!-- Profile dropdown -->
                             <div class="lg:relative ml-4 flex-shrink-0" x-data="{ open: false }">
@@ -156,7 +125,7 @@
                                     <form method="POST" action="{{ route('logout') }}" x-data>
                                         @csrf
                                         <a href="{{ route('logout') }}" @click.prevent="$root.submit();"
-                                            class="flex items-center  px-4 py-2 text-onyx font-necryx font-p hover:underline">
+                                            class="flex items-center  px-4 py-2 text-onyx font-p hover:underline">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25"
                                                 class="mr-3" viewBox="0 0 24 24">
                                                 <path fill="currentColor"
@@ -172,7 +141,7 @@
                         </div>
                     @else
                         <a href="{{ route('login') }}"
-                            class="py-2 px-4 font-necryx">Se connecter</a>
+                            class="py-2 px-4 font-p">Se connecter</a>
                         <a href="{{ route('register') }}"
                             class="inline-flex items-center justify-center px-2.5 text-base font-medium leading-6 text-white whitespace-no-wrap bg-yellow-400 hover:bg-indigo-400border rounded-md">S'inscrire</a>
                     @endauth
