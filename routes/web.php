@@ -10,6 +10,7 @@ use App\Http\Controllers\SliderController;
 use Illuminate\Http\Request;
 use App\Http\Controllers\NewsletterController;
 use App\Http\Controllers\FrontCollectionController;
+use App\Http\Controllers\FrontInformationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,6 +33,8 @@ Route::post('/newsletter/subscribe', [NewsletterController::class, 'subscribe'])
 
 Route::get('/collections-necryx/{type}',[FrontCollectionController::class,'index'])->name('collections');
 Route::get('/collections-necryx/item/{collection}',[FrontCollectionController::class,'show'])->name('collection');
+
+Route::get('/informations',[FrontInformationController::class,'index'])->name('informations');
 
 Route::middleware([
     'auth:sanctum',
