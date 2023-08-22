@@ -37,7 +37,7 @@ const swiper = new Swiper('.swiper', {
      // Optional parameters
      direction: 'horizontal',
      loop: true,
-
+     speed: 2100,
      autoplay: {
         delay: 3000,
     },
@@ -49,22 +49,22 @@ const swiper = new Swiper('.swiper', {
     },
 });
 
-const swipeer = new Swiper('.swipeer', {
+const swiper_two = new Swiper('.swiper_two', {
 
     modules: [Autoplay, Navigation],
 
      // Optional parameters
-     direction: 'horizontal',
-     loop: true,
-
-     autoplay: {
+    direction: 'horizontal',
+    loop: true,
+    speed:2100,
+    autoplay: {
         delay: 3000,
     },
 
     // Navigation arrows
     navigation: {
-        nextEl: '.swiper-button-neext',
-        prevEl: '.swiper-button-preev',
+        nextEl: '.second-swiper-button-neext',
+        prevEl: '.second-swiper-button-preev',
     },
 });
 
