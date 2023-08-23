@@ -63,7 +63,7 @@
                             </div>
                         </li>
                         <li>
-                            <a href="#" class="md:p-0 text-onyx py-2 pl-3 pr-4 text-base">Concepts & Conseils</a>
+                            <a href="{{ route('concepts') }}" class="md:p-0 text-onyx py-2 pl-3 pr-4 text-base">Concepts & Conseils</a>
                         </li>
                         <li>
                             <a href="{{ route('informations') }}" class="md:p-0 text-onyx py-2 pl-3 pr-4 text-base">Informations</a>

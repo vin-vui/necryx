@@ -11,6 +11,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\NewsletterController;
 use App\Http\Controllers\FrontCollectionController;
 use App\Http\Controllers\FrontInformationController;
+use App\Http\Controllers\FrontConceptController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,6 +36,8 @@ Route::get('/collections-necryx/{type}',[FrontCollectionController::class,'index
 Route::get('/collections-necryx/item/{collection}',[FrontCollectionController::class,'show'])->name('collection');
 
 Route::get('/informations',[FrontInformationController::class,'index'])->name('informations');
+
+Route::get('/concepts',[FrontConceptController::class,'index'])->name('concepts');
 
 Route::middleware([
     'auth:sanctum',
