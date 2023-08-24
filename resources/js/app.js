@@ -63,8 +63,8 @@ const swiper_two = new Swiper('.swiper_two', {
 
     // Navigation arrows
     navigation: {
-        nextEl: '.second-swiper-button-neext',
-        prevEl: '.second-swiper-button-preev',
+        nextEl: 'swiper-button-next2',
+        prevEl: '.swiper-button-prev2',
     },
 });
 
