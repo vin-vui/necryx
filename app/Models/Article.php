@@ -21,8 +21,10 @@ class Article extends Model
 
     // / Définir la relation entre Article et Type (n à 1)
  
-    public function types(): BelongsTo
+    public function type(): BelongsTo
     {
         return $this->belongsTo(Type::class);
     }
+
+    
 }

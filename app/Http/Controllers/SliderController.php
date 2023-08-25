@@ -30,12 +30,12 @@ class SliderController extends Controller
             'description'=>'required',
             'order'=>'nullable|integer',
             'status'=>'required',
-            ]);
- 
-            $path = Storage::putFileAs('public', $request->image, $validData['name'] . '.' . $request->image->extension());
-            $validData["image"] = $path;
+        ]);
 
-            Slider::create($validData);
+        $path = Storage::putFileAs('public', $request->image, $validData['name'] . '.' . $request->image->extension());
+        $validData["image"] = $path;
+
+        Slider::create($validData);
 
 
         return redirect()->route('sliders.index')

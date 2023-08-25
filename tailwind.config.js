@@ -25,7 +25,7 @@ export default {
                 'seasalt': '#FAFAFA',
                 'golden':'#D0A302',
                 'smoky-black':'#0A0101',
-                'onyx':'#454549',
+                'lightblack':'#04040A',
                 'dark-red':'#8E0000',
             }
         },
