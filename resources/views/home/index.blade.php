@@ -173,7 +173,7 @@
                         <div class="flex flex-1 flex-col justify-between bg-white p-6">
                             <div class="flex-1">
                                 <p class="text-sm font-medium capitalize text-dark-red">
-                                    <a href="#" class="hover:underline">{{ $article->type->name }}</a>
+                                    <a href="{{ route('collections', $article->type->name) }}" class="hover:underline">{{ $article->type->name }}</a>
                                 </p>
                                 <a href="#" class="mt-2 block">
                                     <p class="text-xl font-semibold text-gray-900">{{ $article->title }}</p>
