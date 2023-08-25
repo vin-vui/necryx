@@ -100,7 +100,7 @@
     </div>
 
     <!-- Second slider -->
-    <div class="mt-64">
+    <div class="mt-64 relative">
 
         <div class="swiper_two w-full h-[20rem]">
             <!-- Additional required wrapper -->
