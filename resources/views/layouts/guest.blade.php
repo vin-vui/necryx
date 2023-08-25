@@ -30,7 +30,7 @@
                 <div class="flex items-center">
                     <!-- Wrap logo and menu items together -->
                     <a href="{{ url('/') }}" class="flex items-center">
-                        <img src="{{ Storage::url('/Logo_Final.png') }}" alt="Logo" class="h-24">
+                        <x-application-logo/>
                     </a>
                     <ul
                         class="ml-8 flex flex-row font-medium space-x-8 md:text-sm md:border-0 md:bg-transparent dark:bg-white-800 md:dark:bg-white-900 dark:border-gray-700">
