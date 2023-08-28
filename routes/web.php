@@ -27,6 +27,7 @@ use App\Http\Controllers\FrontConceptController;
 Route::get('/', [FrontHomeController::class, 'index'])->name('home');
   
 Route::post('/newsletter/subscribe', [NewsletterController::class, 'subscribe'])->name('newsletter.subscribe');
+Route::post('/contact-form',[FrontConceptController::class,'contact'])->name('contact-form');
 
 // Route::get('/', function () {
 //     return view('welcome');
