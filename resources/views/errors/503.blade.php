@@ -19,7 +19,7 @@
 
     <article class="backdrop-blur-sm bg-white/70 mx-8 px-4 pb-8 flex flex-col justify-center text-center items-center shadow-xl gap-y-4">
         <div class="bg-black -mt-8">
-            <div class="animate-spin">
+            <div class="animate-pulse">
                 <x-application-logo />
             </div>
         </div>
