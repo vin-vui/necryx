@@ -17,8 +17,12 @@
 
 <body class="bg-cover bg-center bg-fixed flex items-center justify-center min-h-screen" style="background-image: url(img/banner.png);">
 
-    <article class="bg-white mx-8 px-4 py-8 flex flex-col justify-center text-center items-center shadow-xl gap-y-4">
-        <img src="logo_final.png" alt="" class="w-24 h-24">
+    <article class="backdrop-blur-sm bg-white/70 mx-8 px-4 pb-8 flex flex-col justify-center text-center items-center shadow-xl gap-y-4">
+        <div class="bg-black -mt-8">
+            <div class="animate-spin">
+                <x-application-logo />
+            </div>
+        </div>
         <h1 class="font-necryx">Site en maintenance !</h1>
         <div class="font-h1">
             <p>
@@ -30,5 +34,3 @@
 
 </body>
 </html>
-
-
