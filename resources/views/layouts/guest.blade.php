@@ -8,14 +8,8 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.bunny.net">
-    <link href="https://fonts.bunny.net/css?family=bruno-ace:400|nunito-sans:500" rel="stylesheet" />
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.7.0/flowbite.min.css" rel="stylesheet" />
-
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.7.0/flowbite.min.js"></script>
 
     <!-- Styles -->
     @livewireStyles
@@ -25,11 +19,11 @@
 
     <!-- Header -->
     <header class="bg-seasalt text-onyx sticky top-0 z-50">
-        <nav class="w-full px-6">
+        <nav class="w-full">
             <div class="flex items-center justify-between">
                 <div class="flex items-center">
                     <!-- Wrap logo and menu items together -->
-                    <a href="{{ url('/') }}" class="flex items-center">
+                    <a href="{{ url('/') }}" class="flex items-center bg-black">
                         <x-application-logo />
                     </a>
                     <ul class="ml-8 flex flex-row font-medium space-x-8 md:text-sm md:border-0 md:bg-transparent dark:bg-white-800 md:dark:bg-white-900 dark:border-gray-700">
