@@ -1,7 +1,7 @@
 import './bootstrap';
 
 import Swiper from 'swiper';
-import  { Autoplay, Navigation} from 'swiper/modules';
+import  { Autoplay, Navigation } from 'swiper/modules';
 import 'swiper/css/bundle';
 
 import Alpine from 'alpinejs';
@@ -30,7 +30,7 @@ Alpine.start();
 
 
 
-const swiper = new Swiper('.swiper', {
+const swiperOne = new Swiper('.swiper-one', {
 
     modules: [Autoplay, Navigation],
 
@@ -49,7 +49,7 @@ const swiper = new Swiper('.swiper', {
     },
 });
 
-const swiper_two = new Swiper('.swiper_two', {
+const swipeTwo = new Swiper('.swiper-two', {
 
     modules: [Autoplay, Navigation],
 
@@ -69,4 +69,3 @@ const swiper_two = new Swiper('.swiper_two', {
 });
 
 
-                                            

@@ -8,31 +8,27 @@ use App\Models\Newsletter;
 use App\Models\User;
 use App\Models\Collection;
 use App\Models\Slider;
-use Illuminate\Support\Facades\Storage;
-
-
 
 class FrontHomeController extends Controller
 {
-    public function index(){
 
-        $users = User::all(); 
+    public function index()
+    {
+        $users = User::all();
         $articles = Article::all();
         $sliders = Slider::where('status', 1)->orderBy('order')->get();
         $collections = Collection::where('status', 1)->orderBy('order')->get();
 
-        
         return view('home.index', compact('users','articles', 'sliders', 'collections'));
-
     }
 
     public function addRecipient(Request $request)
     {
         $validData = $request->validate ([
             'email'=>'required',
-            ]);
- 
-            Newsletter::create($validData);
+        ]);
+
+        Newsletter::create($validData);
 
         //banner with registration confirmation
         session()->flash('flash.banner', 'Inscription prise en compte !');
@@ -41,7 +37,7 @@ class FrontHomeController extends Controller
         return redirect()->back();
     }
 
-    public function login() 
+    public function login()
     {
         return view('login');
     }

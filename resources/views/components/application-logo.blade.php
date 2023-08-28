@@ -1,1 +1,1 @@
-<img class="w-20" src="logo_final.png" alt="logo necryx" />
+<img class="w-20" src="{{ url('img/logo.png') }}" alt="logo necryx" />
