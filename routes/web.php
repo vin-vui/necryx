@@ -30,11 +30,11 @@ use App\Http\Controllers\FrontConceptController;
 */
 Route::get('/', [FrontHomeController::class, 'index'])->name('home');
 Route::post('/newsletter/subscribe', [NewsletterController::class, 'subscribe'])->name('newsletter.subscribe');
-Route::post('/contact-form',[FrontConceptController::class,'contact'])->name('contact-form');
-Route::get('/collections-necryx/{type}',[FrontCollectionController::class,'index'])->name('collections');
-Route::get('/collections-necryx/item/{collection}',[FrontCollectionController::class,'show'])->name('collection');
-Route::get('/informations',[FrontInformationController::class,'index'])->name('informations');
-Route::get('/concepts',[FrontConceptController::class,'index'])->name('concepts');
+Route::get('/contact-form', [FrontConceptController::class, 'contact'])->name('contact-form');
+Route::get('/collections-necryx/{type}', [FrontCollectionController::class, 'index'])->name('collections');
+Route::get('/collections-necryx/item/{collection}', [FrontCollectionController::class,' show'])->name('collection');
+Route::get('/informations', [FrontInformationController::class, 'index'])->name('informations');
+Route::get('/concepts', [FrontConceptController::class, 'index'])->name('concepts');
 
 /*
 / ----------------------------
@@ -62,6 +62,6 @@ Route::middleware([
 /    Special Routes
 / ----------------------------
 */
-Route::get('/503', function () { return view('errors.503'); })->name('503');
+// Route::get('/503', function () { return view('errors.503'); })->name('503');
 // Route::get('/500', function () { return view('errors.500'); })->name('500');
 // Route::get('/404', function () { return view('errors.404'); })->name('404');

@@ -18,7 +18,7 @@
 <body class="bg-cover bg-center bg-fixed flex items-center justify-center min-h-screen" style="background-image: url(img/banner.png);">
 
     <article class="backdrop-blur-sm bg-white/70 mx-8 px-4 pb-8 flex flex-col justify-center text-center items-center shadow-xl gap-y-4">
-        <div class="bg-black -mt-8">
+        <div class="bg-black -mt-8 rounded-full p-2">
             <div class="animate-pulse">
                 <x-application-logo />
             </div>

@@ -15,7 +15,6 @@ class FrontConceptController extends Controller
 
     public function contact(Request $request)
     {
-        Mail::to(env('MAIL_FROM_ADDRESS'))->send(new ContactForm($request->name));
-        // Mail::to($request->user())->send(new OrderShipped($order));
+        Mail::to(env('MAIL_TO_ADDRESS'))->send(new ContactForm($request->name));
     }
 }
