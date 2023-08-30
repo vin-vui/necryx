@@ -2,7 +2,11 @@
     <nav class="mx-auto flex items-center justify-between px-6 lg:px-8" aria-label="Global">
         <div class="flex flex-1">
             <div class="hidden lg:flex lg:gap-x-12">
-                <div class="relative" x-data="{ open: false }">
+                <a href="{{ route('home') }}"
+                class="text-sm font-semibold leading-6 font-p text-white pb-2 mt-2 border-b-2 border-transparent hover:border-white transition-all {{ request()->routeIs('home') ? 'border-yellow-400' : '' }}">
+                    Accueil
+                </a>
+                <div class="relative pb-2 mt-2" x-data="{ open: false }">
                     <button type="button" class="flex items-center gap-x-1 text-sm font-semibold leading-6 font-p text-white" @click="open = !open">
                         Collections
                         <svg class="h-5 w-5 flex-none text-gray-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
@@ -22,7 +26,7 @@
                                         Jeux
                                         <span class="absolute inset-0"></span>
                                     </a>
-                                    <p class="mt-1 text-gray-600">Get a better understanding of your traffic</p>
+                                    <p class="mt-1 text-gray-600">Des jeux uniques, pour des moments épiques !</p>
                                 </div>
                             </div>
                             <div class="group relative flex gap-x-6  p-4 text-sm leading-6 hover:bg-gray-50">
@@ -36,7 +40,7 @@
                                         Concepts
                                         <span class="absolute inset-0"></span>
                                     </a>
-                                    <p class="mt-1 text-gray-600">Speak directly to your customers</p>
+                                    <p class="mt-1 text-gray-600">Explorez des concepts innovants !</p>
                                 </div>
                             </div>
                             <div class="group relative flex gap-x-6  p-4 text-sm leading-6 hover:bg-gray-50">
@@ -54,15 +58,21 @@
                                         Arts
                                         <span class="absolute inset-0"></span>
                                     </a>
-                                    <p class="mt-1 text-gray-600">Speak directly to your customers</p>
+                                    <p class="mt-1 text-gray-600">Des créations fusionnant la créativité humaine à la technologie</p>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <a href="{{ route('concepts') }}" class="text-sm font-semibold leading-6 font-p text-white">Concepts & Conseils</a>
-                <a href="{{ route('informations') }}" class="text-sm font-semibold leading-6 font-p text-white">Informations</a>
-                <a href="#" class="text-sm font-semibold leading-6 font-p text-white">Boutique</a>
+                <a href="{{ route('concepts') }}" class="text-sm font-semibold leading-6 font-p text-white pb-2 mt-2 border-b-2 border-transparent hover:border-white transition-all {{ request()->routeIs('concepts') ? 'border-yellow-400' : '' }}">
+                    Concepts & Conseils
+                </a>
+                <a href="{{ route('informations') }}" class="text-sm font-semibold leading-6 font-p text-white pb-2 mt-2 border-b-2 border-transparent hover:border-white transition-all {{ request()->routeIs('formations') ? 'border-yellow-400' : '' }}">
+                    Informations
+                </a>
+                <a href="#" class="text-sm font-semibold leading-6 font-p text-white pb-2 mt-2 border-b-2 border-transparent hover:border-white transition-all {{ request()->routeIs('store') ? 'border-yellow-400' : '' }}">
+                    Boutique
+                </a>
             </div>
             <div class="flex lg:hidden">
                 <button type="button" class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700">
