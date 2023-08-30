@@ -44,8 +44,8 @@ const swiperOne = new Swiper('.swiper-one', {
 
     // Navigation arrows
     navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
+        nextEl: '.swiper-button-next-one',
+        prevEl: '.swiper-button-prev-one',
     },
 });
 
@@ -58,13 +58,13 @@ const swipeTwo = new Swiper('.swiper-two', {
     loop: true,
     speed:2100,
     autoplay: {
-        delay: 3000,
+        delay: 5000,
     },
 
     // Navigation arrows
     navigation: {
-        nextEl: 'swiper-button-next2',
-        prevEl: '.swiper-button-prev2',
+        nextEl: 'swiper-button-next-two',
+        prevEl: '.swiper-button-prev-two',
     },
 });
 
