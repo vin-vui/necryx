@@ -1,7 +1,7 @@
 <x-guest-layout>
 
     {{-- Main swiper --}}
-    <div class="relative bg-black">
+    <div class="relative bg-black overflow-x-hidden">
         <div class="swiper-one w-full h-[30rem]">
             <div class="swiper-wrapper">
                 <!-- Slides -->
@@ -12,27 +12,25 @@
                 @endforeach
             </div>
             <!--Text of slider-->
-            <div class="absolute bottom-60 z-40 text-white py-4 ml-20">
-                <h2 class="text-7xl font-necryx mb-4 font-bold ">Necryx</h2>
-                <div class="font-p text-xl ">Necryx, votre partenaire privilégié pour des concepts
-                    novateurs, <br> guidés par l'IA, dans les domaines des jeux, de l'art, du design et
+            <div class="absolute md:bottom-60 bottom-52 z-40 text-white py-4 md:ml-20 md:px-0 px-4">
+                <h2 class="md:text-7xl text-5xl font-necryx mb-4 font-bold ">Necryx</h2>
+                <div class="font-p md:text-xl text-lg">Necryx, votre partenaire privilégié pour des concepts
+                    novateurs, guidés par l'IA, dans les domaines des jeux, de l'art, du design et
                     des technologies.
                 </div>
             </div>
-            <div class="swiper-button-prev-one"></div>
-            <div class="swiper-button-next-one"></div>
         </div>
     </div>
 
     {{-- Cards under the slides --}}
-    <div class="flex flex-col w-auto lg:flex-row justify-around gap-x-20 mx-20 relative -mt-44 z-40">
+    <div class="flex flex-col w-auto md:flex-row justify-evenly md:gap-12 md:mx-20 mx-4 relative -mt-44 z-40">
 
         <!--First card-->
         @include('home._partials.feature-card', [
             'title' => 'Nos Jeux',
             'content' => 'Explorez notre collection de jeux et plongez dans des univers uniques. Découvrez des mécanismes de jeu innovants qui raviront les joueurs de tous horizons !',
             'icon' => '<path fill="#0a0101" d="M20.5 11H19V7a2 2 0 0 0-2-2h-4V3.5A2.5 2.5 0 0 0 10.5 1A2.5 2.5 0 0 0 8 3.5V5H4a2 2 0 0 0-2 2v3.8h1.5c1.5 0 2.7 1.2 2.7 2.7c0 1.5-1.2 2.7-2.7 2.7H2V20a2 2 0 0 0 2 2h3.8v-1.5c0-1.5 1.2-2.7 2.7-2.7c1.5 0 2.7 1.2 2.7 2.7V22H17a2 2 0 0 0 2-2v-4h1.5a2.5 2.5 0 0 0 2.5-2.5a2.5 2.5 0 0 0-2.5-2.5Z" />',
-            'textButton' => 'section jeux',
+            'textButton' => 'visitez notre section jeux',
             'link' => '#'
         ])
 
@@ -41,7 +39,7 @@
             'title' => 'Concepts & conseils',
             'content' => 'Besoin d’idées novatrices, de conseils personnalisés ou d’un univers à votre mesure ? Ne cherchez plus, nous sommes là pour tout vos futurs concepts.',
             'icon' => '<path fill="#0a0101" d="M7 5.6L5.6 7L3.5 4.9l1.4-1.4L7 5.6M1 13h3v-2H1v2M13 1h-2v3h2V1m-3 21c0 .6.4 1 1 1h2c.6 0 1-.4 1-1v-1h-4v1m10-11v2h3v-2h-3m-.9-7.5L17 5.6L18.4 7l2.1-2.1l-1.4-1.4M18 12c0 2.2-1.2 4.2-3 5.2V19c0 .6-.4 1-1 1h-4c-.6 0-1-.4-1-1v-1.8c-1.8-1-3-3-3-5.2c0-3.3 2.7-6 6-6s6 2.7 6 6m-9.44-2h6.88C14.75 8.81 13.5 8 12 8s-2.75.81-3.44 2Z" />',
-            'textButton' => 'section concepts et conseils',
+            'textButton' => 'découvrez nos concepts et conseils',
             'link' => '#'
         ])
 
@@ -50,14 +48,14 @@
             'title' => 'Boutique',
             'content' => 'Le meilleur vous attend ici avec les créations exclusives de Necryx. Laissez-vous séduire par nos produits d\'exception, alliant créativité, technologie et gameplay captivant.',
             'icon' => '<path fill="#0a0101" d="M12 13a5 5 0 0 1-5-5h2a3 3 0 0 0 3 3a3 3 0 0 0 3-3h2a5 5 0 0 1-5 5m0-10a3 3 0 0 1 3 3H9a3 3 0 0 1 3-3m7 3h-2a5 5 0 0 0-5-5a5 5 0 0 0-5 5H5c-1.11 0-2 .89-2 2v12a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2Z" />',
-            'textButton' => 'boutique',
+            'textButton' => 'visiter notre boutique',
             'link' => '#'
         ])
 
     </div>
 
     {{-- Second swiper --}}
-    <div class="mt-64 relative">
+    <div class="mt-64 relative overflow-x-hidden">
         <div class="swiper-two w-full h-[20rem]">
             <div class="swiper-wrapper bg-white pb-16 pt-24 sm:pb-24 sm:pt-32 xl:pb-32">
                 @foreach ($collections as $collection)

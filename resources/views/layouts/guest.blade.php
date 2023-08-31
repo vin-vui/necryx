@@ -21,7 +21,7 @@
     @include('home._partials.header')
 
     <!-- Page content -->
-    <div class="font-sans text-gray-900 antialiased">
+    <div class="font-sans text-gray-900 antialiased bg-seasalt">
         {{ $slot }}
     </div>
 

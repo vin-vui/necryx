@@ -1,4 +1,4 @@
-<div class="backdrop-blur-sm bg-white/30 mt-16 w-1/3 p-6 shadow-lg">
+<div class="backdrop-blur-sm bg-white/30 mt-16  p-6 shadow-lg">
     <div class="flex absolute -top-10 bg-gradient-to-br from-yellow-300 to-yellow-700 rounded-full p-6 ring-1 ring-inset ring-white/10">
         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
             {!! $icon !!}
@@ -15,7 +15,7 @@
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75" />
             </svg>
-            Visiter notre {{ $textButton }}
+            {{ $textButton }}
         </button>
     </div>
 </div>
