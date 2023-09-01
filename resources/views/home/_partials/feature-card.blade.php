@@ -1,5 +1,5 @@
-<div class="backdrop-blur-sm bg-white/30 mt-16  p-6 shadow-lg">
-    <div class="flex absolute -top-10 bg-gradient-to-br from-yellow-300 to-yellow-700 rounded-full p-6 ring-1 ring-inset ring-white/10">
+<div class="backdrop-blur-sm bg-white/30 mt-16 p-6 shadow-lg">
+    <div class="w-20 h-20  -mt-16 bg-gradient-to-br from-yellow-300 to-yellow-700 rounded-full p-6">
         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
             {!! $icon !!}
         </svg>
