@@ -1,21 +1,24 @@
 <footer>
-    <div class="bg-white py-16 sm:py-24">
+    <div class="bg-cover bg-fixed py-16 sm:py-32" style="background-image: url({{ url('img/test2.png') }})">
         <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
-            @if (session('success'))
-            <div class="bg-yellow-500 rounded-md text-seasalt p-4 mb-4">
-                {{ session('success') }}
-            </div>
-            @endif
-            <div class="relative isolate overflow-hidden bg-gray-900 px-6 py-24 shadow-2xl sm:rounded-3xl sm:px-24 xl:py-32">
+            <div class="relative isolate overflow-hidden backdrop-blur-sm bg-black/80 px-6 py-24 shadow-2xl sm:px-24 xl:py-32">
                 <h2 class="mx-auto max-w-2xl text-center text-3xl font-bold tracking-tight text-white sm:text-4xl">
-                    Restez en contact avec Necryx</h2>
+                    Restez en contact avec Necryx
+                </h2>
                 <p class="mx-auto mt-2 max-w-xl text-center text-lg leading-8 text-gray-300">Pour être au courant de
-                    nos dernières nouveautés, faites le choix d'être informé !</p>
-                <form action="{{ route('newsletter.subscribe') }}" method="POST" class="mx-auto mt-10 flex max-w-md gap-x-4">
+                    nos dernières nouveautés, <br> faites le choix d'être informé !
+                </p>
+                <form action="{{ route('newsletter.subscribe') }}" method="POST" class="mx-auto mt-10 flex flex-col max-w-md gap-4">
                     @csrf
                     <label for="email-address" class="sr-only">Adresse e-mail</label>
-                    <input id="email-address" name="email" type="email" autocomplete="email" required class="min-w-0 flex-auto rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-white sm:text-sm sm:leading-6" placeholder="Entrez votre adresse e-mail">
-                    <button type="submit" class="flex-none rounded-md px-3.5 py-2.5 text-sm bg-yellow-500 text-white font-p">S'inscrire</button>
+                    <input id="email-address" name="email" type="email" autocomplete="email" required class="min-w-0 text-center flex-auto border-0 bg-white px-3.5 py-2 text-black shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-white sm:text-sm sm:leading-6" placeholder="Entrez votre adresse e-mail">
+                    <button type="submit" class="hover:drop-shadow-[9px_9px_30px_#D0A302] bg-yellow-400 hover:bg-yellow-500 font-p justify-center transition-all text-xs uppercase tracking-widest inline-flex items-center gap-2 py-3 px-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 48 48">
+                            <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" d="M26.755 39.535L6.31 26.307c-2.236-1.703-2.498-6.703-.239-8.915L19.87 8.464L43.5 23.755l-12.067 7.808a4.779 4.779 0 0 0-2.41 4.207c-.008 1.467.848 3.439 2.41 3.038L43.5 30.999l-5.325-3.445" />
+                            <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" d="m19.87 8.464l1.351 13.43l22.279 1.86" />
+                        </svg>
+                        Je m'abonne à la newsletter
+                    </button>
                 </form>
                 <svg viewBox="0 0 1024 1024" class="absolute left-1/2 top-1/2 -z-10 h-[64rem] w-[64rem] -translate-x-1/2" aria-hidden="true">
                     <circle cx="512" cy="512" r="512" fill="url(#759c1415-0410-454c-8f7c-9a820de03641)" fill-opacity="0.7" />
@@ -29,7 +32,7 @@
             </div>
         </div>
     </div>
-    <div class="bg-white">
+    <div class="bg-seasalt">
         <div class="mx-auto max-w-7xl overflow-hidden px-6 py-20 sm:py-24 lg:px-8">
             <nav class="-mb-6 columns-2 sm:flex sm:justify-center sm:space-x-12" aria-label="Footer">
                 <div class="pb-6">

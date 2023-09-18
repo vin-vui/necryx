@@ -5,9 +5,9 @@
             @include('home._partials._nav-links')
         </div>
 
-        <a href="{{ route('home') }}" class="relative z-50 -m-1.5 p-1.5 md:translate-y-6 translate-y-4 bg-black rounded-full">
+        <a href="{{ route('home') }}" class="relative z-50 -m-8 p-1.5 md:translate-y-6 translate-y-4">
             <span class="sr-only">Necryx</span>
-            <x-application-logo />
+            <img src="{{ url('img/logo_black_squared.png') }}" class="h-12 lg:h-20 bg-transparent" />
         </a>
 
         <div class="flex flex-1 justify-end">

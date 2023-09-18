@@ -15,11 +15,11 @@ class FrontHomeController extends Controller
     public function index()
     {
         $users = User::all();
-        $articles = Article::all();
+        $articles = Article::limit(3)->get();
         $sliders = Slider::where('status', 1)->orderBy('order')->get();
-        $collections = Collection::where('status', 1)->orderBy('order')->get();
+        $games = Collection::where('status', 1)->where('types', 'jeu')->orderBy('order')->get();
 
-        return view('home.index', compact('users','articles', 'sliders', 'collections'));
+        return view('home.index', compact('users','articles', 'sliders', 'games'));
     }
 
     public function addRecipient(Request $request)

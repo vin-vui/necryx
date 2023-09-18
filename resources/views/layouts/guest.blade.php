@@ -28,6 +28,12 @@
     <!-- Footer -->
     @include('home._partials.footer')
 
+    @if (session('success'))
+    <div class="fixed z-50 bottom-4 right-4 bg-yellow-500 hover:bg-yellow-600 transition-all cursor-pointer text-black p-4 font-p">
+        {{ session('success') }}
+    </div>
+    @endif
+
     <!-- Scripts -->
     @livewireScripts
 </body>
