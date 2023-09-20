@@ -1,5 +1,5 @@
 <footer>
-    <div class="bg-cover bg-fixed py-16 sm:py-32" style="background-image: url({{ url('img/test2.png') }})">
+    <div class="bg-cover bg-fixed pt-32 pb-16 sm:py-32" style="background-image: url({{ url('img/test2.png') }})">
         <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
             <div class="relative isolate overflow-hidden backdrop-blur-sm bg-black/80 px-6 py-24 shadow-2xl sm:px-24 xl:py-32">
                 <h2 class="mx-auto max-w-2xl text-center text-3xl font-bold tracking-tight text-white sm:text-4xl">
