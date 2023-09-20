@@ -93,7 +93,7 @@
     </div>
 
     <div class="relative bg-seasalt sm:pt-24 mt-10">
-        <div class="bg-black sm:pb-24 xl:pb-0 py-12">
+        <div class="bg-black sm:pb-24 xl:pb-0 sm:pt-0 py-12">
             <div class="mx-auto flex max-w-7xl flex-col items-center gap-x-8 gap-y-10 px-6 sm:gap-y-8 lg:px-8 xl:flex-row xl:items-stretch">
 
                 <div class="w-full max-w-2xl xl:max-w-none xl:flex-auto xl:px-16 xl:py-24">
