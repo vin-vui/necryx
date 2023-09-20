@@ -13,8 +13,8 @@
             </div>
             <!--Text of slider-->
             <div class="absolute md:bottom-60 bottom-52 z-40 text-white py-4 md:ml-20 md:px-0 px-4">
-                <h2 class="md:text-7xl text-5xl font-necryx mb-4 font-bold ">Necryx</h2>
-                <div class="font-p md:text-xl text-lg">Necryx, votre partenaire privilégié pour des concepts
+                <h1 class="md:text-7xl text-5xl font-necryx mb-4 font-bold ">Necryx</h1>
+                <div class="font-p md:text-xl text-lg">Votre partenaire privilégié pour des concepts
                     novateurs, guidés par l'IA, dans les domaines des jeux, de l'art, du design et
                     des technologies.
                 </div>
@@ -55,9 +55,9 @@
     </div>
 
     {{-- Second swiper --}}
-    <div class="mt-32 relative overflow-x-hidden bg-cover shapedividers_com-333 bg-fixed" style="background-image: url('img/test1.png')">
+    <div class="mt-32 relative overflow-x-hidden bg-cover shapedividers_com-333 bg-fixed" style="background-image: url('{{ url('img/test1.png') }}')">
         <div class="swiper-two w-full ">
-            <div class="swiper-wrapper sm:py-64">
+            <div class="swiper-wrapper md:py-64 pt-64 pb-52">
                 @foreach ($games as $game)
                 @include('home._partials.game-slide')
                 @endforeach
@@ -67,7 +67,7 @@
         </div>
     </div>
 
-    <div class="shapedividers_com-9517 w-full h-64 bg-transparent -mt-64"></div>
+    <div class="shapedividers_com-9517 w-full h-64 bg-transparent -mt-60"></div>
 
     {{-- cards of articles --}}
     <div class="relative">
@@ -107,11 +107,11 @@
                         </blockquote>
                         <figcaption class="mt-8 text-base">
                             <div class="font-semibold font-p text-white">Alix Faivre</div>
-                            <div class="mt-1 font-p text-gray-400">Fondateur de Necryx</div>
+                            <div class="mt-1 font-p text-gray-400">Fondateur de <span class="font-necryx">Necryx</span></div>
                         </figcaption>
                     </figure>
                 </div>
-                <div class="-mt-28 w-full max-w-2xl xl:-mb-8 xl:w-96 xl:flex-none">
+                <div class="md:-mt-28 -mb-32 w-full max-w-2xl xl:-mb-8 xl:w-96 xl:flex-none">
                     <div class="relative aspect-[2/1] h-full mt-1 md:-mx-8 xl:mx-0 xl:aspect-auto">
                         @php $image = url('img/pp.jpg'); @endphp
                         <x-hex :image="$image" :classes="'drop-shadow-[9px_9px_30px_#D0A302]'" />

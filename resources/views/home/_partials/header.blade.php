@@ -1,20 +1,20 @@
 <header x-data="{ openMenu: false }" class="bg-black sticky top-0 z-50">
-    <nav class="mx-auto flex items-center justify-between px-4 md:px-8" aria-label="Global">
+    <nav class="mx-auto flex items-center justify-between px-4 sm:px-8" aria-label="Global">
 
-        <div class="hidden md:flex md:gap-x-12 flex-1">
+        <div class="hidden sm:flex sm:gap-x-8 flex-1">
             @include('home._partials._nav-links')
         </div>
 
-        <a href="{{ route('home') }}" class="relative z-50 -m-8 p-1.5 md:translate-y-6 translate-y-4">
+        <a href="{{ route('home') }}" class="relative z-50 sm:-m-8 -m-2 p-1.5 sm:translate-y-6 translate-y-4">
             <span class="sr-only">Necryx</span>
-            <img src="{{ url('img/logo_black_squared.png') }}" class="h-12 lg:h-20 bg-transparent" />
+            <img src="{{ url('img/logo_black_squared.png') }}" class="h-12 lg:h-20 bg-transparent hover:animate-spin" />
         </a>
 
         <div class="flex flex-1 justify-end">
-            <div class="md:flex hidden ">
+            <div class="sm:flex hidden">
                 @include('home._partials._nav-user')
             </div>
-            <div class='flex  md:hidden' x-data="{ open: false }">
+            <div class='flex  sm:hidden' x-data="{ open: false }">
                 <div class="relative z-50 flex items-center">
                     <button class='text-white transition duration-500 ease-in-out transform rotate-0 cursor-pointer group focus:outline-none' @click="open = !open">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 24 24"><path fill="currentColor" d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>
