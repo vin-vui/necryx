@@ -93,7 +93,7 @@
     </div>
 
     <div class="relative bg-seasalt sm:pt-24 mt-10">
-        <div class="bg-black sm:pb-24 xl:pb-0">
+        <div class="bg-black sm:pb-24 xl:pb-0 py-12">
             <div class="mx-auto flex max-w-7xl flex-col items-center gap-x-8 gap-y-10 px-6 sm:gap-y-8 lg:px-8 xl:flex-row xl:items-stretch">
 
                 <div class="w-full max-w-2xl xl:max-w-none xl:flex-auto xl:px-16 xl:py-24">
@@ -111,7 +111,7 @@
                         </figcaption>
                     </figure>
                 </div>
-                <div class="md:-mt-28 -mb-20 w-full max-w-2xl xl:-mb-8 xl:w-96 xl:flex-none">
+                <div class="md:-mt-28  w-full max-w-2xl xl:-mb-8 xl:w-96 xl:flex-none">
                     <div class="relative aspect-[2/1] h-full mt-1 md:-mx-8 xl:mx-0 xl:aspect-auto">
                         @php $image = url('img/pp.jpg'); @endphp
                         <x-hex :image="$image" :classes="'drop-shadow-[9px_9px_30px_#D0A302]'" />
