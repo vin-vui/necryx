@@ -22,13 +22,13 @@
                 <p class="mt-6 font-p text-lg leading-8 text-gray-600 animate-slideInTop">
                     @switch(request()->route()->parameters['type'])
                     @case('jeu')
-                    Des jeux uniques, pour des moments épiques !
+                    De la chaleur des jeux en bois inspirés de l'univers viking à la complexité captivante de l'univers de Necropolis, notre passion se traduit par une gamme diversifiée. Chez Necryx, nous fusionnons créativité et innovation pour vous proposer des expériences de jeu exceptionnelles, quels que soient vos préférences !
                     @break
                     @case('concept')
-                    Explorez des concepts innovants !
+                    Chez Necryx, notre créativité n'a pas de limites. En passant par des concepts uniques, du game design innovant à des idées audacieuses et ambitieuses, nous repoussons constamment les frontières pour vous offrir des expériences conceptuelles sans pareil. Explorez notre univers où chaque concept est une invitation à la découverte et à l'innovation.
                     @break
                     @case('art')
-                    Des créations fusionnant la créativité humaine à la technologie
+                    De la fusion entre la créativité humaine et l'intelligence artificielle à l'art directement façonné par l'homme, toutes nos créations, parfois étranges, conceptuelles ou dérangeantes, reflètent notre passion pour l'Art. Chez Necryx, l'Art est une exploration continue, vous invitant à la réflexion et à la découverte de l'inattendu...
                     @break
                     @endswitch
                 </p>
@@ -60,6 +60,6 @@
         </div>
         @break
         @endswitch
-        
+
     </div>
 </x-guest-layout>
