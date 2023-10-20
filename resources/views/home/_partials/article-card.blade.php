@@ -1,4 +1,4 @@
-<div class="flex flex-col overflow-hidden shadow-xl hover:shadow-golden/30 group hover:scale-105 transition duration-300" data-aos="{{ Arr::random(['fade-up', 'fade-left', 'fade-right', 'fade-down']) }}" data-aos-duration="{{ Arr::random(['1000', '1500', '500']) }}">
+<div class="flex flex-col overflow-hidden shadow-xl hover:shadow-golden/30 group hover:scale-105 transition duration-300" data-aos="{{ Arr::random(['fade-up', 'fade-down']) }}" data-aos-duration="{{ Arr::random(['1000', '1500', '500']) }}">
     <div class="flex-shrink-0">
         <img class="h-48 w-full group-hover:opacity-80 duration-300 object-cover" src="{{ $article->image != null ? Storage::url($article->image) : url('img/office1.png') }}" alt="{{ $article->title }}">
     </div>

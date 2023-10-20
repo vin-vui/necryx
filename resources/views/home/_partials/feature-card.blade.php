@@ -11,11 +11,11 @@
         </p>
     </div>
     <div class="mt-8 flex justify-end">
-        <button type="button" class="hover:drop-shadow-[0px_0px_19px_#D0A302] bg-yellow-400 hover:bg-yellow-500 transition-all text-xs uppercase tracking-widest inline-flex items-center gap-2 py-3 px-4">
+        <a href="{{ $link }}" class="hover:drop-shadow-[0px_0px_19px_#D0A302] bg-yellow-400 hover:bg-yellow-500 transition-all text-xs uppercase tracking-widest inline-flex items-center gap-2 py-3 px-4">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75" />
             </svg>
             {{ $textButton }}
-        </button>
+        </a>
     </div>
 </div>

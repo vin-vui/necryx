@@ -1,5 +1,5 @@
 <x-guest-layout>
-    <div class="relative bg-seasalt pb-20 pt-16 lg:pb-28 lg:pt-24">
+    <div class="relative bg-seasalt pb-20 pt-16 lg:pb-28 lg:pt-32">
 
         <div class="px-6 lg:px-8">
             <div class="mx-auto max-w-2xl text-center">
