@@ -7,10 +7,6 @@ use App\Http\Controllers\CollectionController;
 use App\Http\Controllers\TagController;
 use App\Http\Controllers\FrontHomeController;
 use App\Http\Controllers\SliderController;
-use App\Http\Controllers\NewsletterController;
-use App\Http\Controllers\FrontCollectionController;
-use App\Http\Controllers\FrontInformationController;
-use App\Http\Controllers\FrontConceptController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,12 +25,14 @@ use App\Http\Controllers\FrontConceptController;
 / ----------------------------
 */
 Route::get('/', [FrontHomeController::class, 'index'])->name('home');
-Route::post('/newsletter/subscribe', [NewsletterController::class, 'subscribe'])->name('newsletter.subscribe');
-Route::get('/contact-form', [FrontConceptController::class, 'contact'])->name('contact-form');
-Route::get('/collections-necryx/{type}', [FrontCollectionController::class, 'index'])->name('collections');
-Route::get('/collections-necryx/item/{collection}', [FrontCollectionController::class,' show'])->name('collection');
-Route::get('/informations', [FrontInformationController::class, 'index'])->name('informations');
-Route::get('/concepts', [FrontConceptController::class, 'index'])->name('concepts');
+Route::get('/contact-form', [FrontHomeController::class, 'contact'])->name('contact-form');
+Route::get('/informations', [FrontHomeController::class, 'informations'])->name('informations');
+Route::get('/concepts', [FrontHomeController::class, 'concepts'])->name('concepts');
+Route::post('/newsletter/subscribe', [FrontHomeController::class, 'subscribe'])->name('newsletter.subscribe');
+Route::get('/collections-necryx/{type}', [FrontHomeController::class, 'collections'])->name('collections');
+Route::get('/collections-necryx/item/{collection}', [FrontHomeController::class, 'collection'])->name('collection');
+Route::get('/articles-necryx', [FrontHomeController::class, 'articles'])->name('articles');
+Route::get('/articles-necryx/{article}', [FrontHomeController::class, 'article'])->name('article');
 
 /*
 / ----------------------------

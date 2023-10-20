@@ -15,18 +15,65 @@ export default {
         extend: {
             fontFamily: {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
-                'necryx':['dune_rise'],
-                'h1':['neuropolitical'],
-                'h2':['Bruno Ace', 'display'],
-                'p':['Nunito Sans', 'sans-serif']
+                'necryx': ['dune_rise'],
+                'h1': ['neuropolitical'],
+                'h2': ['Bruno Ace', 'display'],
+                'p': ['Nunito Sans', 'sans-serif']
             },
-
-            colors:{
+            colors: {
                 'seasalt': '#FAFAFA',
-                'golden':'#D0A302',
-                'smoky-black':'#0A0101',
-                'lightblack':'#04040A',
-                'dark-red':'#8E0000',
+                'golden': '#D0A302',
+                'smoky-black': '#0A0101',
+                'lightblack': '#04040A',
+                'dark-red': '#8E0000',
+            },
+            animation: {
+                slideInLeft: '1.5s ease-out 0s 1 slideInLeft',
+                slideInRight: '1.5s ease-out 0s 1 slideInRight',
+                slideInTop: '1.5s ease-out 0s 1 slideInTop',
+                slideInBottom: '1.5s ease-out 0s 1 slideInBottom',
+            },
+            keyframes: {
+                slideInLeft: {
+                    '0%': {
+                        transform: 'translateX(-100%)',
+                        opacity: '0',
+                    },
+                    '100%': {
+                        transform: 'translateX(0)',
+                        opacity: '1',
+                    }
+                },
+                slideInRight: {
+                    '0%': {
+                        transform: 'translateX(100%)',
+                        opacity: '0',
+                    },
+                    '100%': {
+                        transform: 'translateX(0)',
+                        opacity: '1',
+                    }
+                },
+                slideInTop: {
+                    '0%': {
+                        transform: 'translateY(-100%)',
+                        opacity: '0',
+                    },
+                    '100%': {
+                        transform: 'translateY(0)',
+                        opacity: '1',
+                    }
+                },
+                slideInBottom: {
+                    '0%': {
+                        transform: 'translateY(100%)',
+                        opacity: '0',
+                    },
+                    '100%': {
+                        transform: 'translateY(0)',
+                        opacity: '1',
+                    }
+                }
             }
         },
     },

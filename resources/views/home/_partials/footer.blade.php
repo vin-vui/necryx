@@ -1,12 +1,12 @@
 <footer>
     <div class="bg-cover bg-fixed pt-32 pb-16 sm:py-32" style="background-image: url({{ url('img/test2.png') }})">
-        <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
+        <div class="mx-auto max-w-7xl sm:px-6 lg:px-8" data-aos="zoom-in" data-aos-duration="1000">
             <div class="relative isolate overflow-hidden backdrop-blur-sm bg-black/80 px-6 py-24 shadow-2xl sm:px-24 xl:py-32">
-                <h2 class="mx-auto max-w-2xl text-center text-3xl font-bold tracking-tight text-white sm:text-4xl">
+                <h2 class="mx-auto max-w-2xl text-center text-3xl font-bold font-p tracking-tight text-white sm:text-4xl">
                     Restez en contact avec <br> <span class="font-necryx">Necryx</span>
                 </h2>
-                <p class="mx-auto mt-2 max-w-xl text-center text-lg leading-8 text-gray-300">Pour être au courant de
-                    nos dernières nouveautés, <br class="hidden sm:block"> faites le choix d'être informé !
+                <p class="mx-auto mt-2 max-w-xl text-center text-lg leading-5 text-gray-300">
+                    Pour être au courant de nos dernières nouveautés, <br class="hidden sm:block"> faites le choix d'être informé !
                 </p>
                 <form action="{{ route('newsletter.subscribe') }}" method="POST" class="mx-auto mt-10 flex flex-col max-w-md gap-4">
                     @csrf

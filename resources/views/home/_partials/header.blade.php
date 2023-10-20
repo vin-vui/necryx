@@ -1,4 +1,4 @@
-<header x-data="{ openMenu: false }" class="bg-black sticky top-0 z-50">
+<header x-data="{ openMenu: false }" class="bg-black fixed w-full top-0 z-50 animate-slideInTop">
     <nav class="mx-auto flex items-center justify-between px-4 sm:px-8" aria-label="Global">
 
         <div class="hidden sm:flex sm:gap-x-8 flex-1">

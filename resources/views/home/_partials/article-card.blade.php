@@ -1,4 +1,4 @@
-<div class="flex flex-col overflow-hidden shadow-xl hover:shadow-golden/30 group hover:scale-105 transition duration-300">
+<div class="flex flex-col overflow-hidden shadow-xl hover:shadow-golden/30 group hover:scale-105 transition duration-300" data-aos="{{ Arr::random(['fade-up', 'fade-left', 'fade-right', 'fade-down']) }}" data-aos-duration="{{ Arr::random(['1000', '1500', '500']) }}">
     <div class="flex-shrink-0">
         <img class="h-48 w-full group-hover:opacity-80 duration-300 object-cover" src="{{ $article->image != null ? Storage::url($article->image) : url('img/office1.png') }}" alt="{{ $article->title }}">
     </div>
@@ -26,7 +26,7 @@
                     </div>
                 </div>
             </div>
-            <a href="" class="hover:drop-shadow-[0px_0px_19px_#D0A302] bg-yellow-400 hover:bg-yellow-500 transition-all font-p text-xs uppercase tracking-widest inline-flex items-center gap-2 py-3 px-4">
+            <a href="{{ route('article', $article) }}" class="hover:drop-shadow-[0px_0px_19px_#D0A302] bg-yellow-400 hover:bg-yellow-500 transition-all font-p text-xs uppercase tracking-widest inline-flex items-center gap-2 py-3 px-4">
                 <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="M8.59 16.59L13.17 12L8.59 7.41L10 6l6 6l-6 6l-1.41-1.41z"/></svg>
                 lire la suite
             </a>
