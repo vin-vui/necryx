@@ -7,16 +7,14 @@ use App\Models\Tag;
 
 class TagController extends Controller
 {
-    
+
     public function index()
     {
         $tags = Tag::all();
 
-        return view ('tags.index', compact ('tags'));
+        return view('tags.index', compact('tags'));
     }
 
-
-    // create function 
     public function create()
     {
         return view('tags.create');
@@ -24,54 +22,42 @@ class TagController extends Controller
 
     public function store(Request $request)
     {
-        $validData = $request->validate ([
-            'name'=>'required'
-            ]);
- 
-            Tag::create($validData);
+        $validData = $request->validate([
+            'name' => 'required',
+            'description' => 'nullable'
+        ]);
 
-        return redirect()->route('tags.index')
-                        ->with ('success', 'Votre Tag a bien été enregistré !');
-     }
+        Tag::create($validData);
 
-    //  Show function
-     public function show(Tag $tag)
+        return redirect()->route('tags.index')->with('success', 'Votre Tag a bien été enregistré !');
+    }
+
+    public function show(Tag $tag)
     {
         return view('tags.show', ['tag' => $tag]);
     }
 
-
-
-    // Edit function
-    public function edit (Tag $tag)
+    public function edit(Tag $tag)
     {
-     
-        return view('tags.edit',compact('tag'));
-
+        return view('tags.edit', compact('tag'));
     }
-
 
     public function update(Request $request, Tag $tag)
     {
-        $validData = $request->validate ([
-           'name'=>'nullable'
-       ]);
+        $validData = $request->validate([
+            'name' => 'nullable',
+            'description' => 'nullable'
+        ]);
 
         $tag->update($validData);
 
-     
-        return redirect()->route('tags.index')
-                       ->with ('success', 'Tag mis à jour avec succès !');
-
+        return redirect()->route('tags.index')->with('success', 'Tag mis à jour avec succès !');
     }
 
-
-
-    //  Destroy function
-     public function destroy (Tag $tag)
-     {
+    public function destroy(Tag $tag)
+    {
         $tag->delete();
-        return redirect()->route('tags.index')
-                            ->with ('success', 'Tag supprimé avec succès');
-     }
+
+        return redirect()->route('tags.index')->with('success', 'Tag supprimé avec succès');
+    }
 }

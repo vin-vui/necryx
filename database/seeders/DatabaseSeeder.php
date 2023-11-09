@@ -21,24 +21,14 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        Newsletter::factory(10)->create();
-        Tag::factory(15)->create();
-        Article::factory(10)->create();
-        Collection::factory(20)->create();
-        
+        // Newsletter::factory(10)->create();
+        Tag::factory(5)->create();
+        // Article::factory(10)->create();
+        // Collection::factory(20)->create();
+
         $this->call([
             TypeSeeder::class,
-            UserSeeder::class,
-            SliderSeeder::class
+            UserSeeder::class
         ]);
-        
-
-        
-        // \App\Models\User::factory(10)->create();
-
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
     }
 }

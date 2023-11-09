@@ -13,85 +13,76 @@ class ArticleController extends Controller
     {
         $articles = Article::all();
 
-        return view ('articles.index', compact ('articles'));
+        return view('articles.index', compact('articles'));
     }
 
-
-    // create function 
     public function create()
     {
         $articles = Article::all();
         $types = Type::all();
-        return view('articles.create', compact('articles','types'));
+        return view('articles.create', compact('articles', 'types'));
     }
 
     public function store(Request $request)
     {
-        $validData = $request->validate ([
-            'type_id'=>'required',
-            'title'=>'required',
-            'content'=> 'required',
-            'image'=> 'required',
+        $validData = $request->validate([
+            'type_id' => 'required',
+            'title' => 'required',
+            'content' => 'required',
+            'image' => 'required',
             'description' => 'nullable',
             'status' => 'nullable',
-            ]);
+        ]);
 
-            $path = Storage::putFileAs('public', $request->image, $validData['title'].'.'.$request->image->extension());
-            $validData["image"] = $path;
+        $path = Storage::putFileAs('public', $request->image, $validData['title'] . '.' . $request->image->extension());
+        $validData["image"] = $path;
 
-            Article::create($validData);
+        Article::create($validData);
 
         return redirect()->route('articles.index')
-                        ->with ('success', 'Votre article a bien été enregistré !');
-     }
-
-    //  Show function
-     public function show(Article $article, Type $type)
-    {
-        $types = Type::all();
-        return view('articles.show', compact('article','type'));
+            ->with('success', 'Votre article a bien été enregistré !');
     }
 
-
-    // Edit function
-    public function edit (Article $article, Type $types)
+    public function show(Article $article, Type $type)
     {
-
         $types = Type::all();
-        return view('articles.edit', compact('article','types'));
 
+        return view('articles.show', compact('article', 'type'));
+    }
+
+    public function edit(Article $article, Type $types)
+    {
+        $types = Type::all();
+
+        return view('articles.edit', compact('article', 'types'));
     }
 
 
     public function update(Request $request, Article $article)
     {
-        $validData = $request->validate ([
-            'type_id'=>'required',
-            'title'=>'required',
-            'content'=> 'required',
-            'image'=> 'required',
+        $validData = $request->validate([
+            'type_id' => 'required',
+            'title' => 'required',
+            'content' => 'required',
+            'image' => 'sometimes|image|mimes:jpeg,png,jpg,gif,svg,webp|max:10240',
             'description' => 'nullable',
             'status' => 'nullable',
-       ]);
+        ]);
 
-        $path = Storage::putFileAs('public', $request->image, $validData['title'].'.'.$request->image->extension());
-        $validData["image"] = $path;
+        if($request->has('image')) {
+            $path = Storage::putFileAs('public', $request->image, $validData['title'] . '.' . $request->image->extension());
+            $validData["image"] = $path;
+        }
 
         $article->update($validData);
 
-     
-        return redirect()->route('articles.index')
-                       ->with ('success', 'Article mis à jour avec succès !');
-
+        return redirect()->route('articles.index')->with('success', 'Article mis à jour avec succès !');
     }
 
-
-
-    //  Destroy function
-     public function destroy (Article $article)
-     {
+    public function destroy(Article $article)
+    {
         $article->delete();
-        return redirect()->route('articles.index')
-                            ->with ('success', 'Article supprimé avec succès !');
-     }
+
+        return redirect()->route('articles.index')->with('success', 'Article supprimé avec succès !');
+    }
 }

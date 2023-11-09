@@ -14,17 +14,14 @@ return new class extends Migration
         Schema::create('collections', function (Blueprint $table) {
             $table->id();
             $table->string('name')->unique();
-            $table->enum('types',['jeu','concept','art']);
+            $table->enum('type', ['jeu','concept','art']);
             $table->longText('content');
             $table->string('image')->nullable();
-            $table->string('number_players')->nullable();
+            $table->string('players')->nullable();
             $table->string('duration')->nullable();
             $table->string('age')->nullable();
             $table->string('origin')->nullable();
-            $table->tinyInteger('order')->nullable();
-            $table->longText('example')->nullable();
-            $table->longText('description')->nullable();
-            $table->tinyInteger('status')->default(0);
+            $table->enum('status', ['draft', 'published', 'archived'])->default('draft');
             $table->timestamps();
         });
     }

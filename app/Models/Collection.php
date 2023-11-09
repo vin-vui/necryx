@@ -12,16 +12,13 @@ class Collection extends Model
 
     protected $fillable =[
         'name',
-        'types',
+        'type',
         'content',
         'image',
-        'number_players',
+        'players',
         'duration',
         'age',
         'origin',
-        'order',
-        'example',
-        'description',
         'status'
     ];
 
