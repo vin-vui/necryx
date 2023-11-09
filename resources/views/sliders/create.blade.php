@@ -1,11 +1,11 @@
 <x-app-layout>
-    <div class="m-10">
-        <div class="pb-8 flex justify-around items-center">
-            <h2 class="font-bold text-lg text-white">CRUD sliders - Necryx</h2>
-            <a class="border-4 border-gray-800 bg-gray-800 text-white rounded-xl p-2" href="{{ route('sliders.index') }}">
-                Retour</a>
+    <div class="">
+        <div class="pb-4 flex justify-end items-end">
+            <a class="py-4 px-6 bg-gray-800 text-white hover:bg-gray-600" href="{{ route('sliders.index') }}">
+                Retour
+            </a>
         </div>
-        <div class="row mt-2">
+        <div class="">
             <div class="col-lg-12 italic pb-4 text-white">
                 @if ($message = Session::get('success'))
                 <div class="alert alert-success">
@@ -13,7 +13,7 @@
                 </div>
                 @endif
             </div>
-            <div class="col-lg-12 border-4 border-gray-800 p-4 rounded-xl bg-gray-800 text-white drop-shadow-2xl">
+            <div class="col-lg-12 border-4 border-gray-800 p-4 bg-gray-800 text-white drop-shadow-2xl">
                 @if ($errors->any())
                 <div class="alert alert-danger">
                     Il y a un problème avec votre enregistrement.<br>

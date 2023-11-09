@@ -17,9 +17,9 @@ return new class extends Migration
             $table->enum('types',['jeu','concept','art']);
             $table->longText('content');
             $table->string('image')->nullable();
-            $table->integer('number_players')->nullable();
-            $table->integer('duration')->nullable();
-            $table->integer('age')->nullable();
+            $table->string('number_players')->nullable();
+            $table->string('duration')->nullable();
+            $table->string('age')->nullable();
             $table->string('origin')->nullable();
             $table->tinyInteger('order')->nullable();
             $table->longText('example')->nullable();

@@ -47,7 +47,7 @@ Route::middleware([
     'is_admin'
 ])->group(function () {
     Route::get('/dashboard', function () { return view('dashboard'); })->name('dashboard');
-    Route::get('/admin/profile', function(){ return view('profile.show-admin'); })->name('profile.admin');
+    Route::get('/admin/profile', function(){ return view('profile.show'); })->name('profile.admin');
 
     Route::resource('articles', ArticleController::class);
     Route::resource('types', TypeController::class);
