@@ -20,8 +20,6 @@
                             <p class="mt-6 font-p">{!! $collection->content !!}</p>
                             <div class="mt-6 italic font-h2 text-sm text-golden">Origine</div>
                             <p class="font-p">{!! $collection->origin !!}</p>
-                            <div class="mt-6 italic font-h2 text-sm text-golden">Examples</div>
-                            <p class="font-p">{!! $collection->example !!}</p>
                         </div>
                     </div>
                     <dl class="mt-10 border-t border-gray-900/10 pt-10 ">
