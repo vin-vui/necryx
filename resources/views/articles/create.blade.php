@@ -28,11 +28,10 @@
             <div class="pb-5">
                 <label class="font-bold text-lg">Type</label>
                 <div class=" text-black">
-                    <select class="text-black w-full focus:ring-2 ring-1 ring-gray-50 border-0 ring-inset focus:ring-inset focus:ring-yellow-400 " name="type">
-                        {{-- TODO: faire un foreach des types --}}
-                        <option {{ old("type") == "jeu" ? "selected":"" }} value="jeu">Jeu</option>
-                        <option {{ old("type") == "concept" ? "selected":"" }} value="concept">Concept</option>
-                        <option {{ old("type") == "art" ? "selected":"" }} value="art">Art</option>
+                    <select class="text-black w-full focus:ring-2 ring-1 ring-gray-50 border-0 ring-inset focus:ring-inset focus:ring-yellow-400 " name="type_id">
+                        @foreach ($types as $type)
+                        <option value="{{ $type->id }}">{{ $type->name }}</option>
+                        @endforeach
                     </select>
                 </div>
             </div>
@@ -65,12 +64,24 @@
                     </div>
                 </div>
             </div>
-            <div class="text-center w-full">
-                <button type="submit" class="hover:drop-shadow-[0px_0px_19px_#D0A302] bg-yellow-400 hover:bg-yellow-500 transition-all font-p text-xs uppercase tracking-widest inline-flex justify-center items-center gap-2 py-3 px-4 w-full text-center text-gray-900">
-                    <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
-                        <path fill="currentColor" d="M17 3H3v18h18V7l-4-4zm-5 16c-1.66 0-3-1.34-3-3s1.34-3 3-3s3 1.34 3 3s-1.34 3-3 3zm3-10H5V5h10v4z" /></svg>
-                    Enregistrer
-                </button>
+            <div class="flex items-end justify-between gap-10">
+                <div class="w-full">
+                    <label class="font-bold text-lg">Status</label>
+                    <div class="w-full text-black">
+                        <select class="text-black w-full focus:ring-2 ring-1 ring-gray-50 border-0 ring-inset focus:ring-inset focus:ring-yellow-400 " name="status">
+                            <option {{ old("status") == "draft" ? "selected":"" }} value="draft">Brouillon</option>
+                            <option {{ old("status") == "published" ? "selected":"" }} value="published">Publié</option>
+                            <option {{ old("status") == "archived" ? "selected":"" }} value="archived">Archivé</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="text-center w-full">
+                    <button type="submit" class="hover:drop-shadow-[0px_0px_19px_#D0A302] bg-yellow-400 hover:bg-yellow-500 transition-all font-p text-xs uppercase tracking-widest inline-flex justify-center items-center gap-2 py-3 px-4 w-full text-center text-gray-900">
+                        <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
+                            <path fill="currentColor" d="M17 3H3v18h18V7l-4-4zm-5 16c-1.66 0-3-1.34-3-3s1.34-3 3-3s3 1.34 3 3s-1.34 3-3 3zm3-10H5V5h10v4z" /></svg>
+                        Enregistrer
+                    </button>
+                </div>
             </div>
         </form>
     </div>

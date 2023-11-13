@@ -87,11 +87,11 @@
 <a href="{{ route('concepts') }}" class="text-sm font-semibold leading-6 font-p text-white md:pb-5 md:mt-6 border-b-4 border-transparent hover:border-white hover:shadow-[0px_15px_15px_-15px_#FFFFFF] transition-all {{ request()->routeIs('concepts') ? 'border-yellow-400 shadow-[0px_15px_15px_-15px_#D0A302]' : '' }}">
     Concepts & Conseils
 </a>
-<a href="{{ route('informations') }}" class="text-sm font-semibold leading-6 font-p text-white md:pb-5 md:mt-6 border-b-4 border-transparent hover:border-white hover:shadow-[0px_15px_15px_-15px_#FFFFFF] transition-all {{ request()->routeIs('informations') ? 'border-yellow-400 shadow-[0px_15px_15px_-15px_#D0A302]' : '' }}">
-    Informations
+<a href="{{ route('informations') }}" class="text-sm capitalize font-semibold leading-6 font-p text-white md:pb-5 md:mt-6 border-b-4 border-transparent hover:border-white hover:shadow-[0px_15px_15px_-15px_#FFFFFF] transition-all {{ request()->routeIs('informations') ? 'border-yellow-400 shadow-[0px_15px_15px_-15px_#D0A302]' : '' }}">
+    à propos
 </a>
 <a href="{{ route('articles') }}" class="text-sm font-semibold leading-6 font-p text-white md:pb-5 md:mt-6 border-b-4 border-transparent hover:border-white hover:shadow-[0px_15px_15px_-15px_#FFFFFF] transition-all {{ request()->routeIs('articles') ? 'border-yellow-400 shadow-[0px_15px_15px_-15px_#D0A302]' : '' }}">
-    Nos Articles
+    Blog
 </a>
 <a href="{{ route('shop') }}" class="text-sm font-semibold leading-6 font-p text-white md:pb-5 md:mt-6 border-b-4 border-transparent hover:border-white hover:shadow-[0px_15px_15px_-15px_#FFFFFF] transition-all {{ request()->routeIs('store') ? 'border-yellow-400 shadow-[0px_15px_15px_-15px_#D0A302]' : '' }}">
     Boutique

@@ -102,17 +102,17 @@
                             <use href="#b56e9dab-6ccb-4d32-ad02-6b4bb5d9bbeb" x="86" />
                         </svg>
                         <blockquote class="text-xl font-semibold leading-8 text-white sm:text-2xl sm:leading-9">
-                            <div>Nous devons mettre la Technologie au service de l’Imagination pour réinventer les règles du jeu et ouvrir de nouveaux horizons.</div>
+                            <div>Nous allons mettre la Technologie au service de l’Imagination pour réinventer les règles du jeu et ouvrir de nouveaux horizons.</div>
                         </blockquote>
                         <figcaption class="mt-8 text-base">
-                            <div class="font-semibold font-p text-white">Alix Faivre</div>
-                            <div class="mt-1 font-p text-gray-400">Fondateur de <span class="font-necryx">Necryx</span></div>
+                            <div class="font-semibold font-p text-white">Valerian Necryx</div>
+                            <div class="mt-1 font-p text-gray-400">Persona fondadrice de <span class="font-necryx">Necryx</span></div>
                         </figcaption>
                     </figure>
                 </div>
                 <div class="md:-mt-28  w-full max-w-2xl xl:-mb-8 xl:w-96 xl:flex-none" data-aos="fade-down" data-aos-duration="1000">
                     <div class="relative aspect-[2/1] h-full mt-1 md:-mx-8 xl:mx-0 xl:aspect-auto">
-                        @php $image = url('img/pp.jpg'); @endphp
+                        @php $image = url('img/Valerian_Persona.png'); @endphp
                         <x-hex :image="$image" :classes="'drop-shadow-[9px_9px_30px_#D0A302]'" />
                     </div>
                 </div>

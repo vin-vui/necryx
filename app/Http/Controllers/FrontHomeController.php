@@ -16,9 +16,9 @@ class FrontHomeController extends Controller
     public function index()
     {
         $users = User::all();
-        $articles = Article::where('status', 1)->latest()->limit(3)->get();
+        $articles = Article::where('status', 'published')->latest()->limit(3)->get();
         $sliders = Slider::where('status', 1)->orderBy('order')->get();
-        $games = Collection::where('status', 1)->where('types', 'jeu')->orderBy('order')->get();
+        $games = Collection::where('status', 'published')->where('type', 'jeu')->get();
 
         return view('home.index', compact('users','articles', 'sliders', 'games'));
     }
@@ -53,6 +53,11 @@ class FrontHomeController extends Controller
         return view ('home.concepts');
     }
 
+    public function shop()
+    {
+        return view ('home.shop');
+    }
+
     public function contact(Request $request)
     {
         Mail::to(env('MAIL_TO_ADDRESS'))->send(new ContactForm($request->name));
@@ -60,7 +65,7 @@ class FrontHomeController extends Controller
 
     public function collections($type)
     {
-        $collections = Collection::where('types', $type)->get();
+        $collections = Collection::where('type', $type)->get();
 
         return view ('home.collections', compact('collections'));
     }

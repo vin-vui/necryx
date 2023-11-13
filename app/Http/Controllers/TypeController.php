@@ -18,7 +18,7 @@ class TypeController extends Controller
     }
 
 
-    // create function 
+    // create function
     public function create()
     {
         return view('types.create');
@@ -27,12 +27,12 @@ class TypeController extends Controller
     public function store(Request $request)
     {
         $validData = $request->validate ([
-            'name'=>'required',
-            'persona'=>'required',
-            'image'=> 'required',
-            'description'=>'nullable',
+            'name' => 'required',
+            'persona' => 'required',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg,webp|max:10240',
+            'description' => 'nullable',
         ]);
- 
+
         $path = Storage::putFileAs('public', $request->image, $validData['name'].'.'.$request->image->extension());
         $validData["image"] = $path;
 
@@ -61,15 +61,18 @@ class TypeController extends Controller
         $validData = $request->validate ([
             'name'=>'required',
             'persona'=>'required',
-            'image'=> 'required',
+            'image' => 'sometimes|image|mimes:jpeg,png,jpg,gif,svg,webp|max:10240',
+            'description' => 'nullable',
         ]);
 
-        $path = Storage::putFileAs('public', $request->image, $validData['name'].'.'.$request->image->extension());
-        $validData["image"] = $path;
+        if($request->has('image')) {
+            $path = Storage::putFileAs('public', $request->image, $validData['name'] . '.' . $request->image->extension());
+            $validData["image"] = $path;
+        }
 
         $type->update($validData);
 
-     
+
         return redirect()->route('types.index')->with ('success', 'Type mis à jour avec succès !');
     }
 

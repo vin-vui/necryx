@@ -1,80 +1,77 @@
 <x-app-layout>
-    <div class="m-10">
-        <div class="pb-8 flex justify-around items-center">
-            <h2 class="font-bold text-lg text-white">CRUD Types - Necryx</h2>
-            <a class="border-4 border-gray-800 bg-gray-800 text-white rounded-xl p-2" href="{{ route('types.index') }}">
-                Retour</a>
-        </div>
-        <div class="row mt-2">
-            <div class="italic pb-4 text-white">
-                @if ($message = Session::get('success'))
-                    <div class="alert alert-success">
-                        <p>{{ $message }}</p>
-                    </div>
-                @endif
-            </div>
-            <div class="border-4 border-gray-800 p-4 rounded-xl bg-gray-800 text-white drop-shadow-2xl">
-                @if ($errors->any())
-                    <div class="alert alert-danger">
-                        Il y a un problème avec votre enregistrement.<br>
-                        <ul>
-                            @foreach ($errors->all() as $error)
-                                <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
-                    </div>
-                @endif
 
-                <form action="{{ route('types.update', $type->id) }}" method="POST" enctype="multipart/form-data">
-                    @csrf
-                    @method('PUT')
-
-                    <div class="row">
-                        <div class="pb-5">
-                            <label class="font-bold text-lg">Nom :</label>
-                            <div>
-                                <select class="text-black" name="name" id="nom">
-                                    <option value="art" data-persona="alpha"
-                                        {{ $type->name === 'art' ? 'selected' : '' }}> Art</option>
-                                    <option value="jeu" data-persona="omega"
-                                        {{ $type->name === 'jeu' ? 'selected' : '' }}> Jeu</option>
-                                    <option value="concept" data-persona="beta"
-                                        {{ $type->name === 'concept' ? 'selected' : '' }}> Concept</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="pb-5">
-                            <label class="font-bold text-lg">Persona :</label>
-                            <div>
-                                <select class="text-black" name="persona" id="persona">
-                                    <option value="alpha" data-nom="art"
-                                        {{ $type->persona === 'alpha' ? 'selected' : '' }}>Alpha</option>
-                                    <option value="omega" data-nom="jeu"
-                                        {{ $type->persona === 'omega' ? 'selected' : '' }}>Omega</option>
-                                    <option value="beta" data-nom="concept"
-                                        {{ $type->persona === 'beta' ? 'selected' : '' }}>Beta</option>
-                                </select>
-                            </div>
-                            <div class="pb-5">
-                                <label class="font-bold text-lg">Description :</label>
-                                <div class="flex flex-col">
-                                    <textarea class="form-control w-full text-black" rows="6" name="description" placeholder="Description">{{ $type->description }}</textarea>
-                                </div>
-                            </div>
-                            <div class="flex flex-col py-2">
-                                <label class="font-bold text-lg" for="image">Image :</label>
-                                <input type="file" name="image" id="image" class="form-control-file">
-                                @if ($type->image)
-                                    <img src="{{ Storage::url($type->image) }}" alt="Image">
-                                @endif
-                            </div>
-                            <div class="text-center">
-                                <button type="submit"
-                                    class="border-4 border-gray-800 bg-white  text-gray-800 rounded-xl p-2">Envoyer</button>
-                            </div>
-                        </div>
-                </form>
-            </div>
-        </div>
+    <div class="fixed right-4 top-4 z-50">
+        <a class="hover:drop-shadow-[0px_0px_19px_#D0A302] bg-yellow-400 hover:bg-yellow-500 transition-all font-p text-xs uppercase tracking-widest inline-flex justify-center items-center gap-2 py-3 px-4 text-center text-gray-900" href="{{ route('types.index') }}">
+            <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
+                <path fill="currentColor" d="m14 17l-5-5l5-5v10Z" />
+            </svg>
+            Retour
+        </a>
     </div>
+
+    <div class="border-4 mt-12 border-gray-800 p-4 bg-gray-800 text-white drop-shadow-2xl">
+
+        @if ($errors->any())
+        <div class="alert alert-danger">
+            Il y a un problème avec votre enregistrement.<br>
+            <ul>
+                @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+        @endif
+
+        <form action="{{ route('types.update', $type) }}" method="POST" enctype="multipart/form-data">
+            @csrf
+            @method('PUT')
+
+            <div class="row">
+                <div class="pb-5">
+                    <label class="font-bold text-lg">Type</label>
+                    <div class=" text-black">
+                        <input type="text" name="name" class="w-full focus:ring-2 ring-1 ring-gray-50 border-0 ring-inset focus:ring-inset focus:ring-yellow-400" value="{{ $type->name }}">
+                    </div>
+                </div>
+                <div class="pb-5">
+                    <label class="font-bold text-lg">Persona</label>
+                    <div class=" text-black">
+                        <input type="text" name="persona" class="w-full focus:ring-2 ring-1 ring-gray-50 border-0 ring-inset focus:ring-inset focus:ring-yellow-400" value="{{ $type->persona }}">
+                    </div>
+                </div>
+                <div class="pb-5">
+                    <label class="font-bold text-lg">Description</label>
+                    <div class=" text-black">
+                        <textarea class="w-full focus:ring-2 ring-1 ring-gray-50 border-0 ring-inset focus:ring-inset focus:ring-yellow-400 " name="description" cols="30" rows="10">{{ $type->description }}</textarea>
+                    </div>
+                </div>
+                <div class="pb-5">
+                    <label class="font-bold text-lg">Visuel</label>
+                    <div class="flex justify-center border border-dashed border-gray-50 px-6 py-10">
+                        <div class="text-center">
+                            <div class="flex justify-center">
+                                <img class="h-96 w-auto object-cover" src="{{ Storage::url($type->image) }}" alt="">
+                            </div>
+                            <div class="mt-4 flex justify-center text-sm leading-6 text-gray-600">
+                                <label for="file-upload" class="relative cursor-pointer bg-yellow-500 px-3 font-semibold text-gray-900 focus-within:outline-none focus-within:ring-2 focus-within:ring-yellow-400 focus-within:ring-offset-2 hover:text-gray-50">
+                                    <span>Choisir un fichier</span>
+                                    <input id="file-upload" name="image" type="file" class="sr-only">
+                                </label>
+                            </div>
+                            <p class="text-xs leading-5 text-gray-600">jpeg, png, jpg, gif, svg, webp jusqu'à 10Mo</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center w-full">
+                    <button type="submit" class="hover:drop-shadow-[0px_0px_19px_#D0A302] bg-yellow-400 hover:bg-yellow-500 transition-all font-p text-xs uppercase tracking-widest inline-flex justify-center items-center gap-2 py-3 px-4 w-full text-center text-gray-900">
+                        <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
+                            <path fill="currentColor" d="M17 3H3v18h18V7l-4-4zm-5 16c-1.66 0-3-1.34-3-3s1.34-3 3-3s3 1.34 3 3s-1.34 3-3 3zm3-10H5V5h10v4z" />
+                        </svg>
+                        Enregistrer
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+
 </x-app-layout>

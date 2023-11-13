@@ -31,7 +31,7 @@ class ArticleController extends Controller
             'content' => 'required',
             'image' => 'required',
             'description' => 'nullable',
-            'status' => 'nullable',
+            'status' => 'required',
         ]);
 
         $path = Storage::putFileAs('public', $request->image, $validData['title'] . '.' . $request->image->extension());
@@ -39,8 +39,7 @@ class ArticleController extends Controller
 
         Article::create($validData);
 
-        return redirect()->route('articles.index')
-            ->with('success', 'Votre article a bien été enregistré !');
+        return redirect()->route('articles.index')->with('success', 'Votre article a bien été enregistré !');
     }
 
     public function show(Article $article, Type $type)
@@ -66,7 +65,7 @@ class ArticleController extends Controller
             'content' => 'required',
             'image' => 'sometimes|image|mimes:jpeg,png,jpg,gif,svg,webp|max:10240',
             'description' => 'nullable',
-            'status' => 'nullable',
+            'status' => 'required',
         ]);
 
         if($request->has('image')) {
