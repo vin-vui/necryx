@@ -30,6 +30,9 @@
                     <th scope="col" class="px-6 py-3 text-center">
                         type
                     </th>
+                    <th scope="col" class="px-6 py-3 text-center">
+                        status
+                    </th>
                     <th scope="col" class="px-6 py-3 text-right">
                         actions
                     </th>
@@ -55,6 +58,19 @@
                         @case('art')
                         <span class="bg-violet-400 text-gray-900 py-0.5 px-2 rounded-tl-md rounded-br-md">art</span>
                         @break
+                        @endswitch
+                    </td>
+                    <td class="px-6 font-medium whitespace-nowrap text-white text-center">
+                        @switch($article->status)
+                            @case('draft')
+                                <span class="bg-yellow-500 py-0.5 px-2 rounded-full">brouillon</span>
+                                @break
+                            @case('published')
+                                <span class="bg-green-500 py-0.5 px-2 rounded-full">publié</span>
+                                @break
+                            @case('archived')
+                                <span class="bg-red-500 py-0.5 px-2 rounded-full">archivé</span>
+                                @break
                         @endswitch
                     </td>
                     <td class="px-6 font-medium whitespace-nowrap">

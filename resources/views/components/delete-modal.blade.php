@@ -1,4 +1,4 @@
-<div x-show="showModal" class="fixed inset-0 flex items-center justify-center z-50">
+<div x-cloak x-show="showModal" class="fixed inset-0 flex items-center justify-center z-50">
     <div class="bg-white dark:bg-gray-600 p-6 rounded-lg shadow-lg dark:text-gray-300 border-gray-900 border-2">
         <h2 class="text-lg font-bold mb-4">Confirmation de suppression</h2>
         <p class="mb-4">Êtes-vous sûr de vouloir supprimer ce tag ?</p>

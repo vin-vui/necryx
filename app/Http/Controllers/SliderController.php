@@ -12,7 +12,7 @@ class SliderController extends Controller
     {
         $sliders = Slider::all();
 
-        return view ('sliders.index', compact ('sliders'));
+        return view('sliders.index', compact('sliders'));
     }
 
 
@@ -24,12 +24,12 @@ class SliderController extends Controller
 
     public function store(Request $request)
     {
-        $validData = $request->validate ([
-            'name'=>'required',
-            'image'=>'required',
-            'description'=>'required',
-            'order'=>'nullable|integer',
-            'status'=>'required',
+        $validData = $request->validate([
+            'name' => 'required',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg,webp|max:10240',
+            'description' => 'required',
+            'order' => 'nullable|integer',
+            'status' => 'required',
         ]);
 
         $path = Storage::putFileAs('public', $request->image, $validData['name'] . '.' . $request->image->extension());
@@ -39,52 +39,47 @@ class SliderController extends Controller
 
 
         return redirect()->route('sliders.index')
-                        ->with ('success', 'Votre image a bien été enregistrée !');
-     }
+            ->with('success', 'Votre image a bien été enregistrée !');
+    }
 
-     //  Show function
-     public function show(Slider $slider)
+    //  Show function
+    public function show(Slider $slider)
     {
         return view('sliders.show', ['slider' => $slider]);
     }
 
     // Edit function
-    public function edit (Slider $slider)
+    public function edit(Slider $slider)
     {
-     
-        return view('sliders.edit',compact('slider'));
-
+        return view('sliders.edit', compact('slider'));
     }
 
     public function update(Request $request, Slider $slider)
     {
-        $validData = $request->validate ([
-            'name'=>'required',
-            'image'=>'required|image|mimes:jpeg,png,jpg,gif,svg,webp',
-            'description'=>'required',
-            'order'=>'nullable',
-            'status'=>'required',
-       ]);
+        $validData = $request->validate([
+            'name' => 'required',
+            'image' => 'sometimes|image|mimes:jpeg,png,jpg,gif,svg,webp|max:10240',
+            'description' => 'required',
+            'order' => 'nullable',
+            'status' => 'required',
+        ]);
 
-
-        $path = Storage::putFileAs('public', $request->image, $validData['name'].'.'.$request->image->extension());
-        $validData["image"] = $path;
-
+        if ($request->has('image')) {
+            $path = Storage::putFileAs('public', $request->image, $validData['name'] . '.' . $request->image->extension());
+            $validData["image"] = $path;
+        }
 
         $slider->update($validData);
 
-     
-        return redirect()->route('sliders.index')
-                       ->with ('success', 'Image mise à jour avec succès !');
-
+        return redirect()->route('sliders.index')->with('success', 'Image mise à jour avec succès !');
     }
 
     //  Destroy function
-    public function destroy (Slider $slider)
+    public function destroy(Slider $slider)
     {
-       $slider->delete();
-       return redirect()->route('sliders.index')
-                           ->with ('success', 'Image supprimée avec succès');
+        $slider->delete();
+
+        return redirect()->route('sliders.index')->with('success', 'Image supprimée avec succès');
     }
 
 }

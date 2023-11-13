@@ -22,44 +22,61 @@
         </div>
         @endif
 
-        <form action="{{ route('sliders.update', $slider->id) }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('sliders.update', $slider) }}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('PUT')
 
-            <div class="row">
-                <div class="col-xs-12 col-sm-12 col-md-12 pb-5">
-                    <label class="font-bold text-lg">Nom :</label>
-                    <div class="form-group text-black">
-                        <input type="text" name="name" value="{{ $slider->name }}" class="form-control w-full" placeholder="Nom">
+            <div class="pb-5">
+                <label class="font-bold text-lg">Titre</label>
+                <div class=" text-black">
+                    <input type="text" name="name" class="w-full focus:ring-2 ring-1 ring-gray-50 border-0 ring-inset focus:ring-inset focus:ring-yellow-400" value="{{ $slider->name }}">
+                </div>
+            </div>
+            <div class="pb-5">
+                <label class="font-bold text-lg">Contenu</label>
+                <div class=" text-black">
+                    <textarea class="w-full focus:ring-2 ring-1 ring-gray-50 border-0 ring-inset focus:ring-inset focus:ring-yellow-400 " name="description" cols="30" rows="10">{{ $slider->description }}</textarea>
+                </div>
+            </div>
+            <div class="pb-5">
+                <label class="font-bold text-lg">Visuel</label>
+                <div class="flex justify-center border border-dashed border-gray-50 px-6 py-10">
+                    <div class="text-center">
+                        <div class="flex justify-center">
+                            <img class="h-96 w-auto object-cover" src="{{ Storage::url($slider->image) }}" alt="">
+                        </div>
+                        <div class="mt-4 flex justify-center text-sm leading-6 text-gray-600">
+                            <label for="file-upload" class="relative cursor-pointer bg-yellow-500 px-3 font-semibold text-gray-900 focus-within:outline-none focus-within:ring-2 focus-within:ring-yellow-400 focus-within:ring-offset-2 hover:text-gray-50">
+                                <span>Choisir un fichier</span>
+                                <input id="file-upload" name="image" type="file" class="sr-only">
+                            </label>
+                        </div>
+                        <p class="text-xs leading-5 text-gray-600">jpeg, png, jpg, gif, svg, webp jusqu'à 10Mo</p>
                     </div>
                 </div>
-                <div class="col-xs-12 col-sm-12 col-md-12 pb-5">
-                    <label class="font-bold text-lg">Description :</label>
-                    <div class="form-group">
-                        <textarea class="form-control w-full text-black" rows="6" name="description" value="" placeholder="Description">{{ $slider->description }}</textarea>
-                    </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12 pb-5">
+                <label class="font-bold text-lg">Ordre</label>
+                <div class="form-group text-black">
+                    <input type="number" name="order" value="{{ $slider->order }}" class="w-full focus:ring-2 ring-1 ring-gray-50 border-0 ring-inset focus:ring-inset focus:ring-yellow-400">
                 </div>
-                <div class="form-group py-2">
-                    <label class="font-bold text-lg" for="image">Image :</label>
-                    <input type="file" name="image" id="image" class="form-control-file">
-                </div>
-                <div class="col-xs-12 col-sm-12 col-md-12 pb-5">
-                    <label class="font-bold text-lg">Ordre :</label>
-                    <div class="form-group text-black">
-                        <input type="number" name="order" class="form-control w-full" placeholder="Ordre">
-                    </div>
-                </div>
-                <div class="col-xs-12 col-sm-12 col-md-12 pb-5">
-                    <label class="font-bold text-lg">Status :</label>
-                    <div class="form-group text-black">
-                        <select name="status" class="form-select">
-                            <option value="1">Active</option>
-                            <option value="0">Inactive</option>
+            </div>
+            <div class="flex items-end justify-between gap-10">
+                <div class="w-full">
+                    <label class="font-bold text-lg">Status</label>
+                    <div class="w-full text-black">
+                        <select class="text-black w-full focus:ring-2 ring-1 ring-gray-50 border-0 ring-inset focus:ring-inset focus:ring-yellow-400 " name="status">
+                            <option @selected($slider->status == 1) value="1">Active</option>
+                            <option @selected($slider->status == 0) value="0">Inactive</option>
                         </select>
                     </div>
                 </div>
-                <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-                    <button type="submit" class="border-4 border-gray-800 bg-white  text-gray-800 rounded-xl p-2">Envoyer</button>
+                <div class="text-center w-full">
+                    <button type="submit" class="hover:drop-shadow-[0px_0px_19px_#D0A302] bg-yellow-400 hover:bg-yellow-500 transition-all font-p text-xs uppercase tracking-widest inline-flex justify-center items-center gap-2 py-3 px-4 w-full text-center text-gray-900">
+                        <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
+                            <path fill="currentColor" d="M17 3H3v18h18V7l-4-4zm-5 16c-1.66 0-3-1.34-3-3s1.34-3 3-3s3 1.34 3 3s-1.34 3-3 3zm3-10H5V5h10v4z" /></svg>
+                        Enregistrer
+                    </button>
                 </div>
             </div>
         </form>

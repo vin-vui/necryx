@@ -29,7 +29,7 @@ class ArticleController extends Controller
             'type_id' => 'required',
             'title' => 'required',
             'content' => 'required',
-            'image' => 'required',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg,webp|max:10240',
             'description' => 'nullable',
             'status' => 'required',
         ]);

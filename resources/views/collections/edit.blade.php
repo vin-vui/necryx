@@ -108,7 +108,6 @@
                         <label class="font-bold text-lg">Status</label>
                         <div class="w-full text-black">
                             <select class="text-black w-full focus:ring-2 ring-1 ring-gray-50 border-0 ring-inset focus:ring-inset focus:ring-yellow-400 " name="status">
-                                {{-- TODO: faire un foreach des types --}}
                                 <option @selected($collection->status == "draft") value="draft">Brouillon</option>
                                 <option @selected($collection->status == "published") value="published">Publié</option>
                                 <option @selected($collection->status == "archived") value="archived">Archivé</option>
