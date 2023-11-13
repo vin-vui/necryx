@@ -18,8 +18,8 @@
     @endif
 
     <div class="relative overflow-x-auto shadow-md mt-12">
-        <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-            <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+        <table class="w-full text-sm text-left text-gray-400">
+            <thead class="text-xs uppercase bg-gray-700 text-gray-400">
                 <tr>
                     <th scope="col" class="px-6 py-3">
                         nom
@@ -34,7 +34,7 @@
             </thead>
             <tbody>
                 @foreach ($tags as $tag)
-                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                <tr class="border-b bg-gray-800 border-gray-700">
                     <td class="py-4 px-6 font-bold whitespace-nowrap text-white">
                         {{ $tag->name }}
                     </td>
@@ -43,11 +43,11 @@
                     </td>
                     <td class="px-6 font-medium whitespace-nowrap">
                         <div class="flex items-end justify-end">
-                            <a class="btn btn-primary pr-2 class=font-medium text-blue-600 dark:text-blue-500 hover:underline" href="{{ route('tags.edit', $tag->id) }}">Editer</a>
+                            <a class="btn btn-primary pr-2 class=font-medium text-blue-500 hover:underline" href="{{ route('tags.edit', $tag->id) }}">Editer</a>
                             <form action="{{ route('tags.destroy', $tag->id) }}" method="POST" x-data="{ showModal: false }">
                                 @csrf
                                 @method('DELETE')
-                                <button type="button" class="btn btn-danger class=font-medium text-red-600 dark:text-red-500 hover:underline" @click="showModal = true">Supprimer</button>
+                                <button type="button" class="btn btn-danger class=font-medium text-red-500 hover:underline" @click="showModal = true">Supprimer</button>
                                 <x-delete-modal />
                             </form>
                         </div>

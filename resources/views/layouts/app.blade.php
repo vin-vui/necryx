@@ -21,7 +21,7 @@
 
     <x-banner />
 
-    <div class="antialiased bg-gray-50 dark:bg-gray-900">
+    <div class="antialiased bg-gray-900">
 
         <!-- Sidebar -->
         <nav class="fixed top-0 left-0 z-40 w-64 h-screen pt-8 transition-transform -translate-x-full md:translate-x-0 bg-gray-800 border-gray-700" aria-label="Sidenav" id="drawer-navigation">
@@ -29,7 +29,7 @@
                 <x-application-logo />
                 <span class="text-2xl font-semibold whitespace-nowrap text-white font-necryx">Necryx</span>
             </a>
-            <div class="overflow-y-auto py-5 px-3 h-full bg-white dark:bg-gray-800">
+            <div class="overflow-y-auto py-5 px-3 h-full bg-gray-800">
                 <ul class="space-y-2">
                     <li>
                         <a href="{{ route('sliders.index') }}" class="flex items-center p-2 text-base font-medium text-white hover:bg-gray-700 group {{ request()->routeIs('sliders.*') ? 'bg-gray-700' : '' }}">

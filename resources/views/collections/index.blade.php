@@ -18,8 +18,8 @@
     @endif
 
     <div class="relative overflow-x-auto shadow-md mt-12">
-        <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-            <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+        <table class="w-full text-sm text-left text-gray-400">
+            <thead class="text-xs uppercase bg-gray-700 text-gray-400">
                 <tr>
                     <th scope="col" class="px-6 py-3">
                         visuel
@@ -40,7 +40,7 @@
             </thead>
             <tbody>
                 @foreach ($collections as $collection)
-                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                <tr class="border-b bg-gray-800 border-gray-700">
                     <td class="px-6 py-2">
                         <img class="h-16 w-auto object-cover" src="{{ Storage::url($collection->image) }}" alt="">
                     </td>
@@ -75,11 +75,11 @@
                     </td>
                     <td class="px-6 font-medium whitespace-nowrap">
                         <div class="flex items-end justify-end">
-                            <a class="btn btn-primary pr-2 class=font-medium text-blue-600 dark:text-blue-500 hover:underline" href="{{ route('collections.edit', $collection->id) }}">Editer</a>
+                            <a class="btn btn-primary pr-2 class=font-medium text-blue-500 hover:underline" href="{{ route('collections.edit', $collection->id) }}">Editer</a>
                             <form action="{{ route('collections.destroy', $collection->id) }}" method="POST" x-data="{ showModal: false }">
                                 @csrf
                                 @method('DELETE')
-                                <button type="button" class="btn btn-danger class=font-medium text-red-600 dark:text-red-500 hover:underline" @click="showModal = true">Supprimer</button>
+                                <button type="button" class="btn btn-danger class=font-medium text-red-500 hover:underline" @click="showModal = true">Supprimer</button>
                                 <x-delete-modal />
                             </form>
                         </div>
