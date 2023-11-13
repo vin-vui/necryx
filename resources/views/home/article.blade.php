@@ -13,10 +13,6 @@
                         <h1 class="mt-2 text-3xl font-h2 capitalize font-bold tracking-tight text-gray-900 sm:text-4xl">{{ $article->name}}</h1>
                         <div class="max-w-xl">
                             <p class="mt-6 font-p">{!! $article->content !!}</p>
-                            <div class="mt-6 italic font-h2 text-sm text-golden">Origine</div>
-                            <p class="font-p">{!! $article->origin !!}</p>
-                            <div class="mt-6 italic font-h2 text-sm text-golden">Examples</div>
-                            <p class="font-p">{!! $article->example !!}</p>
                         </div>
                     </div>
                 </div>
