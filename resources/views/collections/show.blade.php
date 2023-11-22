@@ -36,7 +36,7 @@
                     <div class="pb-5">
                         <div class="flex flex-col">
                             <label class="font-bold text-lg">Nombre de joueurs</label>
-                            {{ $collection->number_players}}
+                            {{ $collection->players}}
                         </div>
                     </div>
                     <div class="pb-5">

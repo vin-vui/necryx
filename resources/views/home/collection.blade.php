@@ -35,7 +35,7 @@
                                 <div class="font-semibold text-md text-gray-900 font-h2">Nombre de joueurs</div>
                                 <div class="">
                                     <span class="font-h2 py-0.5 px-3 bg-gradient-to-br from-yellow-300 to-yellow-700 rounded-tl-xl rounded-br-xl text-gray-900 text-lg font-semibold">
-                                        {{ $collection->number_players }}
+                                        {{ $collection->players }}
                                     </span>
                                 </div>
                             </div>
@@ -48,7 +48,7 @@
                                 </div>
                             </div>
                             <div class="">
-                                <div class="font-semibold text-md text-gray-900 font-h2"><span class="capitalize">à</span> partir de</div>
+                                <div class="font-semibold text-md text-gray-900 font-h2 capitalize">âge</div>
                                 <div class="">
                                     <span class="py-0.5 px-3 font-h2 bg-gradient-to-br from-yellow-300 to-yellow-700 rounded-tl-xl rounded-br-xl text-gray-900 text-lg font-semibold">
                                         {{ $collection->age }}

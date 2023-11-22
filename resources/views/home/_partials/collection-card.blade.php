@@ -1,7 +1,7 @@
 <a href="{{ route('collection', $collection->id) }}" class="flex flex-col overflow-hidden shadow-lg hover:shadow-golden/30 group hover:scale-105 duration-300">
 
     <div class="relative">
-       <img class="h-96 w-full object-cover hover:opacity-80 duration-300" src="{{ $collection->image != null ? Storage::url($collection->image) : url('img/office2.png') }}" alt="{{ $collection->title}}">
+        <img class="h-96 w-full object-cover hover:opacity-80 duration-300" src="{{ $collection->image != null ? Storage::url($collection->image) : url('img/office2.png') }}" alt="{{ $collection->title}}">
     </div>
 
     <div class="flex flex-1 flex-col justify-between bg-white p-6">
@@ -14,7 +14,7 @@
                 @case('jeu')
                 <div class="flex justify-between">
                     <p class="text-l font-semibold font-p text-dark-red capitalize hover:underline">
-                        {{ $collection->number_players}} joueurs
+                        {{ $collection->players}} joueurs
                     </p>
                     <p class="text-l font-semibold font-p text-dark-red capitalize hover:underline">
                         {{ $collection->duration}} heures

@@ -17,15 +17,15 @@ class CollectionFactory extends Factory
     public function definition(): array
     {
         return [
-            'name'=>$this -> faker->unique()-> word(),
-            'types' => $this -> faker -> randomElement(['jeu', 'art', 'concept']),
-            'content' => $this -> faker -> paragraph(),
-            'image'=> '',
-            'number_players'=> $this -> faker -> numberBetween(1,6),
-            'duration' => $this -> faker -> randomDigit(),
-            'age' => $this -> faker -> numberBetween(8,18),
-            'origin'=> $this -> faker -> sentence(),
-            'example'=> $this -> faker -> paragraph(),
+            'name' => $this->faker->unique()->word(),
+            'types' => $this->faker->randomElement(['jeu', 'art', 'concept']),
+            'content' => $this->faker->paragraph(),
+            'image' => '',
+            'players' => $this->faker->numberBetween(1, 6),
+            'duration' => $this->faker->randomDigit(),
+            'age' => $this->faker->numberBetween(8, 18),
+            'origin' => $this->faker->sentence(),
+            'example' => $this->faker->paragraph(),
         ];
     }
 }
