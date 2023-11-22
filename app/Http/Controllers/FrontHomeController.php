@@ -13,6 +13,10 @@ use Illuminate\Support\Facades\Mail;
 
 class FrontHomeController extends Controller
 {
+    /**
+     * Display the home page.
+     * @return \Illuminate\Contracts\View\View
+     */
     public function index()
     {
         $users = User::all();
@@ -23,83 +27,129 @@ class FrontHomeController extends Controller
         return view('home.index', compact('users','articles', 'sliders', 'games'));
     }
 
+    /**
+     * Add recipient to newsletter.
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function addRecipient(Request $request)
     {
         $validData = $request->validate ([
-            'email'=>'required',
+            'email' => 'required|email',
         ]);
 
         Newsletter::create($validData);
 
-        //banner with registration confirmation
         session()->flash('flash.banner', 'Inscription prise en compte !');
         session()->flash('flash.bannerStyle', 'success');
 
         return redirect()->back();
     }
 
+    /**
+     * Display the login page.
+     * @return \Illuminate\Contracts\View\View
+     */
     public function login()
     {
         return view('login');
     }
 
+    /**
+     * Display the informations page.
+     * @return \Illuminate\Contracts\View\View
+     */
     public function informations()
     {
         return view ('home.informations');
     }
 
+    /**
+     * Display the concepts page.
+     * @return \Illuminate\Contracts\View\View
+     */
     public function concepts()
     {
         return view ('home.concepts');
     }
 
+    /**
+     * Display the shop page.
+     * @return \Illuminate\Contracts\View\View
+     */
     public function shop()
     {
         return view ('home.shop');
     }
 
+    /**
+     * Send contact form.
+     * @param Request $request
+     * @return void
+     */
     public function contact(Request $request)
     {
         Mail::to(env('MAIL_TO_ADDRESS'))->send(new ContactForm($request->name));
     }
 
+    /**
+     * Display a listing of collections.
+     * @param $type
+     * @return \Illuminate\Contracts\View\View
+     */
     public function collections($type)
     {
-        $collections = Collection::where('type', $type)->get();
+        $collections = Collection::where('type', $type)->where('status', 'published')->get();
 
         return view ('home.collections', compact('collections'));
     }
 
+    /**
+     * Display the specified collection.
+     * @param Collection $collection
+     * @return \Illuminate\Contracts\View\View
+     */
     public function collection(Collection $collection)
     {
         return view ('home.collection', compact('collection'));
     }
 
+    /**
+     * Display a listing of articles.
+     * @return \Illuminate\Contracts\View\View
+     */
     public function articles()
     {
-        $articles = Article::where('status', 1)->latest()->get();
+        $articles = Article::where('status', 'published')->latest()->get();
 
         return view ('home.articles', compact('articles'));
     }
 
+    /**
+     * Display the specified article.
+     * @param Article $article
+     * @return \Illuminate\Contracts\View\View
+     */
     public function article(Article $article)
     {
-        return view ('home.article', compact('article'));
+        return view('home.article', compact('article'));
     }
 
+    /**
+     * Subscribe to newsletter.
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function subscribe(Request $request)
     {
-        // Valider les données du formulaire
         $request->validate([
-            'email' => 'required|email|unique:newsletters,email',
+            'email' => 'required|email',
         ]);
 
-        // Enregistrer l'adresse e-mail dans la base de données
         Newsletter::create([
             'email' => $request->email,
         ]);
 
-        // Afficher un message de confirmation
         return redirect()->back()->with('success', 'Vous êtes inscrit à notre newsletter !');
     }
 }

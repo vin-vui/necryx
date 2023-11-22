@@ -18,7 +18,7 @@
                     <div class="pb-5">
                         <div class="flex flex-col">
                             <label class="font-bold text-lg">Type</label>
-                            {{ $collection->types}}
+                            {{ $collection->type}}
                         </div>
                     </div>
                     <div class="pb-5">
@@ -66,7 +66,7 @@
                     <div class="pb-5">
                         <div class="flex flex-col">
                             <label class="font-bold text-lg">Image </label>
-                            <img src="{{ Storage::url($collection->image) }}"> 
+                            <img src="{{ Storage::url($collection->image) }}">
                         </div>
                     </div>
                 </div>
