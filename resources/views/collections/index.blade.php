@@ -48,7 +48,7 @@
                         {{ $collection->name }}
                     </td>
                     <td class="px-6 text-center">
-                        <span class="bg-yellow-400 text-gray-900 py-0.5 px-2 rounded-tl-md rounded-br-md">{{ $collection->type->name }}</span>
+                        <span class="bg-yellow-400 text-gray-900 py-0.5 px-2 rounded-tl-md rounded-br-md">{{ $collection->type != null ? $collection->type->name : 'N/A' }}</span>
                     </td>
                     <td class="px-6 font-medium whitespace-nowrap text-white text-center">
                         @switch($collection->status)
