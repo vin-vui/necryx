@@ -91,6 +91,11 @@ class FrontHomeController extends Controller
     public function contact(Request $request)
     {
         Mail::to(env('MAIL_TO_ADDRESS'))->send(new ContactForm($request->name));
+
+        session()->flash('flash.banner', 'Email envoyé avec succès !');
+        session()->flash('flash.bannerStyle', 'success');
+
+        return redirect()->back();
     }
 
     /**
