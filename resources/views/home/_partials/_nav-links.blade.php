@@ -97,6 +97,6 @@
     Boutique
 </a>
 
-<div class="md:hidden flex pt-8">
+{{-- <div class="md:hidden flex pt-8">
     @include('home._partials._nav-user')
-</div>
+</div> --}}
