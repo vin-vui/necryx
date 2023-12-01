@@ -9,6 +9,7 @@ use App\Mail\ContactForm;
 use App\Models\Collection;
 use App\Models\Newsletter;
 use Illuminate\Http\Request;
+use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Mail;
 
 class FrontHomeController extends Controller
@@ -22,7 +23,7 @@ class FrontHomeController extends Controller
         $users = User::all();
         $articles = Article::where('status', 'published')->latest()->limit(3)->get();
         $sliders = Slider::where('status', 1)->orderBy('order')->get();
-        $games = Collection::where('status', 'published')->where('type', 'jeu')->get();
+        $games = Collection::where('status', 'published')->where('type_id', 1)->get();
 
         return view('home.index', compact('users','articles', 'sliders', 'games'));
     }
@@ -95,11 +96,11 @@ class FrontHomeController extends Controller
     /**
      * Display a listing of collections.
      * @param $type
-     * @return \Illuminate\Contracts\View\View
+     * @return View
      */
-    public function collections($type)
+    public function collections($type_id): View
     {
-        $collections = Collection::where('type', $type)->where('status', 'published')->get();
+        $collections = Collection::where('type_id', $type_id)->where('status', 'published')->get();
 
         return view ('home.collections', compact('collections'));
     }
@@ -107,9 +108,9 @@ class FrontHomeController extends Controller
     /**
      * Display the specified collection.
      * @param Collection $collection
-     * @return \Illuminate\Contracts\View\View
+     * @return View
      */
-    public function collection(Collection $collection)
+    public function collection(Collection $collection): View
     {
         return view ('home.collection', compact('collection'));
     }

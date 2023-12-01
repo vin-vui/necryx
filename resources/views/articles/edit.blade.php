@@ -30,10 +30,9 @@
                 <label class="font-bold text-lg">Type</label>
                 <div class=" text-black">
                     <select class="text-black w-full focus:ring-2 ring-1 ring-gray-50 border-0 ring-inset focus:ring-inset focus:ring-yellow-400 " name="type_id">
-                        {{-- TODO: faire un foreach des types --}}
-                        <option @selected($article->type->name == "jeu") value="1">Jeu</option>
-                        <option @selected($article->type->name == "concept") value="2">Concept</option>
-                        <option @selected($article->type->name == "art") value="3">Art</option>
+                        @foreach ($types as $type)
+                        <option @selected($article->type_id == $type->id) value="{{ $type->id }}">{{ $type->name }}</option>
+                        @endforeach
                     </select>
                 </div>
             </div>

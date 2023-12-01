@@ -7,27 +7,27 @@
                     Collection
                 </p>
                 <h2 class="mt-2 text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl font-h2 capitalize animate-slideInRight">
-                    @switch(request()->route()->parameters['type'])
-                    @case('jeu')
+                    @switch(request()->route()->parameters['type_id'])
+                    @case(2)
                     Jeux
                     @break
-                    @case('concept')
+                    @case(3)
                     Concepts
                     @break
-                    @case('art')
+                    @case(1)
                     Arts
                     @break
                     @endswitch
                 </h2>
                 <p class="mt-6 font-p text-lg leading-8 text-gray-600 animate-slideInTop">
-                    @switch(request()->route()->parameters['type'])
-                    @case('jeu')
+                    @switch(request()->route()->parameters['type_id'])
+                    @case(2)
                     De la chaleur des jeux en bois inspirés de l'univers viking à la complexité captivante de l'univers de Necropolis, notre passion se traduit par une gamme diversifiée. Chez Necryx, nous fusionnons créativité et innovation pour vous proposer des expériences de jeu exceptionnelles, quels que soient vos préférences !
                     @break
-                    @case('concept')
+                    @case(3)
                     Chez Necryx, notre créativité n'a pas de limites. En passant par des concepts uniques, du game design innovant à des idées audacieuses et ambitieuses, nous repoussons constamment les frontières pour vous offrir des expériences conceptuelles sans pareil. Explorez notre univers où chaque concept est une invitation à la découverte et à l'innovation.
                     @break
-                    @case('art')
+                    @case(1)
                     De la fusion entre la créativité humaine et l'intelligence artificielle à l'art directement façonné par l'homme, toutes nos créations, parfois étranges, conceptuelles ou dérangeantes, reflètent notre passion pour l'Art. Chez Necryx, l'Art est une exploration continue, vous invitant à la réflexion et à la découverte de l'inattendu...
                     @break
                     @endswitch
@@ -35,8 +35,8 @@
             </div>
         </div>
 
-        @switch(request()->route()->parameters['type'])
-        @case('jeu')
+        @switch(request()->route()->parameters['type_id'])
+        @case(2)
         <div class="flex flex-col gap-32 mt-24">
             @foreach ($collections as $game)
             <div data-aos="fade-right" class="{{ $loop->first ? 'animate-slideInBottom' : '' }}">
@@ -45,14 +45,14 @@
             @endforeach
         </div>
         @break
-        @case('concept')
+        @case(3)
         <div class="mx-auto px-8 mt-12 grid max-w-lg gap-8 lg:max-w-none lg:grid-cols-4">
             @foreach ($collections as $collection)
             @include('home._partials.collection-card')
             @endforeach
         </div>
         @break
-        @case('art')
+        @case(1)
         <div class="mx-auto px-8 mt-12 grid max-w-lg gap-8 lg:max-w-none lg:grid-cols-4">
             @foreach ($collections as $collection)
             @include('home._partials.collection-card')

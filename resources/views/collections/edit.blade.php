@@ -36,10 +36,10 @@
                 <div class="pb-5">
                     <label class="font-bold text-lg">Type</label>
                     <div class=" text-black">
-                        <select class="text-black w-full focus:ring-2 ring-1 ring-gray-50 border-0 ring-inset focus:ring-inset focus:ring-yellow-400 " name="type">
-                            <option @selected($collection->type == "jeu") value="jeu">Jeu</option>
-                            <option @selected($collection->type == "concept") value="concept">Concept</option>
-                            <option @selected($collection->type == "art") value="art">Art</option>
+                        <select class="text-black w-full focus:ring-2 ring-1 ring-gray-50 border-0 ring-inset focus:ring-inset focus:ring-yellow-400 " name="type_id">
+                            @foreach ($types as $type)
+                            <option @selected($collection->type_id == $type->id) value="{{ $type->id }}">{{ $type->name }}</option>
+                            @endforeach
                         </select>
                     </div>
                 </div>

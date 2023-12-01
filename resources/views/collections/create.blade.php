@@ -34,11 +34,10 @@
             <div class="pb-5">
                 <label class="font-bold text-lg">Type</label>
                 <div class=" text-black">
-                    <select class="text-black w-full focus:ring-2 ring-1 ring-gray-50 border-0 ring-inset focus:ring-inset focus:ring-yellow-400 " name="type">
-                        {{-- TODO: faire un foreach des types --}}
-                        <option {{ old("type") == "jeu" ? "selected":"" }} value="jeu">Jeu</option>
-                        <option {{ old("type") == "concept" ? "selected":"" }} value="concept">Concept</option>
-                        <option {{ old("type") == "art" ? "selected":"" }} value="art">Art</option>
+                    <select class="text-black w-full focus:ring-2 ring-1 ring-gray-50 border-0 ring-inset focus:ring-inset focus:ring-yellow-400 " name="type_id">
+                        @foreach ($types as $type)
+                        <option {{ old("type") == $type->id ? "selected":"" }} value="{{ $type->id }}">{{ $type->name }}</option>
+                        @endforeach
                     </select>
                 </div>
             </div>

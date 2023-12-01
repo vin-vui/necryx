@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('collections', function (Blueprint $table) {
             $table->id();
             $table->string('name')->unique();
-            $table->enum('type', ['jeu','concept','art']);
+            $table->foreignId('type_id')->nullable();
             $table->longText('content');
             $table->string('image')->nullable();
             $table->string('players')->nullable();

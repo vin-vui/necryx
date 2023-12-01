@@ -25,7 +25,7 @@
                     </svg>
                 </div>
                 <div class="flex-auto">
-                    <a href="{{ route('collections', 'jeu') }}" class="block font-semibold text-gray-900">
+                    <a href="{{ route('collections', 2) }}" class="block font-semibold text-gray-900">
                         Jeux
                         <span class="absolute inset-0"></span>
                     </a>
@@ -39,7 +39,7 @@
                     </svg>
                 </div>
                 <div class="flex-auto">
-                    <a href="{{ route('collections', 'concept') }}" class="block font-semibold text-gray-900">
+                    <a href="{{ route('collections', 3) }}" class="block font-semibold text-gray-900">
                         Concepts
                         <span class="absolute inset-0"></span>
                     </a>
@@ -57,7 +57,7 @@
                     </svg>
                 </div>
                 <div class="flex-auto">
-                    <a href="{{ route('collections', 'art') }}" class="block font-semibold text-gray-900">
+                    <a href="{{ route('collections', 1) }}" class="block font-semibold text-gray-900">
                         Arts
                         <span class="absolute inset-0"></span>
                     </a>
@@ -71,15 +71,15 @@
     Collections
 </div>
 <div class="md:hidden flex flex-col gap-4 ml-4">
-    <a href="{{ route('collections', 'jeu') }}" class="font-semibold text-gray-400 flex items-center -mt-4">
+    <a href="{{ route('collections', 2) }}" class="font-semibold text-gray-400 flex items-center -mt-4">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" viewBox="0 0 24 24"><path fill="currentColor" d="m19 15l-6 6l-1.42-1.42L15.17 16H4V4h2v10h9.17l-3.59-3.58L13 9l6 6z"/></svg>
         Jeux
     </a>
-    <a href="{{ route('collections', 'concept') }}" class="font-semibold text-gray-400 flex items-center">
+    <a href="{{ route('collections', 3) }}" class="font-semibold text-gray-400 flex items-center">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" viewBox="0 0 24 24"><path fill="currentColor" d="m19 15l-6 6l-1.42-1.42L15.17 16H4V4h2v10h9.17l-3.59-3.58L13 9l6 6z"/></svg>
         Concepts
     </a>
-    <a href="{{ route('collections', 'art') }}" class="font-semibold text-gray-400 flex items-center">
+    <a href="{{ route('collections', 1) }}" class="font-semibold text-gray-400 flex items-center">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" viewBox="0 0 24 24"><path fill="currentColor" d="m19 15l-6 6l-1.42-1.42L15.17 16H4V4h2v10h9.17l-3.59-3.58L13 9l6 6z"/></svg>
         Arts
     </a>

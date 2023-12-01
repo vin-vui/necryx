@@ -48,17 +48,7 @@
                         {{ $collection->name }}
                     </td>
                     <td class="px-6 text-center">
-                        @switch($collection->type)
-                        @case('jeu')
-                        <span class="bg-yellow-400 text-gray-900 py-0.5 px-2 rounded-tl-md rounded-br-md">jeu</span>
-                        @break
-                        @case('concept')
-                        <span class="bg-blue-400 text-gray-900 py-0.5 px-2 rounded-tl-md rounded-br-md">concept</span>
-                        @break
-                        @case('art')
-                        <span class="bg-violet-400 text-gray-900 py-0.5 px-2 rounded-tl-md rounded-br-md">art</span>
-                        @break
-                        @endswitch
+                        <span class="bg-yellow-400 text-gray-900 py-0.5 px-2 rounded-tl-md rounded-br-md">{{ $collection->type->name }}</span>
                     </td>
                     <td class="px-6 font-medium whitespace-nowrap text-white text-center">
                         @switch($collection->status)

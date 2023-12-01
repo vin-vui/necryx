@@ -3,10 +3,7 @@
         <div class="mx-auto max-w-7xl px-6 lg:px-8">
             <div class="flex flex-col md:flex-row md:gap-16 gap-96">
                 <div data-aos="fade-right" class="md:min-h-96 min-h-24 md:basis-1/2 animate-slideInLeft">
-                    @php
-                    $image = $article->image != null ? Storage::url($article->image) : url('img/office2.png');
-                    @endphp
-                    <x-hex :image="$image" :classes="'drop-shadow-[9px_9px_30px_#D0A302]'" />
+                    <img src="{{ $article->image != null ? Storage::url($article->image) : url('img/office2.png') }}" alt="{{ $article->title }}" class="object-cover object-center w-full h-full drop-shadow-[9px_9px_30px_#D0A302]">
                 </div>
                 <div class="animate-slideInRight">
                     <div class="text-base leading-7 text-gray-700 lg:max-w-lg">

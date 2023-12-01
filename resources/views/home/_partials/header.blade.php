@@ -23,9 +23,7 @@
                 <div class='fixed top-0 left-0 z-40 w-screen px-4 py-16 overflow-y-scroll bg-black sm:px-8' @keydown.escape.window="open = false" x-show="open" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 -translate-y-full" x-transition:enter-end="opacity-100 translate-y-0" x-transition:leave="transition ease-in duration-200" x-transition:leave-start="opacity-100 translate-y-0" x-transition:leave-end="opacity-0 -translate-y-full" style="display: none;">
                     <div class='flex flex-col items-center justify-center w-full h-full'>
                         <div class='flex flex-col items-center w-full mx-auto space-y-6 justify-evenly'>
-
                             @include('home._partials._nav-links')
-
                         </div>
                     </div>
                 </div>

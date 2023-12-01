@@ -30,7 +30,7 @@ Route::get('/informations', [FrontHomeController::class, 'informations'])->name(
 Route::get('/concepts', [FrontHomeController::class, 'concepts'])->name('concepts');
 Route::get('/boutique', [FrontHomeController::class, 'shop'])->name('shop');
 Route::post('/newsletter/subscribe', [FrontHomeController::class, 'subscribe'])->name('newsletter.subscribe');
-Route::get('/collections-necryx/{type}', [FrontHomeController::class, 'collections'])->name('collections');
+Route::get('/collections-necryx/{type_id}', [FrontHomeController::class, 'collections'])->name('collections');
 Route::get('/collections-necryx/item/{collection}', [FrontHomeController::class, 'collection'])->name('collection');
 Route::get('/articles-necryx', [FrontHomeController::class, 'articles'])->name('articles');
 Route::get('/articles-necryx/{article}', [FrontHomeController::class, 'article'])->name('article');

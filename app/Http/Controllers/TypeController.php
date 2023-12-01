@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Type;
+
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
-
-
 
 class TypeController extends Controller
 {
@@ -17,8 +16,6 @@ class TypeController extends Controller
         return view ('types.index', compact ('types'));
     }
 
-
-    // create function
     public function create()
     {
         return view('types.create');
@@ -29,6 +26,7 @@ class TypeController extends Controller
         $validData = $request->validate ([
             'name' => 'required',
             'persona' => 'required',
+            'title' => 'required',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg,webp|max:10240',
             'description' => 'nullable',
         ]);
@@ -41,26 +39,22 @@ class TypeController extends Controller
         return redirect()->route('types.index')->with ('success', 'Votre type a bien été enregistré !');
      }
 
-    //  Show function
      public function show(Type $type)
     {
         return view('types.show', ['type' => $type]);
     }
 
-
-
-    // Edit function
     public function edit (Type $type)
     {
         return view('types.edit',compact('type'));
     }
-
 
     public function update(Request $request, Type $type)
     {
         $validData = $request->validate ([
             'name'=>'required',
             'persona'=>'required',
+            'title' => 'required',
             'image' => 'sometimes|image|mimes:jpeg,png,jpg,gif,svg,webp|max:10240',
             'description' => 'nullable',
         ]);
@@ -72,17 +66,13 @@ class TypeController extends Controller
 
         $type->update($validData);
 
-
         return redirect()->route('types.index')->with ('success', 'Type mis à jour avec succès !');
     }
 
-
-
-    //  Destroy function
      public function destroy (Type $type)
      {
         $type->delete();
-        return redirect()->route('types.index')
-                            ->with ('success', 'Type supprimé avec succès !');
+
+        return redirect()->route('types.index')->with ('success', 'Type supprimé avec succès !');
      }
 }

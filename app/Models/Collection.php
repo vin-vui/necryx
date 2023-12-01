@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Collection extends Model
@@ -11,8 +12,8 @@ class Collection extends Model
     use HasFactory;
 
     protected $fillable =[
+        'type_id',
         'name',
-        'type',
         'content',
         'image',
         'players',
@@ -27,9 +28,9 @@ class Collection extends Model
         return $this->belongsToMany(Tag::class, 'collections_tags', 'collection_id', 'tag_id');
     }
 
-    public function articles(): BelongsToMany
+    public function type(): BelongsTo
     {
-        return $this->belongsToMany(Article::class, 'collections_articles', 'article_id', 'collection_id');
+        return $this->belongsTo(Type::class);
     }
 
 }

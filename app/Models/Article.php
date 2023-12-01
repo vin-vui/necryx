@@ -19,12 +19,9 @@ class Article extends Model
         'status',
     ];
 
-    // / Définir la relation entre Article et Type (n à 1)
- 
     public function type(): BelongsTo
     {
         return $this->belongsTo(Type::class);
     }
 
-    
 }
