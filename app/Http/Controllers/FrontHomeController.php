@@ -23,7 +23,7 @@ class FrontHomeController extends Controller
         $users = User::all();
         $articles = Article::where('status', 'published')->latest()->limit(3)->get();
         $sliders = Slider::where('status', 1)->orderBy('order')->get();
-        $games = Collection::where('status', 'published')->where('type_id', 1)->get();
+        $games = Collection::where('type_id', 2)->where('status', 'published')->get();
 
         return view('home.index', compact('users','articles', 'sliders', 'games'));
     }
