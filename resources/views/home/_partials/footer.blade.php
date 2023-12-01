@@ -39,13 +39,13 @@
                     <a href="{{ route('home') }}" class="text-sm leading-6 text-gray-600 hover:text-gray-900">Accueil</a>
                 </div>
                 <div class="pb-6">
-                    <a href="{{ route('collections', 'jeu') }}" class="text-sm leading-6 text-gray-600 hover:text-gray-900">Collection Jeux</a>
+                    <a href="{{ route('collections', 2) }}" class="text-sm leading-6 text-gray-600 hover:text-gray-900">Collection Jeux</a>
                 </div>
                 <div class="pb-6">
-                    <a href="{{ route('collections', 'concept') }}" class="text-sm leading-6 text-gray-600 hover:text-gray-900">Collection Concepts</a>
+                    <a href="{{ route('collections', 3) }}" class="text-sm leading-6 text-gray-600 hover:text-gray-900">Collection Concepts</a>
                 </div>
                 <div class="pb-6">
-                    <a href="{{ route('collections', 'art') }}" class="text-sm leading-6 text-gray-600 hover:text-gray-900">Collection Arts</a>
+                    <a href="{{ route('collections', 1) }}" class="text-sm leading-6 text-gray-600 hover:text-gray-900">Collection Arts</a>
                 </div>
                 <div class="pb-6">
                     <a href="{{ route('articles') }}" class="text-sm leading-6 text-gray-600 hover:text-gray-900">Nos Articles</a>
