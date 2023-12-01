@@ -25,7 +25,7 @@ class FrontHomeController extends Controller
         $sliders = Slider::where('status', 1)->orderBy('order')->get();
         $games = Collection::where('type_id', 2)->where('status', 'published')->get();
 
-        return view('home.index', compact('users','articles', 'sliders', 'games'));
+        return view('home.index', compact('users', 'articles', 'sliders', 'games'));
     }
 
     /**
@@ -35,7 +35,7 @@ class FrontHomeController extends Controller
      */
     public function addRecipient(Request $request)
     {
-        $validData = $request->validate ([
+        $validData = $request->validate([
             'email' => 'required|email',
         ]);
 
@@ -62,7 +62,7 @@ class FrontHomeController extends Controller
      */
     public function informations()
     {
-        return view ('home.informations');
+        return view('home.informations');
     }
 
     /**
@@ -71,7 +71,7 @@ class FrontHomeController extends Controller
      */
     public function concepts()
     {
-        return view ('home.concepts');
+        return view('home.concepts');
     }
 
     /**
@@ -80,7 +80,7 @@ class FrontHomeController extends Controller
      */
     public function shop()
     {
-        return view ('home.shop');
+        return view('home.shop');
     }
 
     /**
@@ -90,7 +90,15 @@ class FrontHomeController extends Controller
      */
     public function contact(Request $request)
     {
-        Mail::to(env('MAIL_TO_ADDRESS'))->send(new ContactForm($request->name));
+        $test = Mail::to(env('MAIL_TO_ADDRESS'))->send(
+            new ContactForm(
+                $request->name,
+                $request->lastname,
+                $request->email,
+                $request->humanmessage,
+                $request->phone
+            )
+        );
 
         session()->flash('flash.banner', 'Email envoyé avec succès !');
         session()->flash('flash.bannerStyle', 'success');
@@ -107,7 +115,7 @@ class FrontHomeController extends Controller
     {
         $collections = Collection::where('type_id', $type_id)->where('status', 'published')->get();
 
-        return view ('home.collections', compact('collections'));
+        return view('home.collections', compact('collections'));
     }
 
     /**
@@ -117,7 +125,7 @@ class FrontHomeController extends Controller
      */
     public function collection(Collection $collection): View
     {
-        return view ('home.collection', compact('collection'));
+        return view('home.collection', compact('collection'));
     }
 
     /**
@@ -128,7 +136,7 @@ class FrontHomeController extends Controller
     {
         $articles = Article::where('status', 'published')->latest()->get();
 
-        return view ('home.articles', compact('articles'));
+        return view('home.articles', compact('articles'));
     }
 
     /**

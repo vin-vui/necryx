@@ -113,9 +113,9 @@
                             </div>
                         </div>
                         <div>
-                            <label for="last-name" class="block text-sm font-semibold leading-6 text-gray-900">Nom</label>
+                            <label for="lastname" class="block text-sm font-semibold leading-6 text-gray-900">Nom</label>
                             <div class="relative mt-2.5">
-                                <input type="text" name="last-name" id="last-name" autocomplete="family-name" class="peer block w-full border-0 bg-white py-1.5 text-gray-900 focus:ring-0 sm:text-sm sm:leading-6">
+                                <input type="text" name="lastname" id="lastname" autocomplete="family-name" class="peer block w-full border-0 bg-white py-1.5 text-gray-900 focus:ring-0 sm:text-sm sm:leading-6">
                                 <div class="absolute inset-x-0 bottom-0 border-t border-gray-300 peer-focus:border-t-2 peer-focus:border-golden" aria-hidden="true"></div>
                             </div>
                         </div>
@@ -127,16 +127,16 @@
                             </div>
                         </div>
                         <div class="sm:col-span-2">
-                            <label for="phone-number" class="block text-sm font-semibold leading-6 text-gray-900">Numéro de téléphone</label>
+                            <label for="phone" class="block text-sm font-semibold leading-6 text-gray-900">Numéro de téléphone</label>
                             <div class="relative mt-2.5">
-                                <input type="tel" name="phone-number" id="phone-number" autocomplete="tel" class="peer block w-full border-0 bg-white py-1.5 text-gray-900 focus:ring-0 sm:text-sm sm:leading-6">
+                                <input type="tel" name="phone" id="phone" autocomplete="tel" class="peer block w-full border-0 bg-white py-1.5 text-gray-900 focus:ring-0 sm:text-sm sm:leading-6">
                                 <div class="absolute inset-x-0 bottom-0 border-t border-gray-300 peer-focus:border-t-2 peer-focus:border-golden" aria-hidden="true"></div>
                             </div>
                         </div>
                         <div class="sm:col-span-2">
-                            <label for="message" class="block text-sm font-semibold leading-6 text-gray-900">Message</label>
+                            <label for="humanmessage" class="block text-sm font-semibold leading-6 text-gray-900">Message</label>
                             <div class="relative mt-2.5">
-                                <textarea name="message" id="message" rows="4" class="peer block w-full border-0 bg-white py-1.5 text-gray-900 focus:ring-0 sm:text-sm sm:leading-6"></textarea>
+                                <textarea name="humanmessage" id="humanmessage" rows="4" class="peer block w-full border-0 bg-white py-1.5 text-gray-900 focus:ring-0 sm:text-sm sm:leading-6"></textarea>
                                 <div class="absolute inset-x-0 bottom-0 border-t border-gray-300 peer-focus:border-t-2 peer-focus:border-golden" aria-hidden="true"></div>
                             </div>
                         </div>
