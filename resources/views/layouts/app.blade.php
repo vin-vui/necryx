@@ -13,6 +13,45 @@
 
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+    <script>
+        tinymce.init({
+            selector: '#myeditorinstance',
+            plugins: 'powerpaste advcode table lists checklist custom_formats',
+            toolbar: 'undo redo | blocks | bold italic | bullist numlist checklist | code | table',
+            extended_valid_elements: 'ul[class],ol[class],li[class]',
+            setup: function (editor) {
+                editor.on('NodeChange', function (e) {
+                    if (e.element.nodeName === 'LI') {
+                        e.element.className = 'mb-1';
+                        let parent = e.element.parentNode;
+                        if (parent.nodeName === 'UL') {
+                            parent.className = 'list-disc pl-5';
+                        } else if (parent.nodeName === 'OL') {
+                            parent.className = 'list-decimal pl-5';
+                        }
+                    }
+                    if (e.element.nodeName === 'TABLE') {
+                        e.element.className = 'table-auto border-collapse w-full';
+                    }
+                    if (e.element.nodeName === 'TH') {
+                        e.element.className = 'border border-gray-300 p-2';
+                    }
+                    if (e.element.nodeName === 'TD') {
+                        e.element.className = 'border border-gray-300 p-2';
+                    }
+                });
+            },
+            formats: {
+                h1: { block: 'h1', classes: 'text-2xl font-bold' },
+                h2: { block: 'h2', classes: 'text-xl font-semibold' },
+                h3: { block: 'h3', classes: 'text-lg font-medium' },
+                p: { block: 'p', classes: 'text-base' },
+                blockquote: { block: 'blockquote', classes: 'border-l-4 border-gray-500 pl-4 italic' },
+                a: { selector: 'a', classes: 'text-blue-600 hover:text-blue-800' },
+            },
+        });
+    </script>
 
     <!-- Styles -->
     @livewireStyles

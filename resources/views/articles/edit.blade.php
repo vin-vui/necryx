@@ -45,7 +45,7 @@
             <div class="pb-5">
                 <label class="font-bold text-lg">Contenu</label>
                 <div class=" text-black">
-                    <textarea class="w-full focus:ring-2 ring-1 ring-gray-50 border-0 ring-inset focus:ring-inset focus:ring-yellow-400 " name="content" cols="30" rows="10">{{ $article->content }}</textarea>
+                    <textarea id="myeditorinstance" class="w-full focus:ring-2 ring-1 ring-gray-50 border-0 ring-inset focus:ring-inset focus:ring-yellow-400 " name="content" cols="30" rows="10">{{ $article->content }}</textarea>
                 </div>
             </div>
             <div class="pb-5">
