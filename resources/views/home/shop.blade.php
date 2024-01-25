@@ -15,11 +15,7 @@
             </div>
         </div>
 
-        <div class="mx-auto px-8 mt-12 grid max-w-lg gap-8 lg:max-w-none lg:grid-cols-3">
-            <div class="mx-auto">
-                <stripe-buy-button buy-button-id="buy_btn_1OAUrtIed18vX4jppsywycKA" publishable-key="pk_live_51O3CRvIed18vX4jppwHVCcPPFbSekl3zTWY4mSsGC0R0hq6DovbjTn6FllyO4R4DN2PvEl32h3jSN9ltFhMRZWD900O3wlPQcb">
-                </stripe-buy-button>
-            </div>
+        <div class="mx-auto px-8 mt-12 grid max-w-lg gap-8 lg:max-w-none lg:grid-cols-2">
             <div class="mx-auto">
                 <stripe-buy-button buy-button-id="buy_btn_1OAUOcIed18vX4jpWB5UkZ3j" publishable-key="pk_live_51O3CRvIed18vX4jppwHVCcPPFbSekl3zTWY4mSsGC0R0hq6DovbjTn6FllyO4R4DN2PvEl32h3jSN9ltFhMRZWD900O3wlPQcb">
                 </stripe-buy-button>

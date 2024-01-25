@@ -32,7 +32,7 @@
                 <a href="{{ route('article', $article) }}" class="hover:drop-shadow-[0px_0px_19px_#D0A302] bg-yellow-400 hover:bg-yellow-500 transition-all font-p text-xs uppercase tracking-widest inline-flex items-center gap-2 py-3 px-4">
                     <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
                         <path fill="currentColor" d="M8.59 16.59L13.17 12L8.59 7.41L10 6l6 6l-6 6l-1.41-1.41z" /></svg>
-                    lire la suite
+                    je lis la suite
                 </a>
             </div>
         </div>

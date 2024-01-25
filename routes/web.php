@@ -34,6 +34,7 @@ Route::get('/collections-necryx/{type_id}', [FrontHomeController::class, 'collec
 Route::get('/collections-necryx/item/{collection}', [FrontHomeController::class, 'collection'])->name('collection');
 Route::get('/articles-necryx', [FrontHomeController::class, 'articles'])->name('articles');
 Route::get('/articles-necryx/{article}', [FrontHomeController::class, 'article'])->name('article');
+Route::get('policy', function () { return view('policy'); })->name('policy');
 
 /*
 / ----------------------------

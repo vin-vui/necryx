@@ -12,6 +12,15 @@
                     @csrf
                     <label for="email-address" class="sr-only">Adresse e-mail</label>
                     <input id="email-address" name="email" type="email" autocomplete="email" required class="min-w-0 text-center flex-auto border-0 bg-white px-3.5 py-2 text-black shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-white sm:text-sm sm:leading-6" placeholder="Entrez votre adresse e-mail">
+
+                    <label for="rgpdCheckbox">
+                        <input type="checkbox" id="rgpdCheckbox" name="rgpdConsent" required>
+                        <span class="text-white text-xs">
+                            J'accepte de recevoir la newsletter de <span class="font-necryx">Necryx</span> et je comprends que je peux me désabonner à tout moment.
+                            Je confirme avoir lu et compris la <a class="underline" href="URL-de-votre-politique-de-confidentialité">Politique de Confidentialité</a> de <span class="font-necryx">Necryx</span>, qui explique comment mes données personnelles seront utilisées.
+                        </span>
+                    </label>
+
                     <button type="submit" class="hover:drop-shadow-[9px_9px_30px_#D0A302] bg-yellow-400 hover:bg-yellow-500 font-p justify-center transition-all text-xs uppercase tracking-widest inline-flex items-center gap-2 py-3 px-4">
                         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 48 48">
                             <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" d="M26.755 39.535L6.31 26.307c-2.236-1.703-2.498-6.703-.239-8.915L19.87 8.464L43.5 23.755l-12.067 7.808a4.779 4.779 0 0 0-2.41 4.207c-.008 1.467.848 3.439 2.41 3.038L43.5 30.999l-5.325-3.445" />
@@ -58,6 +67,9 @@
                 </div>
                 <div class="pb-6">
                     <a href="{{ route('shop') }}" class="text-sm leading-6 text-gray-600 hover:text-gray-900">Boutique</a>
+                </div>
+                <div class="pb-6">
+                    <a href="{{ route('policy') }}" class="text-sm leading-6 text-gray-600 hover:text-gray-900">Mentions légales</a>
                 </div>
             </nav>
             <div class="mt-10 flex justify-center space-x-10">

@@ -140,11 +140,20 @@
                                 <div class="absolute inset-x-0 bottom-0 border-t border-gray-300 peer-focus:border-t-2 peer-focus:border-golden" aria-hidden="true"></div>
                             </div>
                         </div>
+                        <div class="sm:col-span-2">
+                            <label for="rgpdContactCheckbox">
+                                <input type="checkbox" id="rgpdContactCheckbox" name="rgpdConsentContact" required>
+                                <span class="text-black text-xs">
+                                J'accepte que <span class="font-necryx">Necryx</span> collecte et traite mes données personnelles fournies via ce formulaire de contact dans le but de répondre à ma demande.
+                                Pour en savoir plus sur la gestion de mes données personnelles et pour exercer mes droits, je consulte la <a class="underline" href="{{ route('policy') }}">Politique de Confidentialité</a>.
+                                </span>
+                            </label>
+                        </div>
                     </div>
                     <div class="mt-8 flex justify-end">
                         <button type="submit" class="hover:drop-shadow-[9px_9px_30px_#D0A302] bg-yellow-400 hover:bg-yellow-500 font-p justify-center transition-all text-xs uppercase tracking-widest inline-flex items-center gap-2 py-3 px-4">
                             <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 16 16"><path fill="currentColor" d="M15.854.146a.5.5 0 0 1 .11.54l-5.819 14.547a.75.75 0 0 1-1.329.124l-3.178-4.995L.643 7.184a.75.75 0 0 1 .124-1.33L15.314.037a.5.5 0 0 1 .54.11ZM6.636 10.07l2.761 4.338L14.13 2.576L6.636 10.07Zm6.787-8.201L1.591 6.602l4.339 2.76l7.494-7.493Z"/></svg>
-                            Envoyer
+                            J'envoie mon message
                         </button>
                     </div>
                 </div>
