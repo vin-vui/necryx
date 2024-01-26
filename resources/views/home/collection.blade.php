@@ -3,7 +3,7 @@
         <div class="mx-auto max-w-7xl px-6 lg:px-8">
             <div class="flex flex-col items-start md:flex-row md:gap-16 gap-16">
 
-                <div class="md:basis-1/2 animate-slideInLeft md:sticky md:top-28 ">
+                <div class="md:basis-1/2 animate-slideInLeft md:sticky md:top-28">
                     @php
                     $image = $collection->image != null ? Storage::url($collection->image) : url('img/office2.png');
                     @endphp
