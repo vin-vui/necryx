@@ -28,12 +28,12 @@ Route::get('/', [FrontHomeController::class, 'index'])->name('home');
 Route::get('contact-form', [FrontHomeController::class, 'contact'])->name('contact-form');
 Route::get('informations', [FrontHomeController::class, 'informations'])->name('informations');
 Route::get('concepts', [FrontHomeController::class, 'concepts'])->name('concepts');
-Route::get('boutique', [FrontHomeController::class, 'shop'])->name('shop');
+// Route::get('boutique', [FrontHomeController::class, 'shop'])->name('shop');
 Route::post('newsletter/subscribe', [FrontHomeController::class, 'subscribe'])->name('newsletter.subscribe');
 Route::get('collections-necryx/{type_id}', [FrontHomeController::class, 'collections'])->name('collections');
 Route::get('collections-necryx/item/{collection}', [FrontHomeController::class, 'collection'])->name('collection');
-Route::get('news', [FrontHomeController::class, 'articles'])->name('articles');
-Route::get('news/{article}', [FrontHomeController::class, 'article'])->name('article');
+// Route::get('news', [FrontHomeController::class, 'articles'])->name('articles');
+// Route::get('news/{article}', [FrontHomeController::class, 'article'])->name('article');
 Route::get('policy', function () { return view('policy'); })->name('policy');
 
 /*
