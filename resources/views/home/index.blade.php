@@ -46,9 +46,9 @@
         @include('home._partials.feature-card', [
         'title' => 'Apocrypte',
         'content' => 'Vivez des expériences et découvrez de nouveaux concepts avec Spectre dans l\'Apocrypte, Une chaîne dédiée au Game Design, au gaming et à l’exploration de toutes sortes de sujets à travers différents formats.',
-        'icon' => '<path fill="currentColor" d="M20.947 8.305a6.5 6.5 0 0 0-.419-2.216a4.6 4.6 0 0 0-2.633-2.633a6.6 6.6 0 0 0-2.186-.42c-.962-.043-1.267-.055-3.709-.055s-2.755 0-3.71.055a6.6 6.6 0 0 0-2.185.42a4.6 4.6 0 0 0-2.633 2.633a6.6 6.6 0 0 0-.419 2.185c-.043.963-.056 1.268-.056 3.71s0 2.754.056 3.71c.015.748.156 1.486.419 2.187a4.6 4.6 0 0 0 2.634 2.632a6.6 6.6 0 0 0 2.185.45c.963.043 1.268.056 3.71.056s2.755 0 3.71-.056a6.6 6.6 0 0 0 2.186-.419a4.62 4.62 0 0 0 2.633-2.633c.263-.7.404-1.438.419-2.187c.043-.962.056-1.267.056-3.71c-.002-2.442-.002-2.752-.058-3.709m-8.953 8.297c-2.554 0-4.623-2.069-4.623-4.623s2.069-4.623 4.623-4.623a4.623 4.623 0 0 1 0 9.246m4.807-8.339a1.077 1.077 0 0 1-1.078-1.078a1.077 1.077 0 1 1 2.155 0c0 .596-.482 1.078-1.077 1.078"/><circle cx="11.994" cy="11.979" r="3.003" fill="currentColor"/>',
-        'textButton' => 'insta de l\'apocrypte',
-        'link' => 'https://www.instagram.com/apocrypte/'
+        'icon' => '<path fill="currentColor" d="M11.64 5.93h1.43v4.28h-1.43m3.93-4.28H17v4.28h-1.43M7 2L3.43 5.57v12.86h4.28V22l3.58-3.57h2.85L20.57 12V2m-1.43 9.29l-2.85 2.85h-2.86l-2.5 2.5v-2.5H7.71V3.43h11.43Z"/>',
+        'textButton' => 'chaine Twitch de l\'apocrypte',
+        'link' => 'https://www.twitch.tv/apocrypte'
         ])
 
     </div>
