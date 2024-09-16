@@ -69,7 +69,7 @@
     <div class="shapedividers_com-9517 w-full h-64 bg-transparent -mt-60"></div>
 
     {{-- cards of articles --}}
-    <div class="relative">
+    {{-- <div class="relative">
         <div class="relative mt-20 bg-gray-50 px-4 pb-20 pt-16 lg:px-8 lg:pb-28 lg:pt-24">
             <div class=" inset-0 bg-seasalt">
                 <div class="h-1/3 bg-seasalt sm:h-2/3"></div>
@@ -89,7 +89,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
 
     <div class="relative bg-seasalt sm:pt-24 mt-10">
         <div class="bg-black sm:pb-24 xl:pb-0 sm:pt-0 py-12">

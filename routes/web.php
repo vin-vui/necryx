@@ -29,7 +29,7 @@ Route::get('contact-form', [FrontHomeController::class, 'contact'])->name('conta
 Route::get('informations', [FrontHomeController::class, 'informations'])->name('informations');
 Route::get('concepts', [FrontHomeController::class, 'concepts'])->name('concepts');
 // Route::get('boutique', [FrontHomeController::class, 'shop'])->name('shop');
-Route::post('newsletter/subscribe', [FrontHomeController::class, 'subscribe'])->name('newsletter.subscribe');
+// Route::post('newsletter/subscribe', [FrontHomeController::class, 'subscribe'])->name('newsletter.subscribe');
 Route::get('collections-necryx/{type_id}', [FrontHomeController::class, 'collections'])->name('collections');
 Route::get('collections-necryx/item/{collection}', [FrontHomeController::class, 'collection'])->name('collection');
 // Route::get('news', [FrontHomeController::class, 'articles'])->name('articles');
@@ -49,7 +49,6 @@ Route::middleware([
 ])->group(function () {
     Route::get('dashboard', function () { return view('dashboard'); })->name('dashboard');
     Route::get('admin/profile', function(){ return view('profile.show'); })->name('profile.admin');
-
     Route::resource('articles', ArticleController::class);
     Route::resource('types', TypeController::class);
     Route::resource('collections', CollectionController::class);

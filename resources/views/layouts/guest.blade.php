@@ -31,7 +31,7 @@
     @endif
 
     <!-- Page content -->
-    <div class="font-sans text-gray-900 antialiased bg-seasalt overflow-x-hidden">
+    <div class="font-sans text-gray-900 antialiased bg-seasalt overflow-hidden">
         {{ $slot }}
     </div>
 
