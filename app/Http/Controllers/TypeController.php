@@ -26,7 +26,6 @@ class TypeController extends Controller
         $validData = $request->validate ([
             'name' => 'required',
             'persona' => 'required',
-            'title' => 'required',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg,webp|max:10240',
             'description' => 'nullable',
         ]);
@@ -54,7 +53,6 @@ class TypeController extends Controller
         $validData = $request->validate ([
             'name'=>'required',
             'persona'=>'required',
-            'title' => 'required',
             'image' => 'sometimes|image|mimes:jpeg,png,jpg,gif,svg,webp|max:10240',
             'description' => 'nullable',
         ]);
