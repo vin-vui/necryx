@@ -25,7 +25,7 @@
                     </svg>
                 </div>
                 <div class="flex-auto">
-                    <a href="{{ route('collections', 2) }}" class="block font-semibold text-gray-900">
+                    <a href="{{ route('collections', 5) }}" class="block font-semibold text-gray-900">
                         Jeux
                         <span class="absolute inset-0"></span>
                     </a>
@@ -39,7 +39,7 @@
                     </svg>
                 </div>
                 <div class="flex-auto">
-                    <a href="{{ route('collections', 3) }}" class="block font-semibold text-gray-900">
+                    <a href="{{ route('collections', 6) }}" class="block font-semibold text-gray-900">
                         Concepts
                         <span class="absolute inset-0"></span>
                     </a>
@@ -57,7 +57,7 @@
                     </svg>
                 </div>
                 <div class="flex-auto">
-                    <a href="{{ route('collections', 1) }}" class="block font-semibold text-gray-900">
+                    <a href="{{ route('collections', 7) }}" class="block font-semibold text-gray-900">
                         Arts
                         <span class="absolute inset-0"></span>
                     </a>
