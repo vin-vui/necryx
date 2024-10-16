@@ -8,7 +8,7 @@
                     $image = $collection->image != null ? Storage::url($collection->image) : url('img/office2.png');
                     @endphp
 
-                    @if ($collection->type_id === 2)
+                    @if ($collection->type_id === 5)
                         <x-hex :image="$image" :classes="'drop-shadow-[9px_9px_30px_#D0A302]'" />
                     @else
                         <img src="{{ $image }}" alt="{{ $collection->name }}" class="object-contain object-center w-full drop-shadow-[9px_9px_30px_#D0A302]">
@@ -40,7 +40,7 @@
 
                     </div>
                     <dl class="mt-10 border-t border-gray-900/10 pt-10 ">
-                        @if($collection->type_id === 2)
+                        @if($collection->type_id === 5)
                         <div class="mt-1 flex flex-col gap-y-4">
                             <div class="">
                                 <div class="font-semibold text-md text-gray-900 font-h2">Nombre de joueurs</div>
@@ -70,22 +70,22 @@
                         @endif
                     </dl>
                     <div class="mt-24 flex">
-                        @if($collection->type_id === 2)
-                        <a href="{{ route('collections', 2) }}" class="hover:drop-shadow-[9px_9px_30px_#D0A302] bg-yellow-400 hover:bg-yellow-500 font-p justify-center transition-all text-xs uppercase tracking-widest inline-flex items-center gap-2 py-3 px-4">
+                        @if($collection->type_id === 5)
+                        <a href="{{ route('collections', 5) }}" class="hover:drop-shadow-[9px_9px_30px_#D0A302] bg-yellow-400 hover:bg-yellow-500 font-p justify-center transition-all text-xs uppercase tracking-widest inline-flex items-center gap-2 py-3 px-4">
                             <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
                                 <path fill="currentColor" d="M8.59 16.59L13.17 12L8.59 7.41L10 6l6 6l-6 6l-1.41-1.41z" />
                             </svg>
                             Je découvre les autres jeux
                         </a>
-                        @elseif($collection->type_id === 3)
-                        <a href="{{ route('collections', 3) }}" class="hover:drop-shadow-[9px_9px_30px_#D0A302] bg-yellow-400 hover:bg-yellow-500 font-p justify-center transition-all text-xs uppercase tracking-widest inline-flex items-center gap-2 py-3 px-4">
+                        @elseif($collection->type_id === 6)
+                        <a href="{{ route('collections', 6) }}" class="hover:drop-shadow-[9px_9px_30px_#D0A302] bg-yellow-400 hover:bg-yellow-500 font-p justify-center transition-all text-xs uppercase tracking-widest inline-flex items-center gap-2 py-3 px-4">
                             <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
                                 <path fill="currentColor" d="M8.59 16.59L13.17 12L8.59 7.41L10 6l6 6l-6 6l-1.41-1.41z" />
                             </svg>
                             Je découvre les autres concepts
                         </a>
                         @else
-                        <a href="{{ route('collections', 1) }}" class="hover:drop-shadow-[9px_9px_30px_#D0A302] bg-yellow-400 hover:bg-yellow-500 font-p justify-center transition-all text-xs uppercase tracking-widest inline-flex items-center gap-2 py-3 px-4">
+                        <a href="{{ route('collections', 7) }}" class="hover:drop-shadow-[9px_9px_30px_#D0A302] bg-yellow-400 hover:bg-yellow-500 font-p justify-center transition-all text-xs uppercase tracking-widest inline-flex items-center gap-2 py-3 px-4">
                             <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
                                 <path fill="currentColor" d="M8.59 16.59L13.17 12L8.59 7.41L10 6l6 6l-6 6l-1.41-1.41z" />
                             </svg>
