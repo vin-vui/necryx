@@ -16,7 +16,7 @@
         x-transition:leave-start="opacity-100 translate-y-0"
         x-transition:leave-end="opacity-0 translate-y-1"
         x-description="'Product' flyout menu, show/hide based on flyout menu state."
-        class="absolute -left-8 top-full z-10 mt-3 w-screen max-w-md overflow-hidden bg-white shadow-lg ring-1 ring-gray-900/5" x-ref="panel" @click.away="open = false">
+        class="absolute -left-8 top-full z-10 mt-3 w-screen max-w-md overflow-hidden bg-white shadow-lg ring-1 ring-gray-900/5" x-ref="panel">
         <div class="p-4">
             <div class="group relative flex gap-x-6  p-4 text-sm leading-6 hover:bg-gray-50">
                 <div class="mt-1 flex h-12 w-12 flex-none items-center justify-center  bg-gradient-to-br from-yellow-300 to-yellow-700 rounded-tl-3xl rounded-br-3xl group-hover:bg-white">

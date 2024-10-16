@@ -1,4 +1,4 @@
-<header x-data="{ openMenu: false }" class="bg-black fixed w-full top-0 z-50 animate-slideInTop">
+<header class="bg-black fixed w-full top-0 z-50 animate-slideInTop">
     <nav class="mx-auto flex items-center justify-between px-4 sm:px-8" aria-label="Global">
 
         <div class="hidden sm:flex sm:gap-x-8 flex-1">
@@ -11,9 +11,6 @@
         </a>
 
         <div class="flex flex-1 justify-end">
-            {{-- <div class="sm:flex hidden">
-                @include('home._partials._nav-user')
-            </div> --}}
             <div class='flex  sm:hidden' x-data="{ open: false }">
                 <div class="relative z-50 flex items-center">
                     <button class='text-white transition duration-500 ease-in-out transform rotate-0 cursor-pointer group focus:outline-none' @click="open = !open">
