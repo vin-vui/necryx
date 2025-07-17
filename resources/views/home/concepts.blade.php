@@ -69,17 +69,6 @@
                         Nos services vous intéressent ? Vous avez des questions ?<br>
                         Nous sommes à votre disposition pour de plus amples informations.
                     </p>
-                    <dl class="mt-10 space-y-4 text-base leading-7 text-gray-600">
-                        <div class="flex gap-x-4">
-                            <dt class="flex-none">
-                                <span class="sr-only">Email</span>
-                                <svg class="h-7 w-6 text-gray-400" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
-                                </svg>
-                            </dt>
-                            <dd><a class="hover:text-gray-900" href="mailto:necryx.tech@gmail.com">necryx.tech@gmail.com</a></dd>
-                        </div>
-                    </dl>
                 </div>
             </div>
 
