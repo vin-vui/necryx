@@ -86,17 +86,41 @@ class FrontHomeController extends Controller
     /**
      * Send contact form.
      * @param Request $request
-     * @return void
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function contact(Request $request)
     {
+        // Handle GET request - show form
+        if ($request->isMethod('get')) {
+            return view('home.concepts');
+        }
+        
+        // Handle POST request - process form
+        // Check honeypot field - if filled, reject the request (bot detected)
+        if ($request->filled('honeypot')) {
+            // Silently reject the request to avoid alerting bots
+            return redirect()->back()->with('error', 'Une erreur est survenue. Veuillez réessayer.');
+        }
+        
+        // Validate form data
+        $validatedData = $request->validate([
+            'name' => 'required|string|max:255',
+            'lastname' => 'required|string|max:255',
+            'email' => 'required|email|max:255',
+            'phone' => 'nullable|string|max:20',
+            'humanmessage' => 'required|string|max:5000',
+            'rgpdConsentContact' => 'required|accepted',
+            'honeypot' => 'nullable|string|max:0', // Honeypot should be empty
+        ]);
+        
+        // Send email
         $test = Mail::to(env('MAIL_TO_ADDRESS'))->send(
             new ContactForm(
-                $request->name,
-                $request->lastname,
-                $request->email,
-                $request->humanmessage,
-                $request->phone
+                $validatedData['name'],
+                $validatedData['lastname'],
+                $validatedData['email'],
+                $validatedData['humanmessage'],
+                $validatedData['phone']
             )
         );
 
