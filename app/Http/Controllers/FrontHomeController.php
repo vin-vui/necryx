@@ -97,7 +97,7 @@ class FrontHomeController extends Controller
         
         // Handle POST request - process form
         // Check honeypot field - if filled, reject the request (bot detected)
-        if ($request->filled('honeypot')) {
+        if ($request->filled('honeypot') || ($request->has('honeypot') && trim($request->honeypot) !== '')) {
             // Silently reject the request to avoid alerting bots
             return redirect()->back()->with('error', 'Une erreur est survenue. Veuillez réessayer.');
         }
