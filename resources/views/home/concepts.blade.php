@@ -101,48 +101,61 @@
                     </dl>
                 </div>
             </div>
-            <form action="{{ route('contact-form') }}" class="px-6 pb-24 pt-20 sm:pb-32 lg:px-8 lg:py-48" data-aos="fade-left" data-oas-duration="1000">
+            <form action="{{ route('contact-form') }}" method="POST" class="px-6 pb-24 pt-20 sm:pb-32 lg:px-8 lg:py-48" data-aos="fade-left" data-oas-duration="1000">
                 @csrf
+                <!-- Honeypot field to prevent spam -->
+                <input type="text" name="honeypot" style="display: none; visibility: hidden; position: absolute; left: -9999px;" tabindex="-1" autocomplete="off" />
+                
+                @if($errors->any())
+                    <div class="mb-4 p-4 bg-red-100 border border-red-400 text-red-700 rounded">
+                        <ul>
+                            @foreach($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
+                
                 <div class="mx-auto max-w-xl lg:mr-0 lg:max-w-lg">
                     <div class="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
                         <div>
                             <label for="name" class="block text-sm font-semibold leading-6 text-gray-900">Prénom</label>
                             <div class="relative mt-2.5">
-                                <input type="text" name="name" id="name" autocomplete="given-name" class="peer block w-full border-0 bg-white py-1.5 text-gray-900 focus:ring-0 sm:text-sm sm:leading-6">
+                                <input type="text" name="name" id="name" value="{{ old('name') }}" autocomplete="given-name" class="peer block w-full border-0 bg-white py-1.5 text-gray-900 focus:ring-0 sm:text-sm sm:leading-6">
                                 <div class="absolute inset-x-0 bottom-0 border-t border-gray-300 peer-focus:border-t-2 peer-focus:border-golden" aria-hidden="true"></div>
                             </div>
                         </div>
                         <div>
                             <label for="lastname" class="block text-sm font-semibold leading-6 text-gray-900">Nom</label>
                             <div class="relative mt-2.5">
-                                <input type="text" name="lastname" id="lastname" autocomplete="family-name" class="peer block w-full border-0 bg-white py-1.5 text-gray-900 focus:ring-0 sm:text-sm sm:leading-6">
+                                <input type="text" name="lastname" id="lastname" value="{{ old('lastname') }}" autocomplete="family-name" class="peer block w-full border-0 bg-white py-1.5 text-gray-900 focus:ring-0 sm:text-sm sm:leading-6">
                                 <div class="absolute inset-x-0 bottom-0 border-t border-gray-300 peer-focus:border-t-2 peer-focus:border-golden" aria-hidden="true"></div>
                             </div>
                         </div>
                         <div class="sm:col-span-2">
                             <label for="email" class="block text-sm font-semibold leading-6 text-gray-900">Email</label>
                             <div class="relative mt-2.5">
-                                <input type="email" name="email" id="email" autocomplete="email" class="peer block w-full border-0 bg-white py-1.5 text-gray-900 focus:ring-0 sm:text-sm sm:leading-6">
+                                <input type="email" name="email" id="email" value="{{ old('email') }}" autocomplete="email" class="peer block w-full border-0 bg-white py-1.5 text-gray-900 focus:ring-0 sm:text-sm sm:leading-6">
                                 <div class="absolute inset-x-0 bottom-0 border-t border-gray-300 peer-focus:border-t-2 peer-focus:border-golden" aria-hidden="true"></div>
                             </div>
                         </div>
                         <div class="sm:col-span-2">
                             <label for="phone" class="block text-sm font-semibold leading-6 text-gray-900">Numéro de téléphone</label>
                             <div class="relative mt-2.5">
-                                <input type="tel" name="phone" id="phone" autocomplete="tel" class="peer block w-full border-0 bg-white py-1.5 text-gray-900 focus:ring-0 sm:text-sm sm:leading-6">
+                                <input type="tel" name="phone" id="phone" value="{{ old('phone') }}" autocomplete="tel" class="peer block w-full border-0 bg-white py-1.5 text-gray-900 focus:ring-0 sm:text-sm sm:leading-6">
                                 <div class="absolute inset-x-0 bottom-0 border-t border-gray-300 peer-focus:border-t-2 peer-focus:border-golden" aria-hidden="true"></div>
                             </div>
                         </div>
                         <div class="sm:col-span-2">
                             <label for="humanmessage" class="block text-sm font-semibold leading-6 text-gray-900">Message</label>
                             <div class="relative mt-2.5">
-                                <textarea name="humanmessage" id="humanmessage" rows="4" class="peer block w-full border-0 bg-white py-1.5 text-gray-900 focus:ring-0 sm:text-sm sm:leading-6"></textarea>
+                                <textarea name="humanmessage" id="humanmessage" rows="4" class="peer block w-full border-0 bg-white py-1.5 text-gray-900 focus:ring-0 sm:text-sm sm:leading-6">{{ old('humanmessage') }}</textarea>
                                 <div class="absolute inset-x-0 bottom-0 border-t border-gray-300 peer-focus:border-t-2 peer-focus:border-golden" aria-hidden="true"></div>
                             </div>
                         </div>
                         <div class="sm:col-span-2">
                             <label for="rgpdContactCheckbox">
-                                <input type="checkbox" id="rgpdContactCheckbox" name="rgpdConsentContact" required>
+                                <input type="checkbox" id="rgpdContactCheckbox" name="rgpdConsentContact" {{ old('rgpdConsentContact') ? 'checked' : '' }} required>
                                 <span class="text-black text-xs">
                                 J'accepte que <span class="font-necryx">Necryx</span> collecte et traite mes données personnelles fournies via ce formulaire de contact dans le but de répondre à ma demande.
                                 Pour en savoir plus sur la gestion de mes données personnelles et pour exercer mes droits, je consulte la <a class="underline" href="{{ route('policy') }}">Politique de Confidentialité</a>.

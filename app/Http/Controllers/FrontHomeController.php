@@ -10,6 +10,7 @@ use App\Models\Collection;
 use App\Models\Newsletter;
 use Illuminate\Http\Request;
 use Illuminate\Contracts\View\View;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
 
 class FrontHomeController extends Controller
@@ -86,22 +87,50 @@ class FrontHomeController extends Controller
     /**
      * Send contact form.
      * @param Request $request
-     * @return void
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function contact(Request $request)
     {
-        $test = Mail::to(env('MAIL_TO_ADDRESS'))->send(
-            new ContactForm(
-                $request->name,
-                $request->lastname,
-                $request->email,
-                $request->humanmessage,
-                $request->phone
-            )
-        );
+        // Honeypot check - if filled, reject the request (likely spam)
+        if ($request->filled('honeypot')) {
+            // Log the spam attempt if needed
+            \Log::warning('Contact form honeypot triggered', [
+                'ip' => $request->ip(),
+                'user_agent' => $request->header('User-Agent'),
+                'honeypot_value' => $request->input('honeypot')
+            ]);
+            
+            // Silently redirect back without error to avoid revealing honeypot
+            return redirect()->back();
+        }
 
-        session()->flash('flash.banner', 'Email envoyé avec succès !');
-        session()->flash('flash.bannerStyle', 'success');
+        // Validate form data
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'lastname' => 'required|string|max:255',
+            'email' => 'required|email|max:255',
+            'phone' => 'nullable|string|max:20',
+            'humanmessage' => 'required|string|max:5000',
+            'rgpdConsentContact' => 'required|accepted',
+        ]);
+
+        try {
+            Mail::to(env('MAIL_TO_ADDRESS'))->send(
+                new ContactForm(
+                    $request->name,
+                    $request->lastname,
+                    $request->email,
+                    $request->humanmessage,
+                    $request->phone
+                )
+            );
+
+            session()->flash('flash.banner', 'Email envoyé avec succès !');
+            session()->flash('flash.bannerStyle', 'success');
+        } catch (\Exception $e) {
+            session()->flash('flash.banner', 'Erreur lors de l\'envoi du message. Veuillez réessayer.');
+            session()->flash('flash.bannerStyle', 'danger');
+        }
 
         return redirect()->back();
     }

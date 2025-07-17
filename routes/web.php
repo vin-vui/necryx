@@ -25,7 +25,7 @@ use App\Http\Controllers\SliderController;
 / ----------------------------
 */
 Route::get('/', [FrontHomeController::class, 'index'])->name('home');
-Route::get('contact-form', [FrontHomeController::class, 'contact'])->name('contact-form');
+Route::post('contact-form', [FrontHomeController::class, 'contact'])->name('contact-form');
 Route::get('informations', [FrontHomeController::class, 'informations'])->name('informations');
 Route::get('concepts', [FrontHomeController::class, 'concepts'])->name('concepts');
 // Route::get('boutique', [FrontHomeController::class, 'shop'])->name('shop');
