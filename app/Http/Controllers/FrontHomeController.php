@@ -90,6 +90,12 @@ class FrontHomeController extends Controller
      */
     public function contact(Request $request)
     {
+        // Check honeypot field - if filled, reject the submission (likely a bot)
+        if ($request->filled('honeypot')) {
+            // Silently fail without giving feedback to the bot
+            return redirect()->back();
+        }
+
         $test = Mail::to(env('MAIL_TO_ADDRESS'))->send(
             new ContactForm(
                 $request->name,
