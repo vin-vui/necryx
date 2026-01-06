@@ -46,7 +46,7 @@
             </div>
         </div>
     </div>
-    <div class="relative isolate bg-seasalt">
+  <div class="relative isolate bg-seasalt">
         <div class="mx-auto grid max-w-7xl grid-cols-1 lg:grid-cols-2">
             <div class="relative px-6 pb-20 pt-24 sm:pt-32 lg:static lg:px-8 lg:py-48" data-aos="fade-right" data-oas-duration="1000">
                 <div class="mx-auto max-w-xl lg:mx-0 lg:max-w-lg">
@@ -66,90 +66,86 @@
                     </div>
                     <h2 class="text-3xl font-bold tracking-tight text-gray-900">Contactez-nous</h2>
                     <p class="mt-6 text-lg leading-8 text-gray-600">
-                        Nos services vous intéressent ? Vous avez des questions ?
-                        <br>
+                        Nos services vous intéressent ? Vous avez des questions ?<br>
                         Nous sommes à votre disposition pour de plus amples informations.
                     </p>
-                    <dl class="mt-10 space-y-4 text-base leading-7 text-gray-600">
-                        {{-- <div class="flex gap-x-4">
-                            <dt class="flex-none">
-                                <span class="sr-only">Address</span>
-                                <svg class="h-7 w-6 text-gray-400" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M6.75 6.75h.75m-.75 3h.75m-.75 3h.75m3-6h.75m-.75 3h.75m-.75 3h.75M6.75 21v-3.375c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21M3 3h12m-.75 4.5H21m-3.75 3.75h.008v.008h-.008v-.008zm0 3h.008v.008h-.008v-.008zm0 3h.008v.008h-.008v-.008z" />
-                                </svg>
-                            </dt>
-                            <dd>545 Mavis Island<br>Chicago, IL 99191</dd>
-                        </div> --}}
-                        {{-- <div class="flex gap-x-4">
-                            <dt class="flex-none">
-                                <span class="sr-only">Telephone</span>
-                                <svg class="h-7 w-6 text-gray-400" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
-                                </svg>
-                            </dt>
-                            <dd><a class="hover:text-gray-900" href="tel:+1 (555) 234-5678">+1 (555) 234-5678</a></dd>
-                        </div> --}}
-                        <div class="flex gap-x-4">
-                            <dt class="flex-none">
-                                <span class="sr-only">Email</span>
-                                <svg class="h-7 w-6 text-gray-400" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
-                                </svg>
-                            </dt>
-                            <dd><a class="hover:text-gray-900" href="mailto:necryx.tech@gmail.com">necryx.tech@gmail.com</a></dd>
-                        </div>
-                    </dl>
                 </div>
             </div>
-            <form action="{{ route('contact-form') }}" class="px-6 pb-24 pt-20 sm:pb-32 lg:px-8 lg:py-48" data-aos="fade-left" data-oas-duration="1000">
+
+            {{-- IMPORTANT : Ajout de method="POST". Sans ça, le navigateur envoie en GET => pas de corps => mails vides. --}}
+            <form method="POST" action="{{ route('contact-form') }}" class="px-6 pb-24 pt-20 sm:pb-32 lg:px-8 lg:py-48" data-aos="fade-left" data-oas-duration="1000">
                 @csrf
+
+                {{-- Message flash succès / erreur globale --}}
+                @if(session('success'))
+                    <div class="mb-6 rounded-md bg-green-50 p-4 text-green-800 text-sm">{{ session('success') }}</div>
+                @endif
+                @if($errors->any())
+                    <div class="mb-6 rounded-md bg-red-50 p-4 text-red-800 text-sm">
+                        Merci de corriger les champs ci‑dessous.
+                    </div>
+                @endif
+
                 <div class="mx-auto max-w-xl lg:mr-0 lg:max-w-lg">
                     <div class="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
                         <div>
-                            <label for="name" class="block text-sm font-semibold leading-6 text-gray-900">Prénom</label>
+                            <label for="name" class="block text-sm font-semibold leading-6 text-gray-900">Prénom *</label>
                             <div class="relative mt-2.5">
-                                <input type="text" name="name" id="name" autocomplete="given-name" class="peer block w-full border-0 bg-white py-1.5 text-gray-900 focus:ring-0 sm:text-sm sm:leading-6">
+                                <input type="text" name="name" id="name" value="{{ old('name') }}" autocomplete="given-name" required class="peer block w-full border-0 bg-white py-1.5 text-gray-900 focus:ring-0 sm:text-sm sm:leading-6">
                                 <div class="absolute inset-x-0 bottom-0 border-t border-gray-300 peer-focus:border-t-2 peer-focus:border-golden" aria-hidden="true"></div>
                             </div>
+                            @error('name')<p class="mt-1 text-xs text-red-600">{{ $message }}</p>@enderror
                         </div>
                         <div>
-                            <label for="lastname" class="block text-sm font-semibold leading-6 text-gray-900">Nom</label>
+                            <label for="lastname" class="block text-sm font-semibold leading-6 text-gray-900">Nom *</label>
                             <div class="relative mt-2.5">
-                                <input type="text" name="lastname" id="lastname" autocomplete="family-name" class="peer block w-full border-0 bg-white py-1.5 text-gray-900 focus:ring-0 sm:text-sm sm:leading-6">
+                                <input type="text" name="lastname" id="lastname" value="{{ old('lastname') }}" autocomplete="family-name" required class="peer block w-full border-0 bg-white py-1.5 text-gray-900 focus:ring-0 sm:text-sm sm:leading-6">
                                 <div class="absolute inset-x-0 bottom-0 border-t border-gray-300 peer-focus:border-t-2 peer-focus:border-golden" aria-hidden="true"></div>
                             </div>
+                            @error('lastname')<p class="mt-1 text-xs text-red-600">{{ $message }}</p>@enderror
                         </div>
                         <div class="sm:col-span-2">
-                            <label for="email" class="block text-sm font-semibold leading-6 text-gray-900">Email</label>
+                            <label for="email" class="block text-sm font-semibold leading-6 text-gray-900">Email *</label>
                             <div class="relative mt-2.5">
-                                <input type="email" name="email" id="email" autocomplete="email" class="peer block w-full border-0 bg-white py-1.5 text-gray-900 focus:ring-0 sm:text-sm sm:leading-6">
+                                <input type="email" name="email" id="email" value="{{ old('email') }}" autocomplete="email" required class="peer block w-full border-0 bg-white py-1.5 text-gray-900 focus:ring-0 sm:text-sm sm:leading-6">
                                 <div class="absolute inset-x-0 bottom-0 border-t border-gray-300 peer-focus:border-t-2 peer-focus:border-golden" aria-hidden="true"></div>
                             </div>
+                            @error('email')<p class="mt-1 text-xs text-red-600">{{ $message }}</p>@enderror
                         </div>
                         <div class="sm:col-span-2">
                             <label for="phone" class="block text-sm font-semibold leading-6 text-gray-900">Numéro de téléphone</label>
                             <div class="relative mt-2.5">
-                                <input type="tel" name="phone" id="phone" autocomplete="tel" class="peer block w-full border-0 bg-white py-1.5 text-gray-900 focus:ring-0 sm:text-sm sm:leading-6">
+                                <input type="tel" name="phone" id="phone" value="{{ old('phone') }}" autocomplete="tel" class="peer block w-full border-0 bg-white py-1.5 text-gray-900 focus:ring-0 sm:text-sm sm:leading-6">
                                 <div class="absolute inset-x-0 bottom-0 border-t border-gray-300 peer-focus:border-t-2 peer-focus:border-golden" aria-hidden="true"></div>
                             </div>
+                            @error('phone')<p class="mt-1 text-xs text-red-600">{{ $message }}</p>@enderror
                         </div>
                         <div class="sm:col-span-2">
-                            <label for="humanmessage" class="block text-sm font-semibold leading-6 text-gray-900">Message</label>
+                            <label for="humanmessage" class="block text-sm font-semibold leading-6 text-gray-900">Message *</label>
                             <div class="relative mt-2.5">
-                                <textarea name="humanmessage" id="humanmessage" rows="4" class="peer block w-full border-0 bg-white py-1.5 text-gray-900 focus:ring-0 sm:text-sm sm:leading-6"></textarea>
+                                <textarea name="humanmessage" id="humanmessage" rows="4" required class="peer block w-full border-0 bg-white py-1.5 text-gray-900 focus:ring-0 sm:text-sm sm:leading-6">{{ old('humanmessage') }}</textarea>
                                 <div class="absolute inset-x-0 bottom-0 border-t border-gray-300 peer-focus:border-t-2 peer-focus:border-golden" aria-hidden="true"></div>
                             </div>
+                            @error('humanmessage')<p class="mt-1 text-xs text-red-600">{{ $message }}</p>@enderror
                         </div>
                         <div class="sm:col-span-2">
-                            <label for="rgpdContactCheckbox">
-                                <input type="checkbox" id="rgpdContactCheckbox" name="rgpdConsentContact" required>
+                            <label for="rgpdContactCheckbox" class="inline-flex items-start gap-2">
+                                <input type="checkbox" id="rgpdContactCheckbox" name="rgpdConsentContact" value="1" {{ old('rgpdConsentContact') ? 'checked' : '' }} required>
                                 <span class="text-black text-xs">
-                                J'accepte que <span class="font-necryx">Necryx</span> collecte et traite mes données personnelles fournies via ce formulaire de contact dans le but de répondre à ma demande.
-                                Pour en savoir plus sur la gestion de mes données personnelles et pour exercer mes droits, je consulte la <a class="underline" href="{{ route('policy') }}">Politique de Confidentialité</a>.
+                                    J'accepte que <span class="font-necryx">Necryx</span> collecte et traite mes données personnelles fournies via ce formulaire de contact dans le but de répondre à ma demande.
+                                    Pour en savoir plus sur la gestion de mes données personnelles et pour exercer mes droits, je consulte la <a class="underline" href="{{ route('policy') }}" target="_blank" rel="noopener">Politique de Confidentialité</a>.
                                 </span>
                             </label>
+                            @error('rgpdConsentContact')<p class="mt-1 text-xs text-red-600">Vous devez accepter pour nous contacter.</p>@enderror
                         </div>
                     </div>
+
+                    {{-- Champ HONEYPOT anti‑bot (doit rester vide). Invisibilité CSS + aria-hidden. --}}
+                    <div class="sr-only" aria-hidden="true">
+                        <label for="website">Site web (laisser vide)</label>
+                        <input type="text" name="website" id="website" tabindex="-1" autocomplete="off">
+                    </div>
+
                     <div class="mt-8 flex justify-end">
                         <button type="submit" class="hover:drop-shadow-[9px_9px_30px_#D0A302] bg-yellow-400 hover:bg-yellow-500 font-p justify-center transition-all text-xs uppercase tracking-widest inline-flex items-center gap-2 py-3 px-4">
                             <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 16 16"><path fill="currentColor" d="M15.854.146a.5.5 0 0 1 .11.54l-5.819 14.547a.75.75 0 0 1-1.329.124l-3.178-4.995L.643 7.184a.75.75 0 0 1 .124-1.33L15.314.037a.5.5 0 0 1 .54.11ZM6.636 10.07l2.761 4.338L14.13 2.576L6.636 10.07Zm6.787-8.201L1.591 6.602l4.339 2.76l7.494-7.493Z"/></svg>
